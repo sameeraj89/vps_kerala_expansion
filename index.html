@@ -1,0 +1,740 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Kerala Expansion — VPS Healthcare Network Growth Strategy</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.js"></script>
+<style>
+:root {
+  --navy: #1A3050;
+  --navy-mid: #2B7CBE;
+  --maroon: #8B1A4A;
+  --maroon-light: rgba(139,26,74,0.1);
+  --gold: #C5A55A;
+  --green: #166534;
+  --green-bg: #DCFCE7;
+  --amber: #B45309;
+  --amber-bg: #FEF3C7;
+  --white: #FFFFFF;
+  --grey-50: #F8FAFC;
+  --grey-100: #F1F5F9;
+  --grey-200: #E2E8F0;
+  --grey-400: #94A3B8;
+  --grey-600: #475569;
+  --grey-800: #1E293B;
+  --blue-bg: #EFF6FF;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Arial, sans-serif;
+  background: var(--grey-50);
+  color: var(--grey-800);
+}
+
+/* ── NAV ──────────────────────────────────────────── */
+nav {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 200;
+  background: white;
+  height: 58px;
+  border-bottom: 1px solid var(--grey-200);
+  box-shadow: 0 1px 8px rgba(0,0,0,0.06);
+  display: flex; align-items: center;
+}
+.nav-inner {
+  max-width: 1300px; margin: 0 auto; padding: 0 2rem;
+  width: 100%;
+  display: flex; align-items: center; justify-content: space-between;
+}
+.nav-brand { display: flex; align-items: center; gap: 0.7rem; text-decoration: none; }
+.nav-logo {
+  width: 32px; height: 32px; border-radius: 5px;
+  background: var(--maroon);
+  color: white; font-size: 11px; font-weight: 900;
+  display: flex; align-items: center; justify-content: center;
+  letter-spacing: -0.5px;
+}
+.nav-brand-text { font-size: 13px; font-weight: 700; color: var(--grey-800); }
+.nav-brand-sub { font-size: 10px; color: var(--grey-400); }
+.nav-links { display: flex; gap: 4px; }
+.nav-link {
+  padding: 5px 12px; border-radius: 4px; font-size: 12px; font-weight: 600;
+  color: var(--grey-600); text-decoration: none; cursor: pointer;
+  transition: all 0.15s; border: none; background: none;
+}
+.nav-link:hover { background: var(--blue-bg); color: var(--navy-mid); }
+.nav-link.active { color: var(--navy); background: var(--blue-bg); border-bottom: 2px solid var(--maroon); }
+.nav-back {
+  display: flex; align-items: center; gap: 0.4rem;
+  padding: 5px 12px; border-radius: 4px; font-size: 12px; font-weight: 600;
+  color: var(--grey-600); text-decoration: none;
+  border: 1px solid var(--grey-200);
+  transition: all 0.15s;
+}
+.nav-back:hover { background: var(--grey-50); color: var(--grey-800); }
+
+/* ── PAGE WRAPPER ─────────────────────────────────── */
+.page { padding-top: 58px; }
+
+/* ── HERO ─────────────────────────────────────────── */
+.hero {
+  background: var(--navy);
+  position: relative; overflow: hidden;
+  padding: 4rem 0 3.5rem;
+}
+.hero::before {
+  content: '';
+  position: absolute; left: 0; top: 0; right: 0; height: 4px;
+  background: linear-gradient(90deg, var(--maroon) 0%, var(--gold) 50%, var(--navy-mid) 100%);
+}
+.hero::after {
+  content: '';
+  position: absolute;
+  right: -80px; top: -80px;
+  width: 400px; height: 400px;
+  border-radius: 50%;
+  background: rgba(43,124,190,0.08);
+  pointer-events: none;
+}
+.container { max-width: 1300px; margin: 0 auto; padding: 0 2rem; }
+.hero-eyebrow {
+  font-size: 10px; font-weight: 700; letter-spacing: 3px;
+  text-transform: uppercase; color: var(--gold);
+  margin-bottom: 0.6rem;
+}
+.hero h1 {
+  font-size: 2.5rem; font-weight: 900; color: white;
+  line-height: 1.15; margin-bottom: 1rem;
+  max-width: 720px;
+}
+.hero h1 em { color: var(--gold); font-style: normal; }
+.hero-sub {
+  font-size: 0.95rem; color: rgba(255,255,255,0.7);
+  max-width: 640px; line-height: 1.75; margin-bottom: 2rem;
+}
+.hero-stats { display: flex; gap: 1rem; flex-wrap: wrap; }
+.hero-stat {
+  background: rgba(255,255,255,0.06);
+  border: 1px solid rgba(255,255,255,0.12);
+  border-top: 3px solid var(--gold);
+  border-radius: 6px;
+  padding: 0.9rem 1.2rem;
+  min-width: 130px;
+}
+.hero-stat-val { font-size: 1.6rem; font-weight: 900; color: white; line-height: 1; }
+.hero-stat-lbl { font-size: 0.62rem; color: rgba(255,255,255,0.5); text-transform: uppercase; letter-spacing: 1px; margin-top: 4px; }
+
+/* ── SECTION STYLING ──────────────────────────────── */
+section {
+  padding: 4rem 0 3.5rem;
+  border-bottom: 1px solid var(--grey-200);
+}
+section:last-of-type { border-bottom: none; }
+section.dark { background: var(--navy); }
+section.tinted { background: var(--grey-100); }
+
+.section-eyebrow {
+  font-size: 10px; font-weight: 700; letter-spacing: 2.5px;
+  text-transform: uppercase; color: var(--maroon); margin-bottom: 0.3rem;
+}
+.section-title {
+  font-size: 1.75rem; font-weight: 800; color: var(--grey-800);
+  margin-bottom: 0.4rem; line-height: 1.25;
+}
+.section-sub {
+  font-size: 0.9rem; color: var(--grey-600); max-width: 680px;
+  line-height: 1.75; margin-bottom: 2rem;
+}
+.divider { height: 3px; background: var(--maroon); width: 36px; margin: 0.5rem 0 1.2rem; border-radius: 2px; }
+
+/* ── MAP SECTION ─────────────────────────────────── */
+.map-section { padding: 0; }
+.map-header {
+  padding: 2rem 2rem 1rem;
+  background: white;
+  border-bottom: 1px solid var(--grey-200);
+  display: flex; align-items: center; justify-content: space-between;
+  flex-wrap: wrap; gap: 1rem;
+}
+.map-header-left {}
+.map-header-filters { display: flex; gap: 0.4rem; flex-wrap: wrap; }
+.map-filter-chip {
+  padding: 0.3rem 0.9rem; border-radius: 20px;
+  font-size: 0.72rem; font-weight: 600; cursor: pointer;
+  border: 1px solid var(--grey-200); background: white;
+  color: var(--grey-600); transition: all 0.15s;
+}
+.map-filter-chip:hover { border-color: var(--navy-mid); color: var(--navy-mid); }
+.map-filter-chip.active { background: var(--navy); color: white; border-color: var(--navy); }
+
+.map-container {
+  display: grid;
+  grid-template-columns: 280px 1fr;
+  height: 600px;
+}
+@media(max-width: 800px) {
+  .map-container { grid-template-columns: 1fr; height: auto; }
+  #main-map { height: 450px; }
+  .map-panel { height: auto; max-height: 280px; }
+}
+
+.map-panel {
+  background: white;
+  border-right: 1px solid var(--grey-200);
+  overflow-y: auto;
+  padding: 1rem;
+}
+.map-legend-title {
+  font-size: 0.62rem; font-weight: 700; text-transform: uppercase;
+  letter-spacing: 1.5px; color: var(--grey-400); margin-bottom: 0.5rem;
+}
+.map-legend-item {
+  display: flex; align-items: center; gap: 0.5rem;
+  font-size: 0.75rem; color: var(--grey-600);
+  padding: 0.25rem 0.3rem; border-radius: 4px;
+  cursor: pointer; transition: background 0.1s;
+}
+.map-legend-item:hover { background: var(--grey-50); }
+.leg-dot {
+  width: 12px; height: 12px; border-radius: 50%;
+  flex-shrink: 0; border: 2px solid rgba(0,0,0,0.15);
+}
+.leg-dot.flagship { background: #2B7CBE; border-color: #1A3050; }
+.leg-dot.new-campus { background: #16A34A; border-color: #166534; }
+.leg-dot.p1a { background: #DC2626; }
+.leg-dot.p1b { background: #8B1A4A; }
+.leg-dot.p2a { background: #EA580C; }
+.leg-dot.p2b { background: #BE185D; }
+.leg-dot.p3 { background: #B45309; }
+.leg-count {
+  margin-left: auto; font-size: 0.62rem; color: var(--grey-400);
+  background: var(--grey-100); padding: 1px 5px; border-radius: 6px; font-weight: 600;
+}
+.hosp-card {
+  border: 1px solid var(--grey-200); border-radius: 5px;
+  padding: 0.55rem 0.65rem; cursor: pointer;
+  transition: all 0.15s; background: white;
+  position: relative; overflow: hidden; margin-bottom: 0.35rem;
+}
+.hosp-card::before {
+  content: ''; position: absolute; left: 0; top: 0; bottom: 0; width: 3px;
+}
+.hosp-card.flagship::before { background: #2B7CBE; }
+.hosp-card.new-campus::before { background: #16A34A; }
+.hosp-card.p1a::before { background: #DC2626; }
+.hosp-card.p1b::before { background: #8B1A4A; }
+.hosp-card.p2a::before { background: #EA580C; }
+.hosp-card.p2b::before { background: #BE185D; }
+.hosp-card.p3::before { background: #B45309; }
+.hosp-card:hover { border-color: var(--navy-mid); box-shadow: 0 2px 6px rgba(43,124,190,0.1); }
+.hosp-name { font-size: 0.76rem; font-weight: 700; color: var(--grey-800); }
+.hosp-meta { font-size: 0.65rem; color: var(--grey-400); margin-top: 1px; }
+.hosp-tags { display: flex; gap: 0.3rem; margin-top: 0.3rem; }
+.htag {
+  font-size: 0.58rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.4px;
+  padding: 1px 5px; border-radius: 3px;
+}
+.htag.a { background: rgba(220,38,38,0.08); color: #991B1B; }
+.htag.b { background: rgba(139,26,74,0.08); color: #6B1238; }
+.htag.h { background: rgba(180,83,9,0.08); color: #92400E; }
+.htag.p1 { background: rgba(220,38,38,0.06); color: #991B1B; }
+.htag.p2 { background: rgba(234,88,12,0.06); color: #C2410C; }
+.htag.flagship { background: rgba(43,124,190,0.08); color: #1E40AF; }
+.htag.new { background: rgba(22,163,74,0.08); color: #166534; }
+
+#main-map { flex: 1; }
+
+/* ── SUMMARY CARDS ────────────────────────────────── */
+.card-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1rem; margin-bottom: 2rem; }
+@media(max-width: 900px) { .card-grid { grid-template-columns: repeat(2, 1fr); } }
+@media(max-width: 500px) { .card-grid { grid-template-columns: 1fr; } }
+
+.sum-card {
+  background: white; border: 1px solid var(--grey-200);
+  border-top: 3px solid var(--navy); border-radius: 8px;
+  padding: 1.2rem;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.04);
+}
+.sum-card.maroon { border-top-color: var(--maroon); }
+.sum-card.green { border-top-color: var(--green); }
+.sum-card.gold { border-top-color: var(--gold); }
+.sum-val { font-size: 1.8rem; font-weight: 900; color: var(--grey-800); line-height: 1; }
+.sum-lbl { font-size: 0.65rem; color: var(--grey-400); text-transform: uppercase; letter-spacing: 1px; margin-top: 5px; font-weight: 600; }
+.sum-sub { font-size: 0.72rem; color: var(--grey-600); margin-top: 0.4rem; }
+
+/* ── PLAYBOOK CARDS ───────────────────────────────── */
+.playbook-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; margin-bottom: 2rem; }
+@media(max-width: 700px) { .playbook-grid { grid-template-columns: 1fr; } }
+
+.pb-card {
+  border-radius: 8px; overflow: hidden;
+  border: 1px solid var(--grey-200);
+  box-shadow: 0 1px 4px rgba(0,0,0,0.05);
+}
+.pb-card-header {
+  padding: 1rem 1.2rem;
+  display: flex; align-items: center; gap: 0.8rem;
+}
+.pb-card.navy .pb-card-header { background: var(--navy); }
+.pb-card.maroon .pb-card-header { background: var(--maroon); }
+.pb-label { font-size: 0.65rem; font-weight: 700; color: rgba(255,255,255,0.6); text-transform: uppercase; letter-spacing: 1px; }
+.pb-title { font-size: 1rem; font-weight: 800; color: white; }
+.pb-card-body { padding: 1.2rem; background: white; }
+.pb-row { display: flex; gap: 0.5rem; margin-bottom: 0.5rem; }
+.pb-dot { width: 6px; height: 6px; border-radius: 50%; margin-top: 5px; flex-shrink: 0; }
+.pb-text { font-size: 0.8rem; color: var(--grey-600); line-height: 1.5; }
+.pb-text strong { color: var(--grey-800); }
+.pb-kpis { display: flex; gap: 0.6rem; flex-wrap: wrap; margin-top: 0.8rem; padding-top: 0.8rem; border-top: 1px solid var(--grey-200); }
+.pb-kpi { text-align: center; flex: 1; min-width: 60px; }
+.pb-kpi-val { font-size: 1rem; font-weight: 800; color: var(--navy); }
+.pb-kpi-lbl { font-size: 0.6rem; color: var(--grey-400); text-transform: uppercase; letter-spacing: 0.5px; margin-top: 1px; }
+
+/* ── TARGET TABLE ─────────────────────────────────── */
+.tbl-wrap { overflow-x: auto; margin-bottom: 1.5rem; }
+table.tgt-tbl { width: 100%; border-collapse: collapse; font-size: 0.8rem; }
+.tgt-tbl thead tr { background: var(--navy); color: white; }
+.tgt-tbl thead th { padding: 0.6rem 0.8rem; text-align: left; font-size: 0.65rem; text-transform: uppercase; letter-spacing: 0.8px; font-weight: 700; white-space: nowrap; }
+.tgt-tbl tbody td { padding: 0.65rem 0.8rem; border-bottom: 1px solid var(--grey-200); }
+.tgt-tbl tbody tr:nth-child(even) { background: var(--grey-50); }
+.tgt-tbl tbody tr:hover { background: var(--blue-bg); cursor: pointer; }
+.tgt-tbl tbody tr.priority-1 { font-weight: 600; }
+.pill {
+  display: inline-block; padding: 2px 7px; border-radius: 10px;
+  font-size: 0.62rem; font-weight: 700; letter-spacing: 0.5px; text-transform: uppercase;
+}
+.pill-navy { background: var(--navy); color: white; }
+.pill-maroon { background: var(--maroon); color: white; }
+.pill-amber { background: var(--amber-bg); color: var(--amber); }
+.pill-green { background: var(--green-bg); color: var(--green); }
+.pill-blue { background: #DBEAFE; color: #1E40AF; }
+.pill-red { background: #FEE2E2; color: #991B1B; }
+
+/* ── PHASE TIMELINE ───────────────────────────────── */
+.phase-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; }
+@media(max-width: 700px) { .phase-grid { grid-template-columns: 1fr; } }
+
+.phase-card {
+  background: white; border: 1px solid var(--grey-200);
+  border-radius: 8px; padding: 1.2rem;
+  position: relative;
+}
+.phase-num {
+  position: absolute; top: -14px; left: 1.2rem;
+  background: var(--maroon); color: white;
+  font-size: 0.65rem; font-weight: 800; letter-spacing: 1px;
+  padding: 3px 10px; border-radius: 3px;
+  text-transform: uppercase;
+}
+.phase-period { font-size: 0.95rem; font-weight: 800; color: var(--navy); margin-bottom: 0.3rem; }
+.phase-goal { font-size: 0.75rem; color: var(--grey-500); margin-bottom: 0.8rem; font-style: italic; }
+.phase-item { display: flex; gap: 0.5rem; margin-bottom: 0.4rem; }
+.phase-icon { color: var(--maroon); font-weight: 700; font-size: 0.8rem; flex-shrink: 0; margin-top: 1px; }
+.phase-text { font-size: 0.78rem; color: var(--grey-700); line-height: 1.5; }
+.phase-outcome {
+  margin-top: 0.8rem; padding: 0.5rem 0.7rem;
+  background: var(--blue-bg); border-radius: 5px;
+  font-size: 0.72rem; color: var(--navy); font-weight: 600;
+}
+
+/* ── POPUP STYLES ─────────────────────────────────── */
+.mpopup { min-width: 220px; max-width: 260px; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Arial, sans-serif; }
+.mpopup-badges { display: flex; gap: 0.3rem; flex-wrap: wrap; margin-bottom: 0.4rem; }
+.mpopup-badge { font-size: 0.58rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.5px; padding: 2px 6px; border-radius: 3px; }
+.mbn { background: #1A3050; color: white; }
+.mbm { background: #8B1A4A; color: white; }
+.mba { background: #FEF3C7; color: #92400E; }
+.mbg { background: #DCFCE7; color: #166534; }
+.mbbl { background: #DBEAFE; color: #1E40AF; }
+.mpopup-name { font-size: 0.9rem; font-weight: 800; color: #1A3050; margin-bottom: 1px; }
+.mpopup-city { font-size: 0.68rem; color: #94A3B8; margin-bottom: 0.5rem; }
+.mpopup-stats { display: grid; grid-template-columns: 1fr 1fr; gap: 0.35rem; margin-bottom: 0.5rem; }
+.mps { background: #F8FAFC; border: 1px solid #E2E8F0; border-radius: 4px; padding: 0.35rem 0.4rem; }
+.mps-val { font-size: 0.8rem; font-weight: 800; color: #1A3050; }
+.mps-lbl { font-size: 0.56rem; color: #94A3B8; text-transform: uppercase; letter-spacing: 0.4px; margin-top: 1px; }
+.mpopup-desc { font-size: 0.68rem; color: #475569; line-height: 1.55; border-top: 1px solid #E2E8F0; padding-top: 0.45rem; }
+.mpopup-action { font-size: 0.65rem; color: #8B1A4A; font-weight: 600; margin-top: 0.35rem; padding: 0.25rem 0.4rem; background: rgba(139,26,74,0.06); border-radius: 3px; }
+</style>
+</head>
+<body>
+<div class="page">
+
+<!-- NAV -->
+<nav>
+  <div class="nav-inner">
+    <a href="#" class="nav-brand">
+      <div class="nav-logo">VPS</div>
+      <div>
+        <div class="nav-brand-text">VPS Healthcare · New Concepts</div>
+        <div class="nav-brand-sub">Strategic Growth Programme</div>
+      </div>
+    </a>
+    <div class="nav-links">
+      <a class="nav-link" href="#overview">Overview</a>
+      <a class="nav-link active" href="#map-section">Network Map</a>
+      <a class="nav-link" href="#targets">Targets</a>
+      <a class="nav-link" href="#playbooks">Playbooks</a>
+      <a class="nav-link" href="#phases">Phases</a>
+    </div>
+  </div>
+</nav>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="container">
+    <div class="hero-eyebrow">Kerala Expansion · Strategic Programme FY27–FY32</div>
+    <h1>Building Kerala's <em>First Integrated</em> Hospital Network</h1>
+    <p class="hero-sub">
+      VPS Healthcare is the only Kerala operator with a proven quaternary anchor, an active Gulf referral corridor, and the balance sheet to consolidate at scale. A 12–18 month window exists before Aster, Apollo, or PE-backed competitors absorb the best assets.
+    </p>
+    <div class="hero-stats">
+      <div class="hero-stat"><div class="hero-stat-val">10</div><div class="hero-stat-lbl">Identified Targets</div></div>
+      <div class="hero-stat"><div class="hero-stat-val">4,360</div><div class="hero-stat-lbl">Target Beds</div></div>
+      <div class="hero-stat"><div class="hero-stat-val">5</div><div class="hero-stat-lbl">Districts</div></div>
+      <div class="hero-stat"><div class="hero-stat-val">₹950 Cr+</div><div class="hero-stat-lbl">Deal Pipeline</div></div>
+      <div class="hero-stat"><div class="hero-stat-val">22–28%</div><div class="hero-stat-lbl">Target Equity IRR</div></div>
+    </div>
+  </div>
+</div>
+
+<!-- OVERVIEW -->
+<section id="overview">
+  <div class="container">
+    <div class="section-eyebrow">Programme Overview</div>
+    <div class="section-title">Two Playbooks. One Operating Engine.</div>
+    <div class="divider"></div>
+    <p class="section-sub">
+      VPS enters through two disciplined modes: Playbook A (equity acquisitions) for assets VPS can own outright, and Playbook B (O&amp;M concession) for mission hospitals that will never be sold. Both apply the same six-lever operating engine proven at Max Healthcare and Aster DM.
+    </p>
+
+    <div class="card-grid">
+      <div class="sum-card">
+        <div class="sum-val">6</div>
+        <div class="sum-lbl">Playbook A Targets</div>
+        <div class="sum-sub">Equity acquisitions including 2 NCLT/CIRP assets</div>
+      </div>
+      <div class="sum-card maroon">
+        <div class="sum-val">4</div>
+        <div class="sum-lbl">Playbook B Targets</div>
+        <div class="sum-sub">O&amp;M concessions — mission &amp; Catholic hospitals</div>
+      </div>
+      <div class="sum-card green">
+        <div class="sum-val">1</div>
+        <div class="sum-lbl">Hybrid / JV</div>
+        <div class="sum-sub">Malabar Institute — minority equity + op control</div>
+      </div>
+      <div class="sum-card gold">
+        <div class="sum-val">₹1,200+Cr</div>
+        <div class="sum-lbl">Portfolio Revenue Y5</div>
+        <div class="sum-sub">Combined VPS network target by FY32</div>
+      </div>
+    </div>
+
+    <div class="playbook-grid">
+      <div class="pb-card navy">
+        <div class="pb-card-header">
+          <div>
+            <div class="pb-label">Playbook A · Strategic Operator</div>
+            <div class="pb-title">Equity Acquisition</div>
+          </div>
+        </div>
+        <div class="pb-card-body">
+          <div class="pb-row">
+            <div class="pb-dot" style="background:#2B7CBE"></div>
+            <div class="pb-text"><strong>Entry mechanism:</strong> 60–80% equity acquisition. Three routes: succession stress, NCLT/CIRP resolution, and capex-constrained quality hospitals.</div>
+          </div>
+          <div class="pb-row">
+            <div class="pb-dot" style="background:#2B7CBE"></div>
+            <div class="pb-text"><strong>Target asset gate:</strong> Min. 150 operational beds · 500k+ catchment within 30 km · Current EBITDA &lt;12% · Clear or cleanable title.</div>
+          </div>
+          <div class="pb-row">
+            <div class="pb-dot" style="background:#2B7CBE"></div>
+            <div class="pb-text"><strong>KKR–Max benchmark:</strong> EBITDA from 9.7% to 27.2% in 36 months through the same six-lever operating reset VPS will deploy.</div>
+          </div>
+          <div class="pb-kpis">
+            <div class="pb-kpi"><div class="pb-kpi-val">22–28%</div><div class="pb-kpi-lbl">Target IRR</div></div>
+            <div class="pb-kpi"><div class="pb-kpi-val">6–8×</div><div class="pb-kpi-lbl">Entry EV/EBITDA</div></div>
+            <div class="pb-kpi"><div class="pb-kpi-val">₹650–950Cr</div><div class="pb-kpi-lbl">Total Capex</div></div>
+          </div>
+        </div>
+      </div>
+      <div class="pb-card maroon">
+        <div class="pb-card-header">
+          <div>
+            <div class="pb-label">Playbook B · Management Partner</div>
+            <div class="pb-title">O&amp;M Concession</div>
+          </div>
+        </div>
+        <div class="pb-card-body">
+          <div class="pb-row">
+            <div class="pb-dot" style="background:#8B1A4A"></div>
+            <div class="pb-text"><strong>Entry mechanism:</strong> Long-tenor O&amp;M concession (15–25 years). Trust retains land, building, and hospital license. VPS provides management + capital for upgrades.</div>
+          </div>
+          <div class="pb-row">
+            <div class="pb-dot" style="background:#8B1A4A"></div>
+            <div class="pb-text"><strong>Best for:</strong> Catholic-managed hospitals, religious trusts, community hospitals that will never sell but need operational partners.</div>
+          </div>
+          <div class="pb-row">
+            <div class="pb-dot" style="background:#8B1A4A"></div>
+            <div class="pb-text"><strong>Aster DM benchmark:</strong> Identical structure proven in Kollam (Kerala) and Karnataka. +25–40% ARPOB improvement in 12–18 months.</div>
+          </div>
+          <div class="pb-kpis">
+            <div class="pb-kpi"><div class="pb-kpi-val">5–8%</div><div class="pb-kpi-lbl">Mgmt Fee</div></div>
+            <div class="pb-kpi"><div class="pb-kpi-val">₹8–22Cr</div><div class="pb-kpi-lbl">Fee/Hospital/Yr</div></div>
+            <div class="pb-kpi"><div class="pb-kpi-val">₹25–50Cr</div><div class="pb-kpi-lbl">Total Deposits</div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- MAP SECTION -->
+<section id="map-section" class="map-section tinted" style="padding:0; border-bottom:1px solid var(--grey-200);">
+  <div class="map-header" style="padding:1.5rem 2rem 1rem;">
+    <div class="map-header-left">
+      <div class="section-eyebrow">Interactive Network Map</div>
+      <div class="section-title" style="font-size:1.35rem; margin-bottom:0">Kerala Target Universe</div>
+    </div>
+    <div class="map-header-filters">
+      <div class="map-filter-chip active" data-pb="all" onclick="mapFilter('all',this)">All Targets</div>
+      <div class="map-filter-chip" data-pb="A" onclick="mapFilter('A',this)">Playbook A</div>
+      <div class="map-filter-chip" data-pb="B" onclick="mapFilter('B',this)">Playbook B</div>
+      <div class="map-filter-chip" data-pb="1" onclick="mapFilter('1',this)">Priority 1</div>
+      <div class="map-filter-chip" data-pb="2" onclick="mapFilter('2',this)">Priority 2</div>
+    </div>
+  </div>
+  <div class="map-container">
+    <div class="map-panel" id="map-panel">
+      <div class="map-legend-title">Legend</div>
+      <div class="map-legend-item"><div class="leg-dot flagship"></div><span>VPS Lakeshore (Hub)</span></div>
+      <div class="map-legend-item"><div class="leg-dot new-campus"></div><span>Kakkanad New Campus</span></div>
+      <div class="map-legend-item"><div class="leg-dot p1a"></div><span>Playbook A · Priority 1</span><span class="leg-count">3</span></div>
+      <div class="map-legend-item"><div class="leg-dot p1b"></div><span>Playbook B · Priority 1</span><span class="leg-count">2</span></div>
+      <div class="map-legend-item"><div class="leg-dot p2a"></div><span>Playbook A · Priority 2</span><span class="leg-count">3</span></div>
+      <div class="map-legend-item"><div class="leg-dot p2b"></div><span>Playbook B · Priority 2</span><span class="leg-count">2</span></div>
+      <div class="map-legend-item"><div class="leg-dot p3"></div><span>Hybrid/JV · Priority 3</span><span class="leg-count">1</span></div>
+      <hr style="border:none; border-top:1px solid var(--grey-200); margin:0.6rem 0;">
+      <div class="map-legend-title" style="margin-top:0.5rem;">Hospitals</div>
+      <div id="hosp-list"></div>
+    </div>
+    <div id="main-map"></div>
+  </div>
+</section>
+
+<!-- TARGETS TABLE -->
+<section id="targets">
+  <div class="container">
+    <div class="section-eyebrow">Target Universe</div>
+    <div class="section-title">11 Identified Targets — Full Scorecard</div>
+    <div class="divider"></div>
+    <p class="section-sub">
+      Priority 1 targets require Chairman-level engagement within 30 days. Priority 2 targets are gated on legal clean-up or sequenced after Priority 1 closings.
+    </p>
+    <div class="tbl-wrap">
+      <table class="tgt-tbl">
+        <thead>
+          <tr>
+            <th>Hospital</th>
+            <th>Beds</th>
+            <th>City / District</th>
+            <th>Entry Mode</th>
+            <th>Est. Deal Value</th>
+            <th>DB Score</th>
+            <th>Priority</th>
+            <th>Playbook</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr class="priority-1"><td><strong>Renai Medicity</strong></td><td>350</td><td>Kochi · Ernakulam</td><td>Equity acquisition</td><td>₹280–320 Cr</td><td><span class="pill pill-green">DB5</span></td><td><span class="pill pill-navy">Priority 1</span></td><td><span class="pill pill-navy">Playbook A</span></td></tr>
+          <tr class="priority-1"><td><strong>Lourdes Hospital</strong></td><td>650</td><td>Kochi · Ernakulam</td><td>O&amp;M concession</td><td>₹0 capex</td><td><span class="pill pill-green">DB5</span></td><td><span class="pill pill-navy">Priority 1</span></td><td><span class="pill pill-maroon">Playbook B</span></td></tr>
+          <tr class="priority-1"><td><strong>SUT Royal (NCLT)</strong></td><td>300</td><td>Thiruvananthapuram</td><td>NCLT resolution</td><td>₹130–160 Cr</td><td><span class="pill pill-amber">DB4</span></td><td><span class="pill pill-navy">Priority 1</span></td><td><span class="pill pill-navy">Playbook A</span></td></tr>
+          <tr class="priority-1"><td><strong>Pushpagiri Medical College</strong></td><td>800</td><td>Thiruvalla · Pathanamthitta</td><td>O&amp;M concession</td><td>₹0 capex</td><td><span class="pill pill-green">DB5</span></td><td><span class="pill pill-navy">Priority 1</span></td><td><span class="pill pill-maroon">Playbook B</span></td></tr>
+          <tr class="priority-1"><td><strong>Aswini Hospital</strong></td><td>180</td><td>Kochi · Ernakulam</td><td>Equity acquisition</td><td>₹60–80 Cr</td><td><span class="pill pill-green">DB5</span></td><td><span class="pill pill-navy">Priority 1</span></td><td><span class="pill pill-navy">Playbook A</span></td></tr>
+          <tr><td>Cosmopolitan (NCLT)</td><td>300</td><td>Thiruvananthapuram</td><td>NCLT resolution</td><td>₹90–120 Cr</td><td><span class="pill pill-red">DB3</span></td><td><span class="pill pill-amber">Priority 2</span></td><td><span class="pill pill-navy">Playbook A</span></td></tr>
+          <tr><td>Caritas Hospital</td><td>500</td><td>Kottayam</td><td>O&amp;M / managed services</td><td>₹0 capex</td><td><span class="pill pill-amber">DB4</span></td><td><span class="pill pill-amber">Priority 2</span></td><td><span class="pill pill-maroon">Playbook B</span></td></tr>
+          <tr><td>Believers Church Hospital</td><td>200</td><td>Thiruvalla · Pathanamthitta</td><td>O&amp;M concession</td><td>₹0 capex</td><td><span class="pill pill-amber">DB4</span></td><td><span class="pill pill-amber">Priority 2</span></td><td><span class="pill pill-maroon">Playbook B</span></td></tr>
+          <tr><td>MCS Hospital (MCC)</td><td>250</td><td>Kozhikode</td><td>Equity acquisition</td><td>₹80–100 Cr</td><td><span class="pill pill-red">DB3</span></td><td><span class="pill pill-amber">Priority 2</span></td><td><span class="pill pill-navy">Playbook A</span></td></tr>
+          <tr><td>Malabar Institute (MIMS)</td><td>280</td><td>Kozhikode</td><td>Joint venture</td><td>₹100–130 Cr</td><td><span class="pill pill-red">DB3</span></td><td><span class="pill" style="background:var(--amber-bg);color:var(--amber)">Priority 3</span></td><td><span class="pill" style="background:var(--amber-bg);color:var(--amber)">Hybrid</span></td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p style="font-size:0.72rem;color:var(--grey-400);">DB Score = Due Diligence Barrier (DB1–DB6). DB5/DB6 = clean to proceed. DB3 = gated pending legal clean-up. Priority 1 = Chairman engagement within 30 days.</p>
+  </div>
+</section>
+
+<!-- PHASE TIMELINE -->
+<section id="phases" class="tinted">
+  <div class="container">
+    <div class="section-eyebrow">Execution Roadmap</div>
+    <div class="section-title">Three-Phase Delivery</div>
+    <div class="divider"></div>
+    <p class="section-sub">Both playbooks run in parallel from Day 1. Playbook B moves faster — no capital transfer, no title complexity — and should produce a signed agreement within 6 months.</p>
+    <div class="phase-grid">
+      <div class="phase-card">
+        <div class="phase-num">Phase 1 · FY27</div>
+        <div class="phase-period" style="margin-top:0.8rem">Months 0–12</div>
+        <div class="phase-goal">Foundation &amp; First Closings</div>
+        <div class="phase-item"><div class="phase-icon">›</div><div class="phase-text">Chairman-level engagement: Renai Medicity, Aswini Hospital (inbound), SUT Royal (NCLT)</div></div>
+        <div class="phase-item"><div class="phase-icon">›</div><div class="phase-text">First O&amp;M agreement signed: Lourdes or Pushpagiri by Month 6</div></div>
+        <div class="phase-item"><div class="phase-icon">›</div><div class="phase-text">NCLT counsel on retainer; SUT Royal resolution applicant pre-registered</div></div>
+        <div class="phase-item"><div class="phase-icon">›</div><div class="phase-text">Kakkanad SmartCity land parcel locked; architect brief issued</div></div>
+        <div class="phase-outcome">Target: 1 O&amp;M live · 1 acquisition LOI signed</div>
+      </div>
+      <div class="phase-card">
+        <div class="phase-num">Phase 2 · FY28</div>
+        <div class="phase-period" style="margin-top:0.8rem">Months 12–36</div>
+        <div class="phase-goal">Network Build &amp; Kochi Cluster</div>
+        <div class="phase-item"><div class="phase-icon">›</div><div class="phase-text">Close Renai + Aswini equity acquisitions; integrate into VPS procurement</div></div>
+        <div class="phase-item"><div class="phase-icon">›</div><div class="phase-text">Kottayam entry via Caritas managed services escalating to O&amp;M</div></div>
+        <div class="phase-item"><div class="phase-icon">›</div><div class="phase-text">Kozhikode strategy resolved: MCS equity acquisition vs. MIMS JV</div></div>
+        <div class="phase-item"><div class="phase-icon">›</div><div class="phase-text">Kakkanad Phase 1 construction underway (100 beds)</div></div>
+        <div class="phase-outcome">Target: 4–5 hospitals under VPS · ₹500+ Cr deployed</div>
+      </div>
+      <div class="phase-card">
+        <div class="phase-num">Phase 3 · FY29–32</div>
+        <div class="phase-period" style="margin-top:0.8rem">Months 36–60</div>
+        <div class="phase-goal">Full Network · ₹1,200 Cr Revenue</div>
+        <div class="phase-item"><div class="phase-icon">›</div><div class="phase-text">Kakkanad 200-bed campus open; step-down from Nettoor to Kakkanad</div></div>
+        <div class="phase-item"><div class="phase-icon">›</div><div class="phase-text">Kozhikode presence established; Malabar corridor activated</div></div>
+        <div class="phase-item"><div class="phase-icon">›</div><div class="phase-text">Priority 1 assets crossing ₹120 Cr/year threshold (EBITDA 22–28%)</div></div>
+        <div class="phase-item"><div class="phase-icon">›</div><div class="phase-text">Gulf referral channel (Burjeel CIAL) running to all spoke hospitals</div></div>
+        <div class="phase-outcome">Target: 7–9 hospitals · 4,500+ beds · ₹1,200 Cr system revenue</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer style="background:var(--navy); padding:1.5rem 0;">
+  <div class="container" style="display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:1rem;">
+    <div style="color:rgba(255,255,255,0.5); font-size:0.72rem;">
+      VPS Healthcare · Kerala Expansion Programme · Confidential
+    </div>
+    <div style="color:rgba(255,255,255,0.3); font-size:0.68rem;">
+      FY27–FY32 Strategic Plan · Chairman Briefing Material
+    </div>
+  </div>
+</footer>
+
+<!-- ══ MAP JAVASCRIPT ══════════════════════════════════════════════════════ -->
+<script>
+const HOSPITALS = [
+  { id:'flagship', name:'VPS Lakeshore Medical Centre', city:'Nettoor, Ernakulam', district:'Ernakulam', lat:9.9726, lng:76.3199, beds:650, type:'flagship', playbook:'Flagship', priority:0, entry:'Existing Hub', deal:'—', colorClass:'flagship', desc:'Kerala\'s leading private quaternary care hospital. 650 beds, multi-organ transplant, cardiac surgery, haemato-oncology. Hub of the entire spoke network.', action:'All acquired/managed hospitals feed complex cases to Nettoor.' },
+  { id:'kakkanad', name:'VPS Kakkanad — New Campus', city:'SmartCity, Kakkanad', district:'Ernakulam', lat:10.0078, lng:76.3455, beds:200, type:'new-campus', playbook:'Organic', priority:0, entry:'Greenfield', deal:'₹450–500 Cr', colorClass:'new-campus', desc:'200-bed urban multispecialty at SmartCity. Captures IT workforce catchment and 40% corridor leakage to Aster Medcity. Expand to 350 beds by Year 7.', action:'6.17-acre land parcel (Plots B3-3 & B3-4). Groundbreak FY26.' },
+  { id:'renai', name:'Renai Medicity', city:'Kochi', district:'Ernakulam', lat:10.0104, lng:76.3040, beds:350, type:'target', playbook:'A', priority:1, entry:'Equity acquisition', deal:'₹280–320 Cr', score:'DB5', colorClass:'p1a', desc:'Promoter family open to exit. 350-bed tertiary — strong cardiac and ortho. 2 other expressions of interest already received.', action:'Execute NDA immediately. Target LOI within 60 days.' },
+  { id:'lourdes', name:'Lourdes Hospital', city:'Kochi', district:'Ernakulam', lat:9.9941, lng:76.2887, beds:650, type:'target', playbook:'B', priority:1, entry:'O&M concession', deal:'₹0 capex', score:'DB5', colorClass:'p1b', desc:'Largest Catholic-managed hospital in Kerala (650 beds). Will never be sold. 15-year O&M concession. Fee target ₹12–20 Cr/yr at maturity.', action:'Archbishop-level outreach. Target MoU by Q2 FY27.' },
+  { id:'sut', name:'SUT Royal Hospital (NCLT)', city:'Thiruvananthapuram', district:'Thiruvananthapuram', lat:8.5242, lng:76.9442, beds:300, type:'target', playbook:'A', priority:1, entry:'NCLT resolution', deal:'₹130–160 Cr', score:'DB4', colorClass:'p1a', desc:'CIRP asset. ₹400 Cr replacement cost acquired at ₹130–160 Cr — 60% discount. Target ₹120 Cr revenue by Year 2.', action:'Pre-register as resolution applicant. NCLT counsel on retainer today.' },
+  { id:'pushpagiri', name:'Pushpagiri Medical College', city:'Thiruvalla', district:'Pathanamthitta', lat:9.3731, lng:76.5447, beds:800, type:'target', playbook:'B', priority:1, entry:'O&M concession', deal:'₹0 capex', score:'DB5', colorClass:'p1b', desc:'800-bed Catholic medical college hospital. Bishop Benziger relationship = warm intro. Fee target ₹14–22 Cr/yr. Medical college pipeline for Nettoor.', action:'Use Bishop Benziger. Target MoU by end FY26.' },
+  { id:'aswini', name:'Aswini Hospital', city:'Kochi', district:'Ernakulam', lat:9.9900, lng:76.2920, beds:180, type:'target', playbook:'A', priority:1, entry:'Equity acquisition', deal:'₹60–80 Cr', score:'DB5', colorClass:'p1a', desc:'Inbound approach — promoter wants to sell. 180-bed surgical hospital in Kochi. Renai + Aswini cluster reduces admin overhead 15–20%.', action:'Term sheet within 14 days of Chairman meeting.' },
+  { id:'cosmopolitan', name:'Cosmopolitan Hospital (NCLT)', city:'Thiruvananthapuram', district:'Thiruvananthapuram', lat:8.5032, lng:76.9503, beds:300, type:'target', playbook:'A', priority:2, entry:'NCLT resolution', deal:'₹90–120 Cr', score:'DB3', colorClass:'p2a', desc:'NCLT asset — gated (title litigation >30% EV). Resolution may settle claims and deliver clean title.', action:'Commission title report. Re-evaluate after DB4 clearance.' },
+  { id:'caritas', name:'Caritas Hospital', city:'Kottayam', district:'Kottayam', lat:9.5916, lng:76.5222, beds:500, type:'target', playbook:'B', priority:2, entry:'O&M / managed services', deal:'₹0 capex', score:'DB4', colorClass:'p2b', desc:'500-bed Catholic hospital. Major referral source for Lakeshore. Start with diagnostics + procurement; escalate to full O&M.', action:'Managed services entry first — lower political sensitivity.' },
+  { id:'believers', name:'Believers Church Hospital', city:'Thiruvalla', district:'Pathanamthitta', lat:9.3833, lng:76.5590, beds:200, type:'target', playbook:'B', priority:2, entry:'O&M concession', deal:'₹0 capex', score:'DB4', colorClass:'p2b', desc:'Complements Pushpagiri in Pathanamthitta–Thiruvalla corridor. Good O&M pilot. Fee target ₹4–7 Cr/yr.', action:'Outreach after Pushpagiri engagement is underway.' },
+  { id:'mcs', name:'MCS Hospital (MCC)', city:'Kozhikode', district:'Kozhikode', lat:11.2560, lng:75.7900, beds:250, type:'target', playbook:'A', priority:2, entry:'Equity acquisition', deal:'₹80–100 Cr', score:'DB3', colorClass:'p2a', desc:'Gated — title clean-up needed (DB3). Primary Kozhikode equity target once legal clean-up is confirmed.', action:'Commission title report. Proceed once DB4 cleared.' },
+  { id:'mims', name:'Malabar Institute (MIMS)', city:'Kozhikode', district:'Kozhikode', lat:11.2605, lng:75.7927, beds:280, type:'target', playbook:'Hybrid', priority:3, entry:'Joint venture', deal:'₹100–130 Cr', score:'DB3', colorClass:'p3', desc:'Strongest private hospital in Malabar. JV gives brand presence without full acquisition cost — but operational control must be a precondition.', action:'Evaluate after Kozhikode strategy resolved.' },
+];
+
+const COLS = {
+  flagship:   '#2B7CBE',
+  'new-campus': '#16A34A',
+  p1a:        '#DC2626',
+  p1b:        '#8B1A4A',
+  p2a:        '#EA580C',
+  p2b:        '#BE185D',
+  p3:         '#B45309',
+};
+
+const map2 = L.map('main-map', { center:[10.1, 76.5], zoom:8 });
+L.tileLayer('https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png', {
+  attribution:'&copy; <a href="https://www.openstreetmap.org">OpenStreetMap</a> &copy; <a href="https://carto.com">CARTO</a>',
+  subdomains:'abcd', maxZoom:19
+}).addTo(map2);
+
+function mkIcon(h) {
+  const c = COLS[h.colorClass] || '#94A3B8';
+  const r = h.type === 'flagship' ? 14 : h.type === 'new-campus' ? 11 : h.priority === 1 ? 10 : 8;
+  const inner = h.type === 'flagship'
+    ? `<path d="M${r-4},${r+2} L${r},${r-5} L${r+4},${r+2} Z" fill="white" opacity="0.9"/>`
+    : h.type === 'new-campus'
+    ? `<text x="${r}" y="${r+4}" text-anchor="middle" fill="white" font-size="${r*0.9}" font-weight="900" font-family="Arial">+</text>`
+    : `<text x="${r}" y="${r+3}" text-anchor="middle" fill="white" font-size="${r*0.6}" font-weight="700" font-family="Arial">${h.beds}</text>`;
+  const svg = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 ${r*2} ${r*2}" width="${r*2}" height="${r*2}"><circle cx="${r}" cy="${r}" r="${r-1}" fill="${c}" stroke="rgba(0,0,0,0.3)" stroke-width="1.5"/>${inner}</svg>`;
+  return L.divIcon({ html:svg, className:'', iconSize:[r*2,r*2], iconAnchor:[r,r*2], popupAnchor:[0,-(r*2)] });
+}
+
+function mkPopup(h) {
+  const pb = h.type==='flagship'?`<span class="mpopup-badge mbbl">Flagship Hub</span>`:h.type==='new-campus'?`<span class="mpopup-badge mbg">New Campus</span>`:h.playbook==='A'?`<span class="mpopup-badge mbn">Playbook A · Equity</span>`:h.playbook==='B'?`<span class="mpopup-badge mbm">Playbook B · O&M</span>`:`<span class="mpopup-badge mba">Hybrid · JV</span>`;
+  const pr = h.priority===1?`<span class="mpopup-badge mbn">P1</span>`:h.priority===2?`<span class="mpopup-badge mba">P2</span>`:h.priority===3?`<span class="mpopup-badge mba">P3</span>`:'';
+  const sc = h.score?`<span class="mpopup-badge" style="background:rgba(0,0,0,0.06);color:#475569">${h.score}</span>`:'';
+  return `<div class="mpopup"><div class="mpopup-badges">${pb}${pr}${sc}</div><div class="mpopup-name">${h.name}</div><div class="mpopup-city">📍 ${h.city}</div><div class="mpopup-stats"><div class="mps"><div class="mps-val">${h.beds}</div><div class="mps-lbl">Beds</div></div><div class="mps"><div class="mps-val" style="font-size:0.7rem">${h.deal}</div><div class="mps-lbl">Est. Deal</div></div></div><div class="mpopup-desc">${h.desc}</div>${h.action?`<div class="mpopup-action">⚡ ${h.action}</div>`:''}</div>`;
+}
+
+const markers2 = {};
+HOSPITALS.forEach(h => {
+  const m = L.marker([h.lat,h.lng],{icon:mkIcon(h)}).addTo(map2).bindPopup(mkPopup(h),{maxWidth:280,className:'cpop'});
+  markers2[h.id] = {m, h, visible:true};
+});
+
+// Spoke lines
+const hub = HOSPITALS.find(x=>x.id==='flagship');
+HOSPITALS.filter(x=>x.type==='target').forEach(h=>{
+  L.polyline([[hub.lat,hub.lng],[h.lat,h.lng]],{color:h.playbook==='B'?'#8B1A4A':'#2B7CBE',weight:1,opacity:0.15,dashArray:'4 6'}).addTo(map2);
+});
+
+// District labels
+[{n:'Ernakulam',la:10.05,lo:76.32},{n:'Kottayam',la:9.59,lo:76.52},{n:'Pathanamthitta',la:9.27,lo:76.78},{n:'Thiruvananthapuram',la:8.52,lo:76.94},{n:'Kozhikode',la:11.25,lo:75.65}].forEach(d=>{
+  L.marker([d.la,d.lo],{icon:L.divIcon({html:`<div style="background:rgba(26,48,80,0.82);color:white;font-size:8px;font-weight:700;letter-spacing:1px;text-transform:uppercase;padding:2px 6px;border-radius:3px;white-space:nowrap;pointer-events:none">${d.n}</div>`,className:'',iconAnchor:[25,8]}),interactive:false,zIndexOffset:-1000}).addTo(map2);
+});
+
+// Custom popup CSS
+const ps = document.createElement('style');
+ps.textContent=`.cpop .leaflet-popup-content-wrapper{border-radius:7px;padding:0;box-shadow:0 6px 20px rgba(0,0,0,0.1);border:1px solid #E2E8F0;overflow:hidden}.cpop .leaflet-popup-content{margin:0;padding:12px}.cpop .leaflet-popup-tip{background:white}`;
+document.head.appendChild(ps);
+
+// Sidebar cards
+function renderHospCards(ids) {
+  const el = document.getElementById('hosp-list');
+  el.innerHTML = '';
+  HOSPITALS.forEach(h => {
+    if (ids && !ids.includes(h.id)) return;
+    const d = document.createElement('div');
+    d.className = `hosp-card ${h.colorClass}`;
+    const pt = h.type==='flagship'?'<span class="htag flagship">Hub</span>':h.type==='new-campus'?'<span class="htag new">New</span>':h.playbook==='A'?'<span class="htag a">A</span>':h.playbook==='B'?'<span class="htag b">B</span>':'<span class="htag h">JV</span>';
+    const pr = h.priority===1?'<span class="htag p1">P1</span>':h.priority===2?'<span class="htag p2">P2</span>':'';
+    d.innerHTML=`<div class="hosp-name">${h.name}</div><div class="hosp-meta">${h.city} · ${h.beds} beds</div><div class="hosp-tags">${pt}${pr}</div>`;
+    d.onclick=()=>{ map2.flyTo([h.lat,h.lng],13,{duration:0.8}); setTimeout(()=>markers2[h.id].m.openPopup(),900); };
+    el.appendChild(d);
+  });
+}
+renderHospCards();
+
+// Filter
+let curPb='all', curPr='all';
+function mapFilter(v, el) {
+  document.querySelectorAll('.map-filter-chip').forEach(c=>c.classList.remove('active'));
+  el.classList.add('active');
+  const nums = ['1','2','3'];
+  if (nums.includes(v)) { curPr=v; curPb='all'; }
+  else { curPb=v; curPr='all'; }
+
+  const vis = [];
+  HOSPITALS.forEach(h=>{
+    let show = true;
+    if (curPb !== 'all') {
+      if (curPb==='A' && h.playbook!=='A') show=false;
+      if (curPb==='B' && h.playbook!=='B') show=false;
+    }
+    if (curPr !== 'all') {
+      if (String(h.priority)!==curPr && h.priority!==0) show=false;
+    }
+    if (show) { if (!map2.hasLayer(markers2[h.id].m)) markers2[h.id].m.addTo(map2); vis.push(h.id); }
+    else { if (map2.hasLayer(markers2[h.id].m)) map2.removeLayer(markers2[h.id].m); }
+  });
+  renderHospCards(vis);
+}
+</script>
+
+</div><!-- /page -->
+</body>
+</html>

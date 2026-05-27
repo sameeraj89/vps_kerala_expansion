@@ -1,0 +1,830 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>VPS Kerala Expansion — Target Network Map</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.js"></script>
+<style>
+:root {
+  --navy: #1A3050;
+  --navy-mid: #2B7CBE;
+  --maroon: #8B1A4A;
+  --maroon-light: #D4A0B8;
+  --gold: #C5A55A;
+  --green: #166534;
+  --green-bg: #DCFCE7;
+  --amber: #B45309;
+  --amber-bg: #FEF3C7;
+  --white: #FFFFFF;
+  --grey-50: #F8FAFC;
+  --grey-100: #F1F5F9;
+  --grey-200: #E2E8F0;
+  --grey-400: #94A3B8;
+  --grey-600: #475569;
+  --grey-800: #1E293B;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Arial, sans-serif;
+  background: var(--grey-50);
+  color: var(--grey-800);
+  min-height: 100vh;
+}
+
+/* ── HEADER ───────────────────────────────────────── */
+.page-header {
+  background: var(--navy);
+  color: white;
+  padding: 0;
+  position: relative;
+  overflow: hidden;
+}
+.page-header::after {
+  content: '';
+  position: absolute;
+  bottom: 0; left: 0; right: 0; height: 3px;
+  background: linear-gradient(90deg, var(--maroon) 0%, var(--gold) 50%, var(--navy-mid) 100%);
+}
+.header-inner {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 1.2rem 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+.header-left { display: flex; align-items: center; gap: 1rem; }
+.header-logo {
+  width: 38px; height: 38px; border-radius: 6px;
+  background: var(--maroon);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 13px; font-weight: 900; color: white; letter-spacing: -0.5px;
+  flex-shrink: 0;
+}
+.header-title { font-size: 1rem; font-weight: 800; letter-spacing: -0.2px; }
+.header-sub { font-size: 0.7rem; color: rgba(255,255,255,0.6); margin-top: 1px; letter-spacing: 0.3px; }
+.header-stats {
+  display: flex; gap: 1.5rem; flex-wrap: wrap;
+}
+.hstat {
+  text-align: center;
+}
+.hstat-val { font-size: 1.3rem; font-weight: 800; color: white; line-height: 1; }
+.hstat-lbl { font-size: 0.6rem; color: rgba(255,255,255,0.55); text-transform: uppercase; letter-spacing: 1px; margin-top: 2px; }
+
+/* ── LAYOUT ────────────────────────────────────────── */
+.layout {
+  display: grid;
+  grid-template-columns: 300px 1fr;
+  grid-template-rows: 1fr;
+  height: calc(100vh - 73px);
+}
+@media(max-width: 900px) {
+  .layout { grid-template-columns: 1fr; grid-template-rows: auto 1fr; height: auto; }
+  #map { height: 60vh; }
+  .sidebar { height: auto; overflow: visible; }
+}
+
+/* ── SIDEBAR ───────────────────────────────────────── */
+.sidebar {
+  background: white;
+  border-right: 1px solid var(--grey-200);
+  overflow-y: auto;
+  padding: 1.2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.sidebar-section-title {
+  font-size: 0.65rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  color: var(--grey-400);
+  margin-bottom: 0.5rem;
+}
+
+/* Legend */
+.legend-item {
+  display: flex; align-items: center; gap: 0.6rem;
+  font-size: 0.78rem; color: var(--grey-600);
+  padding: 0.3rem 0;
+  cursor: pointer;
+  border-radius: 4px;
+  padding: 0.3rem 0.4rem;
+  transition: background 0.15s;
+}
+.legend-item:hover { background: var(--grey-50); }
+.legend-dot {
+  width: 14px; height: 14px; border-radius: 50%;
+  flex-shrink: 0; border: 2px solid rgba(0,0,0,0.15);
+}
+.legend-dot.flagship { background: #2B7CBE; border-color: #1A3050; }
+.legend-dot.new-campus { background: #16A34A; border-color: #166534; }
+.legend-dot.p1a { background: #DC2626; border-color: #991B1B; }
+.legend-dot.p1b { background: #8B1A4A; border-color: #6B1238; }
+.legend-dot.p2a { background: #EA580C; border-color: #C2410C; }
+.legend-dot.p2b { background: #BE185D; border-color: #9D174D; }
+.legend-dot.p3 { background: #B45309; border-color: #92400E; }
+
+.legend-count {
+  margin-left: auto;
+  font-size: 0.65rem;
+  color: var(--grey-400);
+  background: var(--grey-100);
+  padding: 1px 6px;
+  border-radius: 8px;
+  font-weight: 600;
+}
+
+/* Filter chips */
+.filter-row { display: flex; flex-wrap: wrap; gap: 0.4rem; }
+.filter-chip {
+  padding: 0.25rem 0.7rem;
+  border-radius: 20px;
+  font-size: 0.7rem;
+  font-weight: 600;
+  cursor: pointer;
+  border: 1px solid var(--grey-200);
+  background: white;
+  color: var(--grey-600);
+  transition: all 0.15s;
+}
+.filter-chip:hover { border-color: var(--navy-mid); color: var(--navy-mid); }
+.filter-chip.active { background: var(--navy); color: white; border-color: var(--navy); }
+
+/* Targets list */
+.target-card {
+  border: 1px solid var(--grey-200);
+  border-radius: 6px;
+  padding: 0.7rem 0.8rem;
+  cursor: pointer;
+  transition: all 0.15s;
+  background: white;
+  position: relative;
+  overflow: hidden;
+}
+.target-card::before {
+  content: '';
+  position: absolute;
+  left: 0; top: 0; bottom: 0;
+  width: 3px;
+}
+.target-card.p1a::before { background: #DC2626; }
+.target-card.p1b::before { background: #8B1A4A; }
+.target-card.p2a::before { background: #EA580C; }
+.target-card.p2b::before { background: #BE185D; }
+.target-card.p3::before { background: #B45309; }
+.target-card.flagship::before { background: #2B7CBE; }
+.target-card.new-campus::before { background: #16A34A; }
+.target-card:hover { border-color: var(--navy-mid); box-shadow: 0 2px 8px rgba(43,124,190,0.12); transform: translateX(2px); }
+.target-card.highlighted { border-color: var(--navy-mid); background: rgba(43,124,190,0.05); }
+
+.tc-header { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 0.2rem; }
+.tc-name { font-size: 0.8rem; font-weight: 700; color: var(--grey-800); }
+.tc-beds {
+  font-size: 0.65rem; font-weight: 700;
+  background: var(--grey-100); color: var(--grey-600);
+  padding: 2px 6px; border-radius: 4px; flex-shrink: 0;
+}
+.tc-meta { display: flex; gap: 0.4rem; flex-wrap: wrap; margin-top: 0.3rem; }
+.tc-tag {
+  font-size: 0.6rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.5px;
+  padding: 1px 6px; border-radius: 3px;
+}
+.tc-tag.playbook-a { background: rgba(220,38,38,0.1); color: #991B1B; }
+.tc-tag.playbook-b { background: rgba(139,26,74,0.1); color: #6B1238; }
+.tc-tag.hybrid { background: rgba(180,83,9,0.1); color: #92400E; }
+.tc-tag.p1 { background: rgba(220,38,38,0.08); color: #991B1B; }
+.tc-tag.p2 { background: rgba(234,88,12,0.08); color: #C2410C; }
+.tc-tag.p3 { background: rgba(180,83,9,0.08); color: #92400E; }
+.tc-city { font-size: 0.7rem; color: var(--grey-400); margin-top: 0.15rem; }
+.tc-deal { font-size: 0.68rem; color: var(--navy-mid); font-weight: 600; margin-top: 0.15rem; }
+
+/* ── MAP ────────────────────────────────────────────── */
+#map { flex: 1; z-index: 0; }
+
+/* ── POPUP STYLES ─────────────────────────────────── */
+.popup-wrap { min-width: 230px; max-width: 280px; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Arial, sans-serif; }
+.popup-badge-row { display: flex; gap: 0.4rem; flex-wrap: wrap; margin-bottom: 0.5rem; }
+.popup-badge {
+  font-size: 0.6rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.6px;
+  padding: 2px 7px; border-radius: 3px;
+}
+.pb-navy { background: #1A3050; color: white; }
+.pb-maroon { background: #8B1A4A; color: white; }
+.pb-amber { background: #FEF3C7; color: #92400E; }
+.pb-green { background: #DCFCE7; color: #166534; }
+.pb-blue { background: #DBEAFE; color: #1E40AF; }
+.popup-name { font-size: 0.95rem; font-weight: 800; color: #1A3050; margin-bottom: 0.1rem; }
+.popup-city { font-size: 0.72rem; color: #94A3B8; margin-bottom: 0.6rem; }
+.popup-stats { display: grid; grid-template-columns: 1fr 1fr; gap: 0.4rem; margin-bottom: 0.6rem; }
+.pstat { background: #F8FAFC; border-radius: 4px; padding: 0.4rem 0.5rem; border: 1px solid #E2E8F0; }
+.pstat-val { font-size: 0.85rem; font-weight: 800; color: #1A3050; }
+.pstat-lbl { font-size: 0.58rem; color: #94A3B8; text-transform: uppercase; letter-spacing: 0.5px; margin-top: 1px; }
+.popup-desc { font-size: 0.72rem; color: #475569; line-height: 1.6; border-top: 1px solid #E2E8F0; padding-top: 0.5rem; margin-top: 0.2rem; }
+.popup-action { font-size: 0.68rem; color: #8B1A4A; font-weight: 600; margin-top: 0.4rem; padding: 0.3rem 0.5rem; background: rgba(139,26,74,0.06); border-radius: 4px; }
+
+/* ── DISTRICT LINES ───────────────────────────────── */
+.district-label {
+  background: none; border: none; box-shadow: none;
+}
+</style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header class="page-header">
+  <div class="header-inner">
+    <div class="header-left">
+      <div class="header-logo">VPS</div>
+      <div>
+        <div class="header-title">Kerala Expansion — Target Network Map</div>
+        <div class="header-sub">Strategic Acquisition &amp; Management Partner Programme · FY27–FY32</div>
+      </div>
+    </div>
+    <div class="header-stats">
+      <div class="hstat"><div class="hstat-val">10</div><div class="hstat-lbl">Targets</div></div>
+      <div class="hstat"><div class="hstat-val">4,360</div><div class="hstat-lbl">Target Beds</div></div>
+      <div class="hstat"><div class="hstat-val">5</div><div class="hstat-lbl">Districts</div></div>
+      <div class="hstat"><div class="hstat-val">₹950+ Cr</div><div class="hstat-lbl">Deal Pipeline</div></div>
+    </div>
+  </div>
+</header>
+
+<!-- MAIN LAYOUT -->
+<div class="layout">
+
+  <!-- SIDEBAR -->
+  <div class="sidebar">
+
+    <!-- Filters -->
+    <div>
+      <div class="sidebar-section-title">Filter by Playbook</div>
+      <div class="filter-row">
+        <div class="filter-chip active" data-filter="all" onclick="filterTargets('all')">All</div>
+        <div class="filter-chip" data-filter="A" onclick="filterTargets('A')">Playbook A</div>
+        <div class="filter-chip" data-filter="B" onclick="filterTargets('B')">Playbook B</div>
+        <div class="filter-chip" data-filter="hybrid" onclick="filterTargets('hybrid')">Hybrid</div>
+      </div>
+    </div>
+
+    <div>
+      <div class="sidebar-section-title">Filter by Priority</div>
+      <div class="filter-row">
+        <div class="filter-chip active" data-filter2="all" onclick="filterPriority('all')">All</div>
+        <div class="filter-chip" data-filter2="1" onclick="filterPriority('1')">Priority 1</div>
+        <div class="filter-chip" data-filter2="2" onclick="filterPriority('2')">Priority 2</div>
+        <div class="filter-chip" data-filter2="3" onclick="filterPriority('3')">Priority 3</div>
+      </div>
+    </div>
+
+    <!-- Legend -->
+    <div>
+      <div class="sidebar-section-title">Map Legend</div>
+      <div class="legend-item" onclick="filterTargets('flagship')">
+        <div class="legend-dot flagship"></div>
+        <span>VPS Lakeshore (Flagship)</span>
+      </div>
+      <div class="legend-item" onclick="filterTargets('new')">
+        <div class="legend-dot new-campus"></div>
+        <span>Kakkanad New Campus</span>
+      </div>
+      <div class="legend-item" onclick="filterTargets('A')">
+        <div class="legend-dot p1a"></div>
+        <span>Playbook A · Priority 1 (Equity)</span>
+        <span class="legend-count">3</span>
+      </div>
+      <div class="legend-item" onclick="filterTargets('B')">
+        <div class="legend-dot p1b"></div>
+        <span>Playbook B · Priority 1 (O&amp;M)</span>
+        <span class="legend-count">2</span>
+      </div>
+      <div class="legend-item">
+        <div class="legend-dot p2a"></div>
+        <span>Playbook A · Priority 2</span>
+        <span class="legend-count">2</span>
+      </div>
+      <div class="legend-item">
+        <div class="legend-dot p2b"></div>
+        <span>Playbook B · Priority 2</span>
+        <span class="legend-count">2</span>
+      </div>
+      <div class="legend-item">
+        <div class="legend-dot p3"></div>
+        <span>Hybrid · Priority 3</span>
+        <span class="legend-count">1</span>
+      </div>
+    </div>
+
+    <!-- Target Cards -->
+    <div>
+      <div class="sidebar-section-title">Target Hospitals</div>
+      <div id="target-list" style="display:flex; flex-direction:column; gap:0.4rem;"></div>
+    </div>
+
+  </div><!-- /sidebar -->
+
+  <!-- MAP -->
+  <div id="map"></div>
+
+</div><!-- /layout -->
+
+<script>
+// ══ DATA ══════════════════════════════════════════════════════════════════
+const TARGETS = [
+  {
+    id: 'flagship',
+    name: 'VPS Lakeshore Medical Centre',
+    city: 'Nettoor, Ernakulam',
+    district: 'Ernakulam',
+    lat: 9.9726, lng: 76.3199,
+    beds: 650,
+    type: 'flagship',
+    playbook: 'Flagship',
+    priority: 0,
+    entry: 'Existing Campus',
+    deal: '—',
+    desc: 'Kerala\'s leading private quaternary care hospital. 650 beds, multi-organ transplant, cardiac surgery, haemato-oncology. Hub of the spoke network — every acquired hospital feeds complex cases here.',
+    action: 'Hub anchor. All acquisitions and O&M hospitals route complex cases to Nettoor.',
+    colorClass: 'flagship',
+  },
+  {
+    id: 'kakkanad',
+    name: 'VPS Kakkanad — New Campus',
+    city: 'SmartCity, Kakkanad, Kochi',
+    district: 'Ernakulam',
+    lat: 10.0078, lng: 76.3455,
+    beds: 200,
+    type: 'new-campus',
+    playbook: 'Organic',
+    priority: 0,
+    entry: 'Greenfield build',
+    deal: '₹450–500 Cr capex',
+    desc: '200-bed urban multispecialty hospital at SmartCity Kakkanad. Captures 140k+ IT workforce catchment and intercepts 40% corridor leakage to Aster Medcity. Expansion to 350 beds by Year 7.',
+    action: 'HICC/SmartCity land — 6.17 acres (Option 2). Groundbreak FY26.',
+    colorClass: 'new-campus',
+  },
+  {
+    id: 'renai',
+    name: 'Renai Medicity',
+    city: 'Kochi',
+    district: 'Ernakulam',
+    lat: 10.0104, lng: 76.3040,
+    beds: 350,
+    type: 'target',
+    playbook: 'A',
+    priority: 1,
+    entry: 'Equity acquisition',
+    deal: '₹280–320 Cr',
+    score: 'DB5',
+    desc: 'Promoter family open to exit. 350-bed tertiary in Kochi — strong cardiac and ortho units. Most comparable to VPS Lakeshore in positioning. 2 other expressions of interest received.',
+    action: 'Execute NDA immediately. Target LOI within 60 days — time-sensitive.',
+    colorClass: 'p1a',
+  },
+  {
+    id: 'lourdes',
+    name: 'Lourdes Hospital',
+    city: 'Kochi (Ernakulam)',
+    district: 'Ernakulam',
+    lat: 9.9941, lng: 76.2887,
+    beds: 650,
+    type: 'target',
+    playbook: 'B',
+    priority: 1,
+    entry: 'O&M concession',
+    deal: '₹0 capex · O&M fee',
+    score: 'DB5',
+    desc: 'Largest Catholic-managed hospital in Kerala (650 beds). Will never be sold. VPS manages operations under 15-year concession. ₹12–20 Cr management fee/yr at maturity.',
+    action: 'Archbishop-level outreach through Bishop channel. Target MoU by Q2 FY27.',
+    colorClass: 'p1b',
+  },
+  {
+    id: 'sut',
+    name: 'SUT Royal Hospital (NCLT)',
+    city: 'Thiruvananthapuram',
+    district: 'Thiruvananthapuram',
+    lat: 8.5242, lng: 76.9442,
+    beds: 300,
+    type: 'target',
+    playbook: 'A',
+    priority: 1,
+    entry: 'NCLT/IBC resolution',
+    deal: '₹130–160 Cr',
+    score: 'DB4',
+    desc: 'NCLT/CIRP entry. Land & building at replacement cost ~₹400 Cr acquired for ₹130–160 Cr — 60% discount. Target: ₹120 Cr revenue by Year 2, EBITDA 14–18% by Year 4.',
+    action: 'Pre-register as resolution applicant immediately. NCLT counsel on retainer today.',
+    colorClass: 'p1a',
+  },
+  {
+    id: 'pushpagiri',
+    name: 'Pushpagiri Medical College',
+    city: 'Thiruvalla',
+    district: 'Pathanamthitta',
+    lat: 9.3731, lng: 76.5447,
+    beds: 800,
+    type: 'target',
+    playbook: 'B',
+    priority: 1,
+    entry: 'O&M concession',
+    deal: '₹0 capex',
+    score: 'DB5',
+    desc: '800-bed Catholic medical college hospital. Bishop Benziger relationship = warm introduction channel. Management fee target: ₹14–22 Cr/year at maturity. Medical college = high-complexity case pipeline for Nettoor.',
+    action: 'Use Bishop Benziger relationship. Target O&M MoU by end FY26.',
+    colorClass: 'p1b',
+  },
+  {
+    id: 'aswini',
+    name: 'Aswini Hospital',
+    city: 'Kochi',
+    district: 'Ernakulam',
+    lat: 9.9900, lng: 76.2920,
+    beds: 180,
+    type: 'target',
+    playbook: 'A',
+    priority: 1,
+    entry: 'Equity acquisition',
+    deal: '₹60–80 Cr',
+    score: 'DB5',
+    desc: 'Inbound approach from promoter — they want to sell. 180-bed general surgery and ortho hospital in Kochi. Quick win for VPS Kochi cluster. Renai + Aswini together reduce admin overhead 15–20%.',
+    action: 'Respond with term sheet within 14 days of Chairman meeting.',
+    colorClass: 'p1a',
+  },
+  {
+    id: 'cosmopolitan',
+    name: 'Cosmopolitan Hospital (NCLT)',
+    city: 'Thiruvananthapuram',
+    district: 'Thiruvananthapuram',
+    lat: 8.5032, lng: 76.9503,
+    beds: 300,
+    type: 'target',
+    playbook: 'A',
+    priority: 2,
+    entry: 'NCLT/IBC resolution',
+    deal: '₹90–120 Cr',
+    score: 'DB3',
+    desc: 'NCLT resolution asset — title complexity (litigation >30% EV). Resolution may settle pending claims and deliver clean title. Gated until DB4 cleared.',
+    action: 'Commission title report. Re-evaluate after legal clean-up confirmation.',
+    colorClass: 'p2a',
+  },
+  {
+    id: 'caritas',
+    name: 'Caritas Hospital',
+    city: 'Kottayam',
+    district: 'Kottayam',
+    lat: 9.5916, lng: 76.5222,
+    beds: 500,
+    type: 'target',
+    playbook: 'B',
+    priority: 2,
+    entry: 'O&M / managed services',
+    deal: '₹0 capex',
+    score: 'DB4',
+    desc: '500-bed Catholic hospital in Kottayam. Major existing referral source for Lakeshore. Managing operations prevents Aster/Apollo from capturing this referral flow. Start with diagnostics + procurement.',
+    action: 'Managed services entry first. Target diagnostics/procurement agreement before full O&M.',
+    colorClass: 'p2b',
+  },
+  {
+    id: 'believers',
+    name: 'Believers Church Hospital',
+    city: 'Thiruvalla',
+    district: 'Pathanamthitta',
+    lat: 9.3833, lng: 76.5590,
+    beds: 200,
+    type: 'target',
+    playbook: 'B',
+    priority: 2,
+    entry: 'O&M concession',
+    deal: '₹0 capex',
+    score: 'DB4',
+    desc: 'Complements Pushpagiri in the Pathanamthitta–Thiruvalla corridor. Good pilot for mission hospital O&M playbook. Management fee target: ₹4–7 Cr/year.',
+    action: 'Outreach after Pushpagiri engagement is underway.',
+    colorClass: 'p2b',
+  },
+  {
+    id: 'mcs',
+    name: 'MCS Hospital (MCC)',
+    city: 'Kozhikode',
+    district: 'Kozhikode',
+    lat: 11.2560, lng: 75.7900,
+    beds: 250,
+    type: 'target',
+    playbook: 'A',
+    priority: 2,
+    entry: 'Equity acquisition',
+    deal: '₹80–100 Cr',
+    score: 'DB3',
+    desc: 'Gated — title clean-up needed (DB3). Primary Kozhikode equity target once legal clean-up is confirmed.',
+    action: 'Commission title report. Proceed once DB4 barrier is cleared.',
+    colorClass: 'p2a',
+  },
+  {
+    id: 'mims',
+    name: 'Malabar Institute (MIMS)',
+    city: 'Kozhikode',
+    district: 'Kozhikode',
+    lat: 11.2605, lng: 75.7927,
+    beds: 280,
+    type: 'target',
+    playbook: 'Hybrid',
+    priority: 3,
+    entry: 'Joint venture',
+    deal: '₹100–130 Cr',
+    score: 'DB3',
+    desc: 'Strongest private hospital in Malabar. JV gives VPS brand presence in Kozhikode without full acquisition cost — but VPS must negotiate operational control as a condition.',
+    action: 'Evaluate alongside MCS — only one Kozhikode equity asset likely needed at first entry.',
+    colorClass: 'p3',
+  },
+];
+
+// ══ MAP INIT ══════════════════════════════════════════════════════════════
+const map = L.map('map', {
+  center: [10.2, 76.5],
+  zoom: 8,
+  zoomControl: true,
+});
+
+L.tileLayer('https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png', {
+  attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors &copy; <a href="https://carto.com/attributions">CARTO</a>',
+  subdomains: 'abcd',
+  maxZoom: 19
+}).addTo(map);
+
+// ══ MARKER COLOURS ════════════════════════════════════════════════════════
+const COLOURS = {
+  flagship:   { fill: '#2B7CBE', stroke: '#1A3050', glow: 'rgba(43,124,190,0.3)' },
+  'new-campus': { fill: '#16A34A', stroke: '#166534', glow: 'rgba(22,163,74,0.3)' },
+  p1a:        { fill: '#DC2626', stroke: '#991B1B', glow: 'rgba(220,38,38,0.3)' },
+  p1b:        { fill: '#8B1A4A', stroke: '#6B1238', glow: 'rgba(139,26,74,0.3)' },
+  p2a:        { fill: '#EA580C', stroke: '#C2410C', glow: 'rgba(234,88,12,0.3)' },
+  p2b:        { fill: '#BE185D', stroke: '#9D174D', glow: 'rgba(190,24,93,0.3)' },
+  p3:         { fill: '#B45309', stroke: '#92400E', glow: 'rgba(180,83,9,0.3)' },
+};
+
+function makeIcon(target) {
+  const c = COLOURS[target.colorClass] || COLOURS.p2a;
+  const size = target.type === 'flagship' ? 20 :
+               target.type === 'new-campus' ? 16 :
+               target.priority === 1 ? 14 : 12;
+  const bedsWidth = Math.round(12 + (target.beds / 900) * 20);
+
+  const svg = `
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 ${size*2} ${size*2+10}" width="${size*2}" height="${size*2+10}">
+      <circle cx="${size}" cy="${size}" r="${size-1}" fill="${c.fill}" stroke="${c.stroke}" stroke-width="2"/>
+      ${target.type === 'flagship' ?
+        `<path d="M${size-5},${size+2} L${size},${size-6} L${size+5},${size+2} Z" fill="white" opacity="0.9"/>` :
+        target.type === 'new-campus' ?
+        `<text x="${size}" y="${size+4}" text-anchor="middle" fill="white" font-size="${size*0.7}" font-weight="900" font-family="Arial">+</text>` :
+        `<text x="${size}" y="${size+4}" text-anchor="middle" fill="white" font-size="${size*0.55}" font-weight="800" font-family="Arial">${target.beds}</text>`
+      }
+    </svg>`;
+
+  return L.divIcon({
+    html: svg,
+    className: '',
+    iconSize: [size*2, size*2+10],
+    iconAnchor: [size, size*2+10],
+    popupAnchor: [0, -(size*2)],
+  });
+}
+
+// ══ POPUP BUILDER ═════════════════════════════════════════════════════════
+function makePopup(t) {
+  const playbookBadge = t.type === 'flagship' ? '<span class="popup-badge pb-blue">Flagship Hub</span>' :
+    t.type === 'new-campus' ? '<span class="popup-badge pb-green">New Campus</span>' :
+    t.playbook === 'A' ? '<span class="popup-badge pb-navy">Playbook A · Equity</span>' :
+    t.playbook === 'B' ? '<span class="popup-badge pb-maroon">Playbook B · O&amp;M</span>' :
+    '<span class="popup-badge pb-amber">Hybrid · JV</span>';
+
+  const priorityBadge = t.priority === 0 ? '' :
+    t.priority === 1 ? '<span class="popup-badge pb-navy">Priority 1</span>' :
+    t.priority === 2 ? '<span class="popup-badge pb-amber">Priority 2</span>' :
+    '<span class="popup-badge pb-amber">Priority 3</span>';
+
+  const scoreBadge = t.score ? `<span class="popup-badge" style="background:rgba(0,0,0,0.07);color:#475569">${t.score}</span>` : '';
+
+  return `
+    <div class="popup-wrap">
+      <div class="popup-badge-row">
+        ${playbookBadge}
+        ${priorityBadge}
+        ${scoreBadge}
+      </div>
+      <div class="popup-name">${t.name}</div>
+      <div class="popup-city">📍 ${t.city} · ${t.district} District</div>
+      <div class="popup-stats">
+        <div class="pstat">
+          <div class="pstat-val">${t.beds}</div>
+          <div class="pstat-lbl">Beds</div>
+        </div>
+        <div class="pstat">
+          <div class="pstat-val" style="font-size:0.72rem">${t.deal}</div>
+          <div class="pstat-lbl">Est. Deal / Capex</div>
+        </div>
+      </div>
+      <div class="popup-desc">${t.desc}</div>
+      ${t.action ? `<div class="popup-action">⚡ ${t.action}</div>` : ''}
+    </div>`;
+}
+
+// ══ RENDER MARKERS ════════════════════════════════════════════════════════
+const markerMap = {};
+
+TARGETS.forEach(t => {
+  const marker = L.marker([t.lat, t.lng], { icon: makeIcon(t) })
+    .addTo(map)
+    .bindPopup(makePopup(t), {
+      maxWidth: 300,
+      className: 'custom-popup',
+    });
+
+  // Click pulse ring
+  marker.on('click', () => {
+    highlightCard(t.id);
+  });
+
+  markerMap[t.id] = { marker, target: t, visible: true };
+});
+
+// Draw connecting lines from non-flagship targets to Lakeshore
+const flagship = TARGETS.find(t => t.id === 'flagship');
+TARGETS.filter(t => t.type === 'target').forEach(t => {
+  L.polyline(
+    [[flagship.lat, flagship.lng], [t.lat, t.lng]],
+    {
+      color: t.playbook === 'B' ? '#8B1A4A' : '#2B7CBE',
+      weight: 1,
+      opacity: 0.18,
+      dashArray: '4 6',
+    }
+  ).addTo(map);
+});
+
+// ══ SIDEBAR CARDS ════════════════════════════════════════════════════════
+const listEl = document.getElementById('target-list');
+
+function renderCards(filtered) {
+  listEl.innerHTML = '';
+  TARGETS.forEach(t => {
+    if (filtered && !filtered.includes(t.id)) return;
+    const card = document.createElement('div');
+    card.className = `target-card ${t.colorClass}`;
+    card.id = `card-${t.id}`;
+    card.onclick = () => {
+      map.flyTo([t.lat, t.lng], 13, { duration: 0.8 });
+      setTimeout(() => markerMap[t.id].marker.openPopup(), 900);
+      highlightCard(t.id);
+    };
+
+    const playbookTag = t.type === 'flagship' ? '<span class="tc-tag playbook-a">Flagship</span>' :
+      t.type === 'new-campus' ? '<span class="tc-tag" style="background:rgba(22,163,74,0.1);color:#166534">New Campus</span>' :
+      t.playbook === 'A' ? '<span class="tc-tag playbook-a">Playbook A</span>' :
+      t.playbook === 'B' ? '<span class="tc-tag playbook-b">Playbook B</span>' :
+      '<span class="tc-tag hybrid">Hybrid</span>';
+
+    const priorityTag = t.priority === 0 ? '' :
+      t.priority === 1 ? '<span class="tc-tag p1">P1</span>' :
+      t.priority === 2 ? '<span class="tc-tag p2">P2</span>' :
+      '<span class="tc-tag p3">P3</span>';
+
+    card.innerHTML = `
+      <div class="tc-header">
+        <div class="tc-name">${t.name}</div>
+        <div class="tc-beds">${t.beds}b</div>
+      </div>
+      <div class="tc-city">${t.city}</div>
+      <div class="tc-meta">${playbookTag} ${priorityTag}</div>
+      <div class="tc-deal">${t.deal}</div>
+    `;
+    listEl.appendChild(card);
+  });
+}
+
+renderCards();
+
+function highlightCard(id) {
+  document.querySelectorAll('.target-card').forEach(c => c.classList.remove('highlighted'));
+  const el = document.getElementById(`card-${id}`);
+  if (el) {
+    el.classList.add('highlighted');
+    el.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+  }
+}
+
+// ══ FILTER LOGIC ═════════════════════════════════════════════════════════
+let activePlaybook = 'all';
+let activePriority = 'all';
+
+function applyFilters() {
+  const filtered = [];
+  TARGETS.forEach(t => {
+    let show = true;
+
+    if (activePlaybook !== 'all') {
+      if (activePlaybook === 'flagship' && t.type !== 'flagship') show = false;
+      if (activePlaybook === 'new' && t.type !== 'new-campus') show = false;
+      if (activePlaybook === 'A' && t.playbook !== 'A') show = false;
+      if (activePlaybook === 'B' && t.playbook !== 'B') show = false;
+      if (activePlaybook === 'hybrid' && t.playbook !== 'Hybrid') show = false;
+    }
+
+    if (activePriority !== 'all') {
+      if (String(t.priority) !== activePriority && t.priority !== 0) show = false;
+    }
+
+    const m = markerMap[t.id];
+    if (show) {
+      if (!map.hasLayer(m.marker)) m.marker.addTo(map);
+      filtered.push(t.id);
+    } else {
+      if (map.hasLayer(m.marker)) map.removeLayer(m.marker);
+    }
+  });
+  renderCards(filtered);
+}
+
+function filterTargets(pb) {
+  activePlaybook = pb;
+  document.querySelectorAll('[data-filter]').forEach(c => c.classList.remove('active'));
+  const chips = document.querySelectorAll('[data-filter]');
+  chips.forEach(c => { if (c.dataset.filter === pb) c.classList.add('active'); });
+  applyFilters();
+}
+
+function filterPriority(pr) {
+  activePriority = pr;
+  document.querySelectorAll('[data-filter2]').forEach(c => c.classList.remove('active'));
+  document.querySelectorAll('[data-filter2]').forEach(c => {
+    if (c.dataset.filter2 === pr) c.classList.add('active');
+  });
+  applyFilters();
+}
+
+// ══ DISTRICT BOUNDARY LABELS ══════════════════════════════════════════════
+const districtLabels = [
+  { name: 'Ernakulam', lat: 10.05, lng: 76.32 },
+  { name: 'Kottayam', lat: 9.59, lng: 76.52 },
+  { name: 'Pathanamthitta', lat: 9.27, lng: 76.78 },
+  { name: 'Thiruvananthapuram', lat: 8.52, lng: 76.94 },
+  { name: 'Kozhikode', lat: 11.25, lng: 75.65 },
+];
+
+districtLabels.forEach(d => {
+  L.marker([d.lat, d.lng], {
+    icon: L.divIcon({
+      html: `<div style="
+        background: rgba(26,48,80,0.85);
+        color: white;
+        font-size: 9px;
+        font-weight: 700;
+        letter-spacing: 1px;
+        text-transform: uppercase;
+        padding: 2px 7px;
+        border-radius: 3px;
+        white-space: nowrap;
+        pointer-events: none;
+      ">${d.name}</div>`,
+      className: '',
+      iconAnchor: [30, 10],
+    }),
+    interactive: false,
+    zIndexOffset: -1000,
+  }).addTo(map);
+});
+
+// ══ CUSTOM POPUP STYLES ═══════════════════════════════════════════════════
+const style = document.createElement('style');
+style.textContent = `
+  .custom-popup .leaflet-popup-content-wrapper {
+    border-radius: 8px;
+    padding: 0;
+    box-shadow: 0 8px 24px rgba(0,0,0,0.12), 0 2px 6px rgba(0,0,0,0.08);
+    border: 1px solid #E2E8F0;
+    overflow: hidden;
+  }
+  .custom-popup .leaflet-popup-content {
+    margin: 0;
+    padding: 14px;
+  }
+  .custom-popup .leaflet-popup-tip {
+    background: white;
+  }
+  .leaflet-control-zoom {
+    border: none !important;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1) !important;
+  }
+  .leaflet-control-zoom a {
+    border-radius: 4px !important;
+    color: #1A3050 !important;
+    font-weight: 700 !important;
+  }
+`;
+document.head.appendChild(style);
+</script>
+</body>
+</html>
