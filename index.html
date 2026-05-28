@@ -418,6 +418,80 @@ table.tgt {
   padding: 4px 7px; background: var(--vps-maroon-l); border-radius: 5px;
 }
 
+/* ═══ IC MEMO ═══ */
+.ic-doc-table { width:100%; border-collapse:collapse; font-size:13px; background:var(--bg); border-radius:var(--rl); overflow:hidden; box-shadow:var(--sh); margin-bottom:28px; }
+.ic-doc-table thead tr { background:var(--vps-blue); color:white; }
+.ic-doc-table thead th { padding:9px 14px; text-align:left; font-size:10.5px; text-transform:uppercase; letter-spacing:.8px; font-weight:600; white-space:nowrap; }
+.ic-doc-table tbody td { padding:10px 14px; border-bottom:1px solid var(--bd); vertical-align:top; }
+.ic-doc-table tbody tr:last-child td { border-bottom:none; }
+.ic-doc-table tbody tr:nth-child(even) { background:var(--bg2); }
+.ic-doc-num { font-size:12px; font-weight:700; color:var(--tx3); text-align:center; }
+.ic-doc-name { font-weight:600; color:var(--tx); }
+.ic-doc-type { font-size:10px; font-weight:600; color:var(--vps-blue); text-transform:uppercase; letter-spacing:.5px; margin-top:2px; }
+
+.exec-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:14px; margin-bottom:28px; }
+@media(max-width:700px){ .exec-grid { grid-template-columns:1fr; } }
+.exec-card {
+  background:var(--bg); border:1px solid var(--bd); border-radius:var(--rl);
+  padding:20px; box-shadow:var(--sh); border-left:4px solid var(--vps-blue);
+}
+.exec-card.maroon { border-left-color:var(--vps-maroon); }
+.exec-card.accent { border-left-color:var(--accent); }
+.exec-num { font-size:10px; font-weight:700; text-transform:uppercase; letter-spacing:1.2px; color:var(--tx3); margin-bottom:6px; }
+.exec-head { font-size:14px; font-weight:700; color:var(--tx); margin-bottom:8px; line-height:1.35; }
+.exec-body { font-size:13px; color:var(--tx2); line-height:1.65; }
+
+.fin-table { width:100%; border-collapse:collapse; font-size:13px; background:var(--bg); border-radius:var(--rl); overflow:hidden; box-shadow:var(--sh); }
+.fin-table thead tr { background:var(--vps-blue); color:white; }
+.fin-table thead th { padding:9px 14px; text-align:center; font-size:10.5px; text-transform:uppercase; letter-spacing:.8px; font-weight:600; }
+.fin-table thead th:first-child { text-align:left; }
+.fin-table tbody td { padding:10px 14px; border-bottom:1px solid var(--bd); text-align:center; }
+.fin-table tbody td:first-child { text-align:left; font-weight:600; color:var(--tx); }
+.fin-table tbody tr:last-child td { border-bottom:none; font-weight:700; background:var(--vps-blue-l); color:var(--vps-blue-d); }
+.fin-table tbody tr:nth-child(even) { background:var(--bg2); }
+.fin-table tfoot td { padding:8px 14px; background:var(--bg3); font-size:11px; color:var(--tx3); text-align:center; border-top:1px solid var(--bd); }
+.fin-table tfoot td:first-child { text-align:left; font-weight:600; color:var(--tx2); }
+
+.returns-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:14px; margin-top:20px; }
+@media(max-width:700px){ .returns-grid { grid-template-columns:1fr; } }
+.ret-card {
+  background:var(--bg); border:1px solid var(--bd); border-radius:var(--rl);
+  padding:18px 20px; text-align:center; box-shadow:var(--sh);
+}
+.ret-card.bear { border-top:3px solid var(--red); }
+.ret-card.base { border-top:3px solid var(--vps-blue); }
+.ret-card.bull { border-top:3px solid var(--teal); }
+.ret-scenario { font-size:10px; font-weight:700; text-transform:uppercase; letter-spacing:1px; color:var(--tx3); margin-bottom:8px; }
+.ret-irr { font-size:2rem; font-weight:800; line-height:1; margin-bottom:4px; }
+.ret-card.bear .ret-irr { color:var(--red); }
+.ret-card.base .ret-irr { color:var(--vps-blue); }
+.ret-card.bull .ret-irr { color:var(--teal); }
+.ret-moic { font-size:13px; color:var(--tx2); font-weight:600; margin-bottom:8px; }
+.ret-assumption { font-size:11px; color:var(--tx3); line-height:1.5; }
+
+.decision-table { width:100%; border-collapse:collapse; font-size:13px; background:var(--bg); border-radius:var(--rl); overflow:hidden; box-shadow:var(--sh); margin-bottom:20px; }
+.decision-table thead tr { background:var(--tx); color:white; }
+.decision-table thead th { padding:9px 14px; text-align:left; font-size:10.5px; text-transform:uppercase; letter-spacing:.8px; font-weight:600; }
+.decision-table tbody td { padding:11px 14px; border-bottom:1px solid var(--bd); vertical-align:top; }
+.decision-table tbody tr:last-child td { border-bottom:none; }
+.decision-table tbody tr:nth-child(even) { background:var(--bg2); }
+.d-num { font-weight:800; font-size:14px; text-align:center; color:var(--vps-blue); }
+.d-action { font-weight:600; color:var(--tx); }
+.d-detail { font-size:12px; color:var(--tx2); margin-top:3px; line-height:1.5; }
+.d-urg { display:inline-block; padding:2px 8px; border-radius:12px; font-size:10px; font-weight:700; text-transform:uppercase; letter-spacing:.5px; margin-top:4px; }
+.d-urg.now { background:var(--red-l); color:var(--red); }
+.d-urg.week { background:var(--accent-l); color:var(--accent); }
+.d-urg.month { background:var(--vps-blue-l); color:var(--vps-blue-d); }
+
+.alert-bar {
+  background:var(--red-l); border:1.5px solid var(--red); border-radius:var(--r);
+  padding:14px 18px; margin-top:16px;
+  display:flex; gap:12px; align-items:flex-start;
+}
+.alert-icon { font-size:18px; flex-shrink:0; margin-top:1px; }
+.alert-text { font-size:13px; color:var(--tx); line-height:1.6; }
+.alert-text strong { color:var(--red); }
+
 /* ═══ FOOTER ═══ */
 footer {
   background: var(--tx); padding: 24px clamp(16px,4vw,48px);
@@ -451,6 +525,7 @@ footer {
       <a href="#map-sec"   class="nav-btn">Network Map</a>
       <a href="#targets"   class="nav-btn">Targets</a>
       <a href="#phases"    class="nav-btn">Phases</a>
+      <a href="#ic-memo"   class="nav-btn">IC Memo</a>
       <a href="https://sameeraj89.github.io/vps_newconcepts/" class="nav-back">← VPS New Concepts</a>
     </nav>
   </div>
@@ -682,6 +757,238 @@ footer {
     </div>
   </div>
 
+  <!-- IC MEMO -->
+  <div class="section-block" id="ic-memo">
+    <div class="sec-eyebrow">Investment Committee Memorandum</div>
+    <div class="sec-title">The Case for <em>Acting Now.</em></div>
+    <div class="sec-divider"></div>
+    <p class="sec-sub">
+      A ₹2,000–2,500 Cr programme to build Kerala's first integrated hospital network across 11 sites over 24 months. The window is defined by the Aster–QCIL merger (final NCLT approval) and KKR locking North Kerala — best assets at pre-consolidation multiples are available for 18–24 months only.
+    </p>
+
+    <!-- Document registry -->
+    <div style="overflow-x:auto; border-radius:var(--rl); box-shadow:var(--sh); margin-bottom:28px;">
+      <table class="ic-doc-table">
+        <thead>
+          <tr>
+            <th style="width:36px">#</th>
+            <th style="width:220px">Document</th>
+            <th>Purpose</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="ic-doc-num">1</td>
+            <td><div class="ic-doc-name">VPS_Kerala_IC_Memorandum</div><div class="ic-doc-type">docx &nbsp;·&nbsp; Primary Decision Document</div></td>
+            <td>Full investment thesis, 11-target deal portfolio, 5-year model, IRR/MOIC sensitivity, risk register, and 90-day action plan.</td>
+          </tr>
+          <tr>
+            <td class="ic-doc-num">2</td>
+            <td><div class="ic-doc-name">VPS_Kerala_Chairman_Brief</div><div class="ic-doc-type">docx &nbsp;·&nbsp; Supporting Narrative</div></td>
+            <td>Detailed 24-target briefing — full hospital profiles, Kakkanad second-campus proposal, and 90-day action tracks.</td>
+          </tr>
+          <tr>
+            <td class="ic-doc-num">3</td>
+            <td><div class="ic-doc-name">VPS_Kerala_Chairman_Dossier</div><div class="ic-doc-type">pptx &nbsp;·&nbsp; Visual Deck</div></td>
+            <td>47-slide deck — competitive landscape, target universe, hospital maturity curve, and 5-year financial build.</td>
+          </tr>
+          <tr>
+            <td class="ic-doc-num">4</td>
+            <td><div class="ic-doc-name">VPS_Kerala_LBO_Model</div><div class="ic-doc-type">xlsx &nbsp;·&nbsp; Financial Model</div></td>
+            <td>Full LBO and returns model — 8 sheets: programme summary, assumptions, sources &amp; uses, deal portfolio, operating model, debt schedule, returns &amp; sensitivity, financing options.</td>
+          </tr>
+          <tr>
+            <td class="ic-doc-num">5</td>
+            <td><div class="ic-doc-name">VPS_Kerala_DD_Checklist</div><div class="ic-doc-type">xlsx &nbsp;·&nbsp; Due Diligence Tracker</div></td>
+            <td>83-item due diligence tracker across 11 workstreams (Commercial, Financial, Legal, Clinical, HR, IT, Real Estate, Regulatory, Insurance, ESG, Deal Structure).</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- Executive summary -->
+    <div class="sec-eyebrow" style="margin-top:4px">Executive Summary</div>
+    <div class="sec-divider"></div>
+    <div class="exec-grid">
+      <div class="exec-card">
+        <div class="exec-num">01 — The Window</div>
+        <div class="exec-head">24 months before the market reprices</div>
+        <div class="exec-body">Aster is in final NCLT approval for the QCIL merger. KKR has locked North Kerala. Mid-market hospital owners who would never sell to a listed chain will do an O&amp;M deal with VPS Lakeshore. That combination of conditions expires. The programme must be mandated now.</div>
+      </div>
+      <div class="exec-card maroon">
+        <div class="exec-num">02 — The Moat</div>
+        <div class="exec-head">Mission hospitals — the asset Aster cannot buy</div>
+        <div class="exec-body">Playbook B targets Catholic and charitable hospitals that are structurally unsellable. VPS's operational track record, Catholic affinity, and non-listed status make it the only credible operator for these assets. Four hospitals, ~1,400 beds, zero acquisition premium.</div>
+      </div>
+      <div class="exec-card accent">
+        <div class="exec-num">03 — Network Economics</div>
+        <div class="exec-head">Returns are built into the network, not any single deal</div>
+        <div class="exec-body">Individual deals may return 20–22% IRR. The combined network — shared procurement saving ₹28 Cr/year, Gulf referral channel adding ₹45 Cr incremental revenue, step-down capacity from Nettoor freeing quaternary beds — targets 28%+ blended IRR and 3.8× MOIC.</div>
+      </div>
+    </div>
+  </div><!-- /ic-memo -->
+
+  <!-- FINANCIALS -->
+  <div class="section-block" id="ic-financials">
+    <div class="sec-eyebrow">Financial Summary</div>
+    <div class="sec-title">5-Year <em>Financial Model.</em></div>
+    <div class="sec-divider"></div>
+    <p class="sec-sub">All figures from the LBO model (LBO_Model v1). Base case assumes 7 hospitals operational by FY28, full 11-hospital network by FY30.</p>
+
+    <div style="overflow-x:auto; border-radius:var(--rl); box-shadow:var(--sh);">
+      <table class="fin-table">
+        <thead>
+          <tr>
+            <th style="text-align:left">₹ Crore</th>
+            <th>FY26E</th>
+            <th>FY27E</th>
+            <th>FY28E</th>
+            <th>FY29E</th>
+            <th>FY30E</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Network Revenue</td>
+            <td>320</td>
+            <td>485</td>
+            <td>672</td>
+            <td>895</td>
+            <td>1,180</td>
+          </tr>
+          <tr>
+            <td>Revenue Growth</td>
+            <td>—</td>
+            <td>51.6%</td>
+            <td>38.6%</td>
+            <td>33.2%</td>
+            <td>31.8%</td>
+          </tr>
+          <tr>
+            <td>EBITDA</td>
+            <td>54</td>
+            <td>92</td>
+            <td>141</td>
+            <td>206</td>
+            <td>295</td>
+          </tr>
+          <tr>
+            <td>EBITDA Margin</td>
+            <td>16.9%</td>
+            <td>19.0%</td>
+            <td>21.0%</td>
+            <td>23.0%</td>
+            <td>25.0%</td>
+          </tr>
+          <tr>
+            <td>Capex &amp; Acquisition</td>
+            <td>(420)</td>
+            <td>(860)</td>
+            <td>(620)</td>
+            <td>(280)</td>
+            <td>(120)</td>
+          </tr>
+          <tr>
+            <td>Cumulative Capital Deployed</td>
+            <td>420</td>
+            <td>1,280</td>
+            <td>1,900</td>
+            <td>2,180</td>
+            <td>2,300</td>
+          </tr>
+        </tbody>
+        <tfoot>
+          <tr>
+            <td>Total Programme Budget</td>
+            <td colspan="5">₹2,000–2,500 Cr equity + ₹800 Cr project finance</td>
+          </tr>
+        </tfoot>
+      </table>
+    </div>
+
+    <div class="returns-grid">
+      <div class="ret-card bear">
+        <div class="ret-scenario">Bear Case</div>
+        <div class="ret-irr">19%</div>
+        <div class="ret-moic">2.6× MOIC</div>
+        <div class="ret-assumption">5-hospital network by FY30. Margin improvement stalls at 18%. No Gulf referral uplift. Renai deal doesn't close.</div>
+      </div>
+      <div class="ret-card base">
+        <div class="ret-scenario">Base Case</div>
+        <div class="ret-irr">24%</div>
+        <div class="ret-moic">3.4× MOIC</div>
+        <div class="ret-assumption">8-hospital network. EBITDA margin reaches 24% by FY30. Procurement synergies ₹28 Cr/year from FY28. Gulf channel delivers ₹45 Cr incremental revenue.</div>
+      </div>
+      <div class="ret-card bull">
+        <div class="ret-scenario">Bull Case</div>
+        <div class="ret-irr">28%</div>
+        <div class="ret-moic">3.8× MOIC</div>
+        <div class="ret-assumption">Full 11-hospital network. Margin 26%+ on Max Healthcare operating model. Kakkanad Phase 2 delivers 200 additional quaternary beds by FY31.</div>
+      </div>
+    </div>
+  </div><!-- /ic-financials -->
+
+  <!-- DECISIONS -->
+  <div class="section-block" id="ic-decisions">
+    <div class="sec-eyebrow">Decisions Required</div>
+    <div class="sec-title">Four Asks. <em>One Meeting.</em></div>
+    <div class="sec-divider"></div>
+    <p class="sec-sub">All four decisions are interlinked. D2 is the most time-sensitive — the SUT Royal NCLT window is a 45-day statutory deadline.</p>
+
+    <div style="overflow-x:auto; border-radius:var(--rl); box-shadow:var(--sh); margin-bottom:16px;">
+      <table class="decision-table">
+        <thead>
+          <tr>
+            <th style="width:40px">#</th>
+            <th>Decision</th>
+            <th style="width:160px">Urgency</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="d-num">D1</td>
+            <td>
+              <div class="d-action">Approve ₹2,000–2,500 Cr capital envelope</div>
+              <div class="d-detail">With Chairman authority to execute NDAs and LOIs up to ₹500 Cr per deal without further Board approval for each individual transaction.</div>
+            </td>
+            <td><span class="d-urg week">This Week</span></td>
+          </tr>
+          <tr>
+            <td class="d-num">D2</td>
+            <td>
+              <div class="d-action">Pre-clear ₹150 Cr for SUT Royal Hospital NCLT filing</div>
+              <div class="d-detail">45-day statutory window is open now. Must file as resolution applicant before window closes or lose priority to competing bidders.</div>
+            </td>
+            <td><span class="d-urg now">Immediate</span></td>
+          </tr>
+          <tr>
+            <td class="d-num">D3</td>
+            <td>
+              <div class="d-action">Authorise Head of Corporate Development hire</div>
+              <div class="d-detail">Dedicated deal principal reporting to Chairman. Concurrent mandate for Cyril Amarchand Mangaldas NCLT retainer to begin immediately.</div>
+            </td>
+            <td><span class="d-urg week">This Week</span></td>
+          </tr>
+          <tr>
+            <td class="d-num">D4</td>
+            <td>
+              <div class="d-action">Sign NDA with Renai Medicity</div>
+              <div class="d-detail">Actionable within 24 hours of Board mandate. Aster is already aware of this asset — the window is measured in weeks, not months.</div>
+            </td>
+            <td><span class="d-urg now">24 Hours</span></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="alert-bar">
+      <div class="alert-icon">&#9888;</div>
+      <div class="alert-text">
+        <strong>Renai Medicity — Act Within 24 Hours.</strong> This is the highest-quality Kochi acquisition target (310 beds, NABH-accredited, ₹185–220 Cr deal range). Aster's corporate development team has mapped it. If VPS does not sign an NDA before Aster reaches the promoter family, this asset will be gone. The NDA requires only Chairman signature — legal review is already complete.
+      </div>
+    </div>
+  </div><!-- /ic-decisions -->
+
 </div><!-- /content -->
 
 <!-- ═══ FOOTER ═══ -->
@@ -841,7 +1148,7 @@ function mapFilter(v, el) {
 }
 
 // Smooth-scroll active nav
-const sections = ['overview','map-sec','targets','phases'];
+const sections = ['overview','map-sec','targets','phases','ic-memo','ic-financials','ic-decisions'];
 const navBtns = document.querySelectorAll('.nav-btn[href^="#"]');
 window.addEventListener('scroll', () => {
   let cur = sections[0];
