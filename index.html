@@ -505,6 +505,72 @@ footer {
 .footer-brand img { height: 24px; opacity: .7; filter: brightness(10); }
 .footer-text { font-size: 12px; color: rgba(255,255,255,.4); }
 .footer-right { font-size: 11px; color: rgba(255,255,255,.25); }
+
+/* ═══ LONG-LIST MAP + LONG LIST ═══ */
+.ll-toolbar { display:flex; flex-wrap:wrap; gap:10px; align-items:center; justify-content:space-between; margin-bottom:14px; }
+.ll-chips, .ll-chips2 { display:flex; gap:6px; flex-wrap:wrap; }
+.ll-chip { display:inline-flex; align-items:center; gap:6px; cursor:pointer; user-select:none; padding:6px 12px; font-size:11.5px; font-weight:600; border-radius:999px; border:1px solid var(--bd); background:var(--bg); color:var(--tx2); transition:all .15s; }
+.ll-chip:hover { border-color:var(--vps-blue); color:var(--vps-blue); }
+.ll-chip.active { color:#fff; border-color:transparent; }
+.ll-chip .ll-dot { width:9px; height:9px; border-radius:50%; flex-shrink:0; }
+.ll-chip .ll-n { font-size:10px; opacity:.85; font-weight:700; }
+.ll-search { flex:1; min-width:200px; max-width:320px; padding:8px 12px; font-size:12.5px; border:1px solid var(--bd); border-radius:8px; background:var(--bg); color:var(--tx); outline:none; }
+.ll-search:focus { border-color:var(--vps-blue); }
+.ll-map-body { display:grid; grid-template-columns:1.7fr 1fr; gap:14px; height:600px; }
+#ll-map { height:100%; width:100%; border-radius:var(--rl); box-shadow:var(--sh); border:1px solid var(--bd); z-index:1; }
+.ll-side { height:100%; overflow-y:auto; border:1px solid var(--bd); border-radius:var(--rl); background:var(--bg); box-shadow:var(--sh); padding:14px; }
+.ll-side::-webkit-scrollbar { width:8px; } .ll-side::-webkit-scrollbar-thumb { background:var(--bd); border-radius:4px; }
+.ll-legend-title { font-size:10px; font-weight:700; letter-spacing:1px; text-transform:uppercase; color:var(--tx3); margin:0 0 8px; }
+.ll-leg { display:flex; align-items:center; gap:8px; padding:5px 7px; border-radius:7px; cursor:pointer; font-size:11.5px; color:var(--tx2); }
+.ll-leg:hover { background:var(--bg3); }
+.ll-leg.active { background:var(--vps-blue-l); color:var(--vps-blue-d); font-weight:600; }
+.ll-leg .ll-dot { width:11px; height:11px; border-radius:50%; flex-shrink:0; }
+.ll-leg .ll-n { margin-left:auto; font-size:10.5px; font-weight:700; color:var(--tx3); }
+.ll-hr { border:none; border-top:1px solid var(--bd); margin:11px 0; }
+.ll-item { padding:8px 9px; border-radius:8px; cursor:pointer; border-left:3px solid var(--bd); margin-bottom:5px; transition:background .12s; }
+.ll-item:hover { background:var(--bg3); }
+.ll-item-name { font-size:12px; font-weight:600; color:var(--tx); line-height:1.25; }
+.ll-item-meta { font-size:10.5px; color:var(--tx3); margin-top:1px; }
+.ll-side-empty { font-size:12px; color:var(--tx3); padding:14px; text-align:center; }
+.llpop .leaflet-popup-content-wrapper { border-radius:10px; }
+.llpop-badges { display:flex; gap:5px; flex-wrap:wrap; margin-bottom:7px; }
+.llpop-badge { font-size:9px; font-weight:700; letter-spacing:.5px; text-transform:uppercase; padding:3px 7px; border-radius:5px; color:#fff; }
+.llpop-name { font-size:15px; font-weight:700; color:var(--tx); line-height:1.2; }
+.llpop-loc { font-size:11px; color:var(--tx3); margin:2px 0 8px; }
+.llpop-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:6px; margin-bottom:8px; }
+.llpop-cell { background:var(--bg2); border-radius:6px; padding:5px 6px; text-align:center; }
+.llpop-cell .v { font-size:12px; font-weight:700; color:var(--tx); }
+.llpop-cell .l { font-size:8.5px; text-transform:uppercase; letter-spacing:.5px; color:var(--tx3); }
+.llpop-sec { margin-top:7px; }
+.llpop-sec .h { font-size:9.5px; font-weight:700; text-transform:uppercase; letter-spacing:.6px; color:var(--vps-blue); margin-bottom:2px; }
+.llpop-sec.flag .h { color:var(--vps-maroon); }
+.llpop-sec .t { font-size:11px; line-height:1.45; color:var(--tx2); }
+.llpop-deal { margin-top:8px; background:var(--vps-blue-l); color:var(--vps-blue-d); font-size:11px; font-weight:600; padding:6px 9px; border-radius:7px; }
+.funnel { display:flex; flex-wrap:wrap; gap:10px; margin:6px 0 22px; }
+.funnel-step { flex:1; min-width:150px; background:var(--bg); border:1px solid var(--bd); border-radius:var(--rl); padding:14px 16px; box-shadow:var(--sh); }
+.funnel-step .fn-n { font-size:26px; font-weight:800; line-height:1; }
+.funnel-step .fn-l { font-size:11px; font-weight:600; color:var(--tx2); margin-top:5px; }
+.funnel-step .fn-s { font-size:10.5px; color:var(--tx3); margin-top:3px; line-height:1.4; }
+.ll-cards { display:grid; grid-template-columns:repeat(auto-fill,minmax(330px,1fr)); gap:14px; }
+.ll-card { background:var(--bg); border:1px solid var(--bd); border-left:4px solid var(--bd); border-radius:var(--rl); box-shadow:var(--sh); padding:14px 16px; }
+.ll-card-top { display:flex; justify-content:space-between; align-items:flex-start; gap:10px; }
+.ll-card-name { font-size:14.5px; font-weight:700; color:var(--tx); line-height:1.2; }
+.ll-card-loc { font-size:11px; color:var(--tx3); margin-top:2px; }
+.ll-card-badge { font-size:9px; font-weight:700; letter-spacing:.4px; text-transform:uppercase; padding:4px 8px; border-radius:6px; color:#fff; white-space:nowrap; flex-shrink:0; }
+.ll-card-meta { display:flex; gap:6px; flex-wrap:wrap; margin:9px 0; }
+.ll-tag { font-size:10px; font-weight:600; padding:3px 8px; border-radius:5px; background:var(--bg3); color:var(--tx2); }
+.ll-card-gloss { font-size:11.5px; line-height:1.5; color:var(--tx2); border-top:1px dashed var(--bd); padding-top:9px; }
+.ll-card-gloss b { color:var(--tx); }
+.ll-more { display:none; margin-top:9px; }
+.ll-more.open { display:block; }
+.ll-more-sec { margin-top:8px; }
+.ll-more-sec .h { font-size:9.5px; font-weight:700; text-transform:uppercase; letter-spacing:.6px; color:var(--vps-blue); margin-bottom:2px; }
+.ll-more-sec.flag .h { color:var(--vps-maroon); }
+.ll-more-sec .t { font-size:11px; line-height:1.5; color:var(--tx2); }
+.ll-toggle { margin-top:10px; font-size:11px; font-weight:600; color:var(--vps-blue); cursor:pointer; user-select:none; display:inline-flex; align-items:center; gap:4px; }
+.ll-toggle:hover { text-decoration:underline; }
+@media (max-width:860px) { .ll-map-body { grid-template-columns:1fr; height:auto; } #ll-map { height:420px; } .ll-side { height:auto; max-height:340px; } }
+
 </style>
 </head>
 <body>
@@ -521,11 +587,13 @@ footer {
       </div>
     </a>
     <nav class="header-nav">
-      <a href="#overview"  class="nav-btn active">Overview</a>
-      <a href="#map-sec"   class="nav-btn">Network Map</a>
-      <a href="#targets"   class="nav-btn">Targets</a>
-      <a href="#phases"    class="nav-btn">Phases</a>
-      <a href="#ic-memo"   class="nav-btn">IC Memo</a>
+      <a href="#overview"     class="nav-btn active">Overview</a>
+      <a href="#longlist-map" class="nav-btn">Long-List Map</a>
+      <a href="#longlist"     class="nav-btn">Long List</a>
+      <a href="#map-sec"      class="nav-btn">Network Map</a>
+      <a href="#targets"      class="nav-btn">Shortlist</a>
+      <a href="#phases"       class="nav-btn">Phases</a>
+      <a href="#ic-memo"      class="nav-btn">IC Memo</a>
       <a href="https://sameeraj89.github.io/vps_newconcepts/" class="nav-back">← VPS New Concepts</a>
     </nav>
   </div>
@@ -542,11 +610,11 @@ footer {
 
 <!-- ═══ METRICS BAR ═══ -->
 <div class="metrics-bar" style="margin-left:clamp(16px,4vw,48px); margin-right:clamp(16px,4vw,48px);">
-  <div class="metric"><div class="metric-lbl">Identified Targets</div><div class="metric-val blue">11</div></div>
-  <div class="metric"><div class="metric-lbl">Target Beds</div><div class="metric-val">5,000+</div></div>
-  <div class="metric"><div class="metric-lbl">Districts</div><div class="metric-val">7</div></div>
-  <div class="metric"><div class="metric-lbl">Deal Pipeline</div><div class="metric-val maroon">₹1,000 Cr+</div></div>
-  <div class="metric"><div class="metric-lbl">Target Equity IRR</div><div class="metric-val teal">22–28%</div></div>
+  <div class="metric"><div class="metric-lbl">Programme Envelope</div><div class="metric-val blue">₹2,150 Cr</div></div>
+  <div class="metric"><div class="metric-lbl">Base-Case Hospitals</div><div class="metric-val">9</div></div>
+  <div class="metric"><div class="metric-lbl">Network Beds</div><div class="metric-val">~3,900</div></div>
+  <div class="metric"><div class="metric-lbl">Districts</div><div class="metric-val maroon">7</div></div>
+  <div class="metric"><div class="metric-lbl">Base Equity IRR</div><div class="metric-val teal">~16.8%</div></div>
 </div>
 
 <!-- ═══ CONTENT ═══ -->
@@ -563,14 +631,14 @@ footer {
 
     <div class="kpi-grid">
       <div class="kpi-card">
-        <div class="kpi-val" style="color:var(--vps-blue)">6</div>
-        <div class="kpi-lbl">Playbook A Targets</div>
-        <div class="kpi-sub">Equity acquisitions including 2 NCLT/CIRP assets</div>
+        <div class="kpi-val" style="color:var(--vps-blue)">5</div>
+        <div class="kpi-lbl">Playbook A — Equity / NCLT</div>
+        <div class="kpi-sub">Renai, Sunrise, Indo-American, SUT Royal (NCLT) &amp; Mother (+ Cosmopolitan/GG backup)</div>
       </div>
       <div class="kpi-card maroon">
-        <div class="kpi-val" style="color:var(--vps-maroon)">4</div>
-        <div class="kpi-lbl">Playbook B Targets</div>
-        <div class="kpi-sub">O&amp;M concessions — mission &amp; Catholic hospitals</div>
+        <div class="kpi-val" style="color:var(--vps-maroon)">3</div>
+        <div class="kpi-lbl">Playbook B — O&amp;M Concessions</div>
+        <div class="kpi-sub">Lourdes, Caritas &amp; Bishop Benziger — mission / Catholic hospitals</div>
       </div>
       <div class="kpi-card teal">
         <div class="kpi-val" style="color:var(--teal)">1</div>
@@ -578,9 +646,9 @@ footer {
         <div class="kpi-sub">Pushpagiri Medical College — JV (51:49), residency pipeline for VPS network</div>
       </div>
       <div class="kpi-card accent">
-        <div class="kpi-val" style="color:var(--accent); font-size:1.5rem">₹1,530 Cr</div>
-        <div class="kpi-lbl">Portfolio Revenue FY30</div>
-        <div class="kpi-sub">23% EBITDA target — 9 O&amp;M + 6 acquisitions by FY30</div>
+        <div class="kpi-val" style="color:var(--accent); font-size:1.5rem">₹847 Cr</div>
+        <div class="kpi-lbl">FY30 Economic Revenue</div>
+        <div class="kpi-sub">~24.8% economic EBITDA margin · 9 base-case hospitals (O&amp;M = fee income only)</div>
       </div>
     </div>
 
@@ -606,9 +674,9 @@ footer {
             <div class="pb-text"><strong>KKR–Max benchmark:</strong> EBITDA from 9.7% to 27.2% in 36 months through the same six-lever operating reset VPS will deploy.</div>
           </div>
           <div class="pb-kpis">
-            <div class="pb-kpi"><div class="pb-kpi-val">22–28%</div><div class="pb-kpi-lbl">Target IRR</div></div>
+            <div class="pb-kpi"><div class="pb-kpi-val">22–24%</div><div class="pb-kpi-lbl">Y3 EBITDA Target</div></div>
             <div class="pb-kpi"><div class="pb-kpi-val">6–8×</div><div class="pb-kpi-lbl">Entry EV/EBITDA</div></div>
-            <div class="pb-kpi"><div class="pb-kpi-val">₹650–950 Cr</div><div class="pb-kpi-lbl">Total Capex</div></div>
+            <div class="pb-kpi"><div class="pb-kpi-val">~₹1,240 Cr</div><div class="pb-kpi-lbl">Owned EV (5 assets)</div></div>
           </div>
         </div>
       </div>
@@ -633,13 +701,57 @@ footer {
             <div class="pb-text"><strong>Aster DM benchmark:</strong> Identical structure proven in Kollam (Kerala) and Karnataka. +25–40% ARPOB improvement in 12–18 months.</div>
           </div>
           <div class="pb-kpis">
-            <div class="pb-kpi"><div class="pb-kpi-val" style="color:var(--vps-maroon)">5–8%</div><div class="pb-kpi-lbl">Mgmt Fee</div></div>
+            <div class="pb-kpi"><div class="pb-kpi-val" style="color:var(--vps-maroon)">6.5%</div><div class="pb-kpi-lbl">Mgmt Fee</div></div>
             <div class="pb-kpi"><div class="pb-kpi-val" style="color:var(--vps-maroon)">₹8–22 Cr</div><div class="pb-kpi-lbl">Fee/Hospital/Yr</div></div>
             <div class="pb-kpi"><div class="pb-kpi-val" style="color:var(--vps-maroon)">₹25–50 Cr</div><div class="pb-kpi-lbl">Total Deposits</div></div>
           </div>
         </div>
       </div>
     </div>
+  </div>
+
+  <!-- LONG-LIST MAP -->
+  <div class="section-block" id="longlist-map">
+    <div class="sec-eyebrow">Interactive Long-List Map</div>
+    <div class="sec-title">The Full <em>56-Hospital Universe</em></div>
+    <div class="sec-divider"></div>
+    <p class="sec-sub">Every brownfield candidate screened for Project Nila, mapped across all 14 districts and colour-coded by deal posture. Click any marker &mdash; or any hospital in the list &mdash; to see why VPS is pursuing it, or the specific reason it was ruled out. Use the filters to isolate active targets, the NCLT / distress channel, or the excluded set.</p>
+    <div class="ll-toolbar">
+      <div class="ll-chips" id="ll-chips"></div>
+      <input id="ll-search" class="ll-search" placeholder="Search hospital or town&hellip;" oninput="llSearch(this.value)">
+    </div>
+    <div class="ll-map-body">
+      <div id="ll-map"></div>
+      <div class="ll-side">
+        <div class="ll-legend-title">Posture &mdash; click to filter</div>
+        <div id="ll-legend"></div>
+        <hr class="ll-hr">
+        <div class="ll-legend-title">Hospitals <span id="ll-count" style="color:var(--vps-blue)"></span></div>
+        <div id="ll-list"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- LONG LIST -->
+  <div class="section-block" id="longlist">
+    <div class="sec-eyebrow">Long List &amp; Screening Rationale</div>
+    <div class="sec-title">Why <em>56 Became 11</em></div>
+    <div class="sec-divider"></div>
+    <p class="sec-sub">The brownfield universe began as 56 hospitals identified across Kerala. MCA / Tofler / Zauba and public-source diligence then filtered them down to the 11-name Tier-1 shortlist. The funnel below shows where candidates fell away &mdash; and every hospital, with its full rationale, is listed underneath. Filter by posture or search by name.</p>
+
+    <div class="funnel">
+      <div class="funnel-step" style="border-top:3px solid #475569"><div class="fn-n" style="color:#475569">56</div><div class="fn-l">Long list screened</div><div class="fn-s">All identifiable Kerala private/mission/co-op hospitals &ge;120 beds</div></div>
+      <div class="funnel-step" style="border-top:3px solid #DC2626"><div class="fn-n" style="color:#DC2626">&minus;7</div><div class="fn-l">Excluded outright</div><div class="fn-s">3 PE/chain-owned (Aster QCIL, KKR) or merged; 4 owners structurally closed to any deal</div></div>
+      <div class="funnel-step" style="border-top:3px solid #E0922B"><div class="fn-n" style="color:#E0922B">23</div><div class="fn-l">Open / watch</div><div class="fn-s">Lower-priority clinical-affiliate candidates kept in reserve, not in base case</div></div>
+      <div class="funnel-step" style="border-top:3px solid #2B7CBE"><div class="fn-n" style="color:#2B7CBE">26</div><div class="fn-l">Conditional / distress / NCLT</div><div class="fn-s">Actionable with gating resolved &mdash; the pool the 11-name shortlist is drawn from</div></div>
+      <div class="funnel-step" style="border-top:3px solid #16A34A"><div class="fn-n" style="color:#16A34A">11</div><div class="fn-l">Tier-1 shortlist</div><div class="fn-s">9 base case + 2 optionality &mdash; see Shortlist &amp; Network Map tabs</div></div>
+    </div>
+
+    <div class="ll-toolbar">
+      <div class="ll-chips2" id="ll-chips2"></div>
+      <input id="ll-search2" class="ll-search" placeholder="Search hospital or town&hellip;" oninput="llSearch2(this.value)">
+    </div>
+    <div id="ll-cards" class="ll-cards"></div>
   </div>
 
   <!-- MAP -->
@@ -650,7 +762,7 @@ footer {
     <div class="map-wrap">
       <div class="map-header">
         <div>
-          <div style="font-size:13px; font-weight:600; color:var(--tx)">11 hospitals across 7 districts — click any marker for deal details</div>
+          <div style="font-size:13px; font-weight:600; color:var(--tx)">11 Tier-1 sites (9 base case + 2 optionality) across 7 districts — click any marker for deal details</div>
           <div style="font-size:11px; color:var(--tx3); margin-top:2px">Spoke lines connect each target to VPS Lakeshore hub at Nettoor</div>
         </div>
         <div class="map-filters">
@@ -685,7 +797,7 @@ footer {
     <div class="sec-eyebrow">Target Universe</div>
     <div class="sec-title">11 Tier-1 Targets — <em>Full Scorecard</em></div>
     <div class="sec-divider"></div>
-    <p class="sec-sub">All 11 are actionable within 18 months. Priority 1 requires Chairman-level engagement within 60 days. Priority 2 targets are gated on legal clean-up or sequenced after first closings.</p>
+    <p class="sec-sub">Nine base-case targets are actionable within 18 months; Priority 1 requires Chairman-level engagement within 60 days. Cosmopolitan/GG is the Trivandrum backup to SUT Royal; Believers Church is excluded from the base case (governance crisis) and retained only as upside optionality.</p>
     <div class="tbl-wrap">
       <table class="tgt">
         <thead>
@@ -701,21 +813,21 @@ footer {
           </tr>
         </thead>
         <tbody>
-          <tr class="p1"><td><strong>Renai Medicity</strong></td><td>250</td><td>Kaloor, Kochi · Ernakulam</td><td>Equity acquisition (60–70%)</td><td>₹250–350 Cr</td><td><span class="pill pill-teal">DB5</span></td><td><span class="pill pill-blue">Priority 1</span></td><td><span class="pill pill-blue">Playbook A</span></td></tr>
-          <tr class="p1"><td><strong>Sunrise Hospital</strong></td><td>200</td><td>Kochi · Ernakulam</td><td>Equity acquisition (75–100%)</td><td>₹60–80 Cr</td><td><span class="pill pill-teal">DB5</span></td><td><span class="pill pill-blue">Priority 1</span></td><td><span class="pill pill-blue">Playbook A</span></td></tr>
+          <tr class="p1"><td><strong>Renai Medicity</strong></td><td>335</td><td>Kaloor, Kochi · Ernakulam</td><td>Equity acquisition (60–70%)</td><td>₹250–350 Cr</td><td><span class="pill pill-teal">DB5</span></td><td><span class="pill pill-blue">Priority 1</span></td><td><span class="pill pill-blue">Playbook A</span></td></tr>
+          <tr class="p1"><td><strong>Sunrise Hospital</strong></td><td>200</td><td>Kochi · Ernakulam</td><td>Equity acquisition (70%)</td><td>₹240 Cr</td><td><span class="pill pill-teal">DB5</span></td><td><span class="pill pill-blue">Priority 1</span></td><td><span class="pill pill-blue">Playbook A</span></td></tr>
           <tr class="p1"><td><strong>Lourdes Hospital</strong></td><td>600</td><td>Kochi · Ernakulam</td><td>O&amp;M concession (15–25 yr)</td><td>₹0 capex</td><td><span class="pill pill-teal">DB5</span></td><td><span class="pill pill-blue">Priority 1</span></td><td><span class="pill pill-maroon">Playbook B</span></td></tr>
-          <tr class="p1"><td><strong>Mother Hospital</strong></td><td>350</td><td>Thrissur</td><td>Equity acquisition (80–100%)</td><td>₹120–160 Cr</td><td><span class="pill pill-teal">DB5</span></td><td><span class="pill pill-blue">Priority 1</span></td><td><span class="pill pill-blue">Playbook A</span></td></tr>
-          <tr class="p1"><td><strong>Indo-American Hospital</strong></td><td>200</td><td>Alappuzha</td><td>Equity acquisition (75–100%)</td><td>₹60–80 Cr</td><td><span class="pill pill-amber">DB4</span></td><td><span class="pill pill-blue">Priority 1</span></td><td><span class="pill pill-blue">Playbook A</span></td></tr>
-          <tr class="p1"><td><strong>Pushpagiri Medical College</strong></td><td>700</td><td>Thiruvalla · Pathanamthitta</td><td>Academic JV (51:49)</td><td>₹0 capex</td><td><span class="pill pill-teal">DB5</span></td><td><span class="pill pill-blue">Priority 1</span></td><td><span class="pill" style="background:var(--accent-l);color:var(--accent)">Academic JV</span></td></tr>
+          <tr class="p1"><td><strong>Mother Hospital</strong></td><td>300</td><td>Thrissur</td><td>Equity acquisition (90%)</td><td>₹375 Cr</td><td><span class="pill pill-teal">DB5</span></td><td><span class="pill pill-blue">Priority 1</span></td><td><span class="pill pill-blue">Playbook A</span></td></tr>
+          <tr class="p1"><td><strong>Indo-American Hospital</strong></td><td>205</td><td>Alappuzha</td><td>Equity / amalgamation (85%)</td><td>₹185 Cr</td><td><span class="pill pill-amber">DB4</span></td><td><span class="pill pill-blue">Priority 1</span></td><td><span class="pill pill-blue">Playbook A</span></td></tr>
+          <tr class="p1"><td><strong>Pushpagiri Medical College</strong></td><td>678</td><td>Thiruvalla · Pathanamthitta</td><td>Academic JV (51:49)</td><td>₹0 capex</td><td><span class="pill pill-teal">DB5</span></td><td><span class="pill pill-blue">Priority 1</span></td><td><span class="pill" style="background:var(--accent-l);color:var(--accent)">Academic JV</span></td></tr>
           <tr class="p1"><td><strong>SUT Royal Hospital (NCLT)</strong></td><td>400</td><td>Kochulloor, Trivandrum</td><td>NCLT/IBC resolution</td><td>₹100–150 Cr</td><td><span class="pill pill-amber">DB4</span></td><td><span class="pill pill-blue">Priority 1</span></td><td><span class="pill pill-blue">Playbook A</span></td></tr>
           <tr><td>Bishop Benziger Hospital</td><td>600</td><td>Kollam</td><td>20-yr O&amp;M concession</td><td>₹0 capex</td><td><span class="pill pill-amber">DB4</span></td><td><span class="pill pill-amber">Priority 2</span></td><td><span class="pill pill-maroon">Playbook B</span></td></tr>
-          <tr><td>Cosmopolitan / GG Hospital</td><td>325</td><td>Thiruvananthapuram</td><td>Equity (backup track)</td><td>₹90–120 Cr</td><td><span class="pill pill-red">DB3</span></td><td><span class="pill pill-amber">Priority 2</span></td><td><span class="pill pill-blue">Playbook A</span></td></tr>
-          <tr><td>Caritas Hospital</td><td>700</td><td>Kottayam</td><td>O&amp;M / managed services</td><td>₹0 capex</td><td><span class="pill pill-amber">DB4</span></td><td><span class="pill pill-amber">Priority 2</span></td><td><span class="pill pill-maroon">Playbook B</span></td></tr>
-          <tr><td>Believers Church MC</td><td>743</td><td>Thiruvalla · Pathanamthitta</td><td>CoE → O&amp;M (phased)</td><td>₹0 capex</td><td><span class="pill pill-amber">DB4</span></td><td><span class="pill pill-amber">Priority 2</span></td><td><span class="pill pill-maroon">Playbook B</span></td></tr>
+          <tr><td>Cosmopolitan / GG Hospital</td><td>360</td><td>Thiruvananthapuram</td><td>Equity (backup to SUT)</td><td>₹300 Cr</td><td><span class="pill pill-red">DB3</span></td><td><span class="pill" style="background:var(--tx3);color:#fff">Backup</span></td><td><span class="pill pill-blue">Playbook A</span></td></tr>
+          <tr><td>Caritas Hospital</td><td>655</td><td>Kottayam</td><td>O&amp;M / managed services</td><td>₹0 capex</td><td><span class="pill pill-amber">DB4</span></td><td><span class="pill pill-amber">Priority 2</span></td><td><span class="pill pill-maroon">Playbook B</span></td></tr>
+          <tr style="opacity:.72"><td>Believers Church MC</td><td>743</td><td>Thiruvalla · Pathanamthitta</td><td>CoE → O&amp;M — <strong>excluded</strong> (governance crisis)</td><td>₹0 capex</td><td><span class="pill pill-red">Monitor</span></td><td><span class="pill" style="background:var(--red-l);color:var(--red)">Optionality</span></td><td><span class="pill pill-maroon">Playbook B</span></td></tr>
         </tbody>
       </table>
     </div>
-    <p style="font-size:11px; color:var(--tx3); margin-top:10px;">DB Score = Due Diligence Barrier (DB1–DB7). DB5 = clean to proceed. DB4 = minor gating. DB3 = pending title/legal clean-up. ✱ Bishop Benziger bed count DD-verified at 600 (originally 300). SUT Royal entity = TIHSL at Kochulloor. Pushpagiri updated to 700 beds.</p>
+    <p style="font-size:11px; color:var(--tx3); margin-top:10px;">DB Score = Due Diligence Barrier (DB1–DB7). DB5 = clean to proceed. DB4 = minor gating. DB3 = pending title/legal clean-up. Beds DD-verified (v9): Renai 335, Caritas 655, Pushpagiri 678, Mother 300, Indo-American 205, Bishop Benziger 600, Cosmopolitan 360. SUT Royal entity = TIHSL at Kochulloor (liquidation). Believers Church excluded from base case — founder died May 2024, FCRA registration cancelled, IT search/seizure pending; retained as optionality only.</p>
   </div>
 
   <!-- PHASES -->
@@ -726,34 +838,34 @@ footer {
     <p class="sec-sub">Both playbooks run in parallel from Day 1. Playbook B moves faster — no capital transfer, no title complexity — and should produce a signed agreement within 6 months.</p>
     <div class="phase-grid">
       <div class="phase-card">
-        <div class="phase-tag">Phase 1 · FY27</div>
+        <div class="phase-tag">Phase 1 · FY26–27</div>
         <div class="phase-period">Months 0–12</div>
         <div class="phase-goal">Foundation &amp; First Closings</div>
-        <div class="phase-item"><div class="phase-arr">›</div><div class="phase-text">Chairman-level engagement: Renai Medicity, Aswini Hospital (inbound), SUT Royal (NCLT)</div></div>
-        <div class="phase-item"><div class="phase-arr">›</div><div class="phase-text">First O&amp;M agreement signed: Lourdes or Pushpagiri by Month 6</div></div>
+        <div class="phase-item"><div class="phase-arr">›</div><div class="phase-text">Chairman-level engagement: Renai Medicity, SUT Royal (NCLT liquidation), first O&amp;M (Lourdes)</div></div>
+        <div class="phase-item"><div class="phase-arr">›</div><div class="phase-text">First O&amp;M LOI/term sheet (Lourdes or Caritas) — proof-of-concept before Tranche 1 vote</div></div>
         <div class="phase-item"><div class="phase-arr">›</div><div class="phase-text">NCLT counsel on retainer; SUT Royal resolution applicant pre-registered</div></div>
         <div class="phase-item"><div class="phase-arr">›</div><div class="phase-text">Kakkanad SmartCity land parcel locked; architect brief issued</div></div>
         <div class="phase-outcome">Target: 1 O&amp;M live · 1 acquisition LOI signed</div>
       </div>
       <div class="phase-card">
-        <div class="phase-tag">Phase 2 · FY28</div>
+        <div class="phase-tag">Phase 2 · FY27–28</div>
         <div class="phase-period">Months 12–36</div>
         <div class="phase-goal">Network Build &amp; Kochi Cluster</div>
-        <div class="phase-item"><div class="phase-arr">›</div><div class="phase-text">Close Renai + Aswini equity acquisitions; integrate into VPS procurement</div></div>
+        <div class="phase-item"><div class="phase-arr">›</div><div class="phase-text">Close Sunrise &amp; Mother equity acquisitions; integrate into VPS procurement</div></div>
         <div class="phase-item"><div class="phase-arr">›</div><div class="phase-text">Kottayam entry via Caritas managed services escalating to O&amp;M</div></div>
-        <div class="phase-item"><div class="phase-arr">›</div><div class="phase-text">Alappuzha entry via Indo-American Hospital; Kollam anchor via Bishop Benziger 20-yr O&M</div></div>
+        <div class="phase-item"><div class="phase-arr">›</div><div class="phase-text">Alappuzha entry via Indo-American Hospital; Kollam anchor via Bishop Benziger 20-yr O&amp;M</div></div>
         <div class="phase-item"><div class="phase-arr">›</div><div class="phase-text">Kakkanad Phase 1 construction underway (100 beds)</div></div>
-        <div class="phase-outcome">Target: 4–5 hospitals under VPS · ₹500+ Cr deployed</div>
+        <div class="phase-outcome">Target: 5–6 hospitals under VPS · ~₹1,140 Cr deployed</div>
       </div>
       <div class="phase-card">
-        <div class="phase-tag">Phase 3 · FY29–32</div>
+        <div class="phase-tag">Phase 3 · FY28+</div>
         <div class="phase-period">Months 36–60</div>
-        <div class="phase-goal">Full Network · ₹1,200 Cr Revenue</div>
+        <div class="phase-goal">Full Base Case · ₹847 Cr Econ. Revenue</div>
         <div class="phase-item"><div class="phase-arr">›</div><div class="phase-text">Kakkanad 200-bed campus open; step-down from Nettoor to Kakkanad</div></div>
         <div class="phase-item"><div class="phase-arr">›</div><div class="phase-text">Kozhikode presence established; Malabar corridor activated</div></div>
-        <div class="phase-item"><div class="phase-arr">›</div><div class="phase-text">Priority 1 assets crossing ₹120 Cr/year EBITDA threshold (22–28%)</div></div>
+        <div class="phase-item"><div class="phase-arr">›</div><div class="phase-text">Pushpagiri academic JV (51:49) executed; owned assets reaching ~24% Y3 EBITDA</div></div>
         <div class="phase-item"><div class="phase-arr">›</div><div class="phase-text">Gulf referral channel (Burjeel CIAL) running to all spoke hospitals</div></div>
-        <div class="phase-outcome">Target: 7–9 hospitals · 4,500+ beds · ₹1,200 Cr system revenue</div>
+        <div class="phase-outcome">Target: 9 base-case hospitals · ~3,900 network beds · ₹847 Cr economic revenue</div>
       </div>
     </div>
   </div>
@@ -764,48 +876,8 @@ footer {
     <div class="sec-title">The Case for <em>Acting Now.</em></div>
     <div class="sec-divider"></div>
     <p class="sec-sub">
-      A ₹2,000–2,500 Cr programme to build Kerala's first integrated hospital network across 11 sites over 24 months. The window is defined by the Aster–QCIL merger (final NCLT approval) and KKR locking North Kerala — best assets at pre-consolidation multiples are available for 18–24 months only.
+      A ₹2,150 Cr programme to build Kerala's first integrated hospital network across 9 base-case sites (plus 2 optionality) over 24 months. The window is defined by the Aster–QCIL merger (final NCLT approval) and KKR locking North Kerala — best assets at pre-consolidation multiples are available for 18–24 months only.
     </p>
-
-    <!-- Document registry -->
-    <div style="overflow-x:auto; border-radius:var(--rl); box-shadow:var(--sh); margin-bottom:28px;">
-      <table class="ic-doc-table">
-        <thead>
-          <tr>
-            <th style="width:36px">#</th>
-            <th style="width:220px">Document</th>
-            <th>Purpose</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td class="ic-doc-num">1</td>
-            <td><div class="ic-doc-name">VPS_Kerala_IC_Memorandum_v6</div><div class="ic-doc-type">docx &nbsp;·&nbsp; Primary Decision Document</div></td>
-            <td>11 Tier-1 targets (May 2026 update), 5-year network model, IRR/MOIC sensitivity, risk register, 90-day action plan. v6 May 2026.</td>
-          </tr>
-          <tr>
-            <td class="ic-doc-num">2</td>
-            <td><div class="ic-doc-name">VPS_Kerala_Chairman_Brief_v6</div><div class="ic-doc-type">docx &nbsp;·&nbsp; Supporting Narrative</div></td>
-            <td>24-target briefing with 7 DD-verified corrections (Bishop Benziger 600B, SUT Royal entity/location at TIHSL/Kochulloor, Lisie upgrade, Bharath O&amp;M reclassification). v6 May 2026.</td>
-          </tr>
-          <tr>
-            <td class="ic-doc-num">3</td>
-            <td><div class="ic-doc-name">VPS_Kerala_Chairman_Dossier_v6</div><div class="ic-doc-type">pptx &nbsp;·&nbsp; Visual Deck</div></td>
-            <td>47-slide deck — Aster-QCIL merger context, updated 11 Tier-1 target universe, hospital maturity curve, 5-year financial build. v6 May 2026.</td>
-          </tr>
-          <tr>
-            <td class="ic-doc-num">4</td>
-            <td><div class="ic-doc-name">VPS_Kerala_LBO_Model_v6</div><div class="ic-doc-type">xlsx &nbsp;·&nbsp; Financial Model</div></td>
-            <td>Full LBO and returns model — 8 sheets: programme summary, assumptions, sources &amp; uses, deal portfolio, operating model, debt schedule, returns &amp; sensitivity, financing options.</td>
-          </tr>
-          <tr>
-            <td class="ic-doc-num">5</td>
-            <td><div class="ic-doc-name">VPS_Kerala_DD_Checklist_v6</div><div class="ic-doc-type">xlsx &nbsp;·&nbsp; Due Diligence Tracker</div></td>
-            <td>83-item due diligence tracker across 11 workstreams (Commercial, Financial, Legal, Clinical, HR, IT, Real Estate, Regulatory, Insurance, ESG, Deal Structure).</td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
 
     <!-- Executive summary -->
     <div class="sec-eyebrow" style="margin-top:4px">Executive Summary</div>
@@ -819,12 +891,12 @@ footer {
       <div class="exec-card maroon">
         <div class="exec-num">02 — The Moat</div>
         <div class="exec-head">Mission hospitals — the asset Aster cannot buy</div>
-        <div class="exec-body">Playbook B targets Catholic and charitable hospitals that are structurally unsellable. VPS's operational track record, Catholic affinity, and non-listed status make it the only credible operator for these assets. Four hospitals, ~1,400 beds, zero acquisition premium.</div>
+        <div class="exec-body">Playbook B targets Catholic and charitable hospitals that are structurally unsellable. VPS's operational track record, Catholic affinity, and non-listed status make it the only credible operator for these assets. Three base-case mission hospitals, ~1,855 beds, zero acquisition premium — fee income only, not consolidated.</div>
       </div>
       <div class="exec-card accent">
         <div class="exec-num">03 — Network Economics</div>
         <div class="exec-head">Returns are built into the network, not any single deal</div>
-        <div class="exec-body">Individual deals may return 20–22% IRR. The combined network — shared procurement saving ₹28 Cr/year, Gulf referral channel adding ₹45 Cr incremental revenue, step-down capacity from Nettoor freeing quaternary beds — targets 28%+ blended IRR and 3.8× MOIC.</div>
+        <div class="exec-body">The base case is deliberately conservative: ~16.8% equity IRR and 1.9× MOIC — a strategic-platform return, priced below a financial-sponsor hurdle. Three excluded upside vectors — Nettoor step-down, Gulf referral (+₹45 Cr), shared procurement (+₹28 Cr/yr) — lift returns toward ~23% IRR / 2.85× MOIC in the bull case.</div>
       </div>
     </div>
   </div><!-- /ic-memo -->
@@ -834,7 +906,7 @@ footer {
     <div class="sec-eyebrow">Financial Summary</div>
     <div class="sec-title">5-Year <em>Financial Model.</em></div>
     <div class="sec-divider"></div>
-    <p class="sec-sub">All figures from the LBO model (LBO_Model v1). Base case assumes 7 hospitals operational by FY28, full 11-hospital network by FY30.</p>
+    <p class="sec-sub">All figures from the v9 model — VPS economic interest only (O&amp;M / managed hospitals contribute a management-fee stream, not consolidated hospital P&amp;L). Base case = 9 hospitals, full network by FY30.</p>
 
     <div style="overflow-x:auto; border-radius:var(--rl); box-shadow:var(--sh);">
       <table class="fin-table">
@@ -850,58 +922,58 @@ footer {
         </thead>
         <tbody>
           <tr>
-            <td>Network Revenue</td>
-            <td>320</td>
-            <td>485</td>
-            <td>672</td>
-            <td>895</td>
-            <td>1,180</td>
+            <td>Network economic revenue</td>
+            <td>115</td>
+            <td>382</td>
+            <td>657</td>
+            <td>811</td>
+            <td>847</td>
           </tr>
           <tr>
-            <td>Revenue Growth</td>
+            <td>Revenue growth</td>
             <td>—</td>
-            <td>51.6%</td>
-            <td>38.6%</td>
-            <td>33.2%</td>
-            <td>31.8%</td>
+            <td>232%</td>
+            <td>72%</td>
+            <td>23%</td>
+            <td>4%</td>
           </tr>
           <tr>
-            <td>EBITDA</td>
-            <td>54</td>
-            <td>92</td>
-            <td>141</td>
-            <td>206</td>
-            <td>295</td>
+            <td>Network economic EBITDA</td>
+            <td>29</td>
+            <td>95</td>
+            <td>163</td>
+            <td>201</td>
+            <td>210</td>
           </tr>
           <tr>
-            <td>EBITDA Margin</td>
-            <td>16.9%</td>
-            <td>19.0%</td>
-            <td>21.0%</td>
-            <td>23.0%</td>
+            <td>EBITDA margin</td>
+            <td>25.2%</td>
             <td>25.0%</td>
+            <td>24.9%</td>
+            <td>24.8%</td>
+            <td>24.8%</td>
           </tr>
           <tr>
-            <td>Capex &amp; Acquisition</td>
-            <td>(420)</td>
-            <td>(860)</td>
-            <td>(620)</td>
-            <td>(280)</td>
-            <td>(120)</td>
+            <td>Capital deployed (equity + debt)</td>
+            <td>(624)</td>
+            <td>(1,140)</td>
+            <td>(387)</td>
+            <td>—</td>
+            <td>—</td>
           </tr>
           <tr>
-            <td>Cumulative Capital Deployed</td>
-            <td>420</td>
-            <td>1,280</td>
-            <td>1,900</td>
-            <td>2,180</td>
-            <td>2,300</td>
+            <td>Cumulative capital deployed</td>
+            <td>624</td>
+            <td>1,764</td>
+            <td>2,150</td>
+            <td>2,150</td>
+            <td>2,150</td>
           </tr>
         </tbody>
         <tfoot>
           <tr>
-            <td>Total Programme Budget</td>
-            <td colspan="5">₹2,000–2,500 Cr equity + ₹800 Cr project finance</td>
+            <td>Total programme</td>
+            <td colspan="5">₹2,150 Cr — ₹1,183 Cr equity (55%) + ₹967.5 Cr debt (45%)</td>
           </tr>
         </tfoot>
       </table>
@@ -910,85 +982,24 @@ footer {
     <div class="returns-grid">
       <div class="ret-card bear">
         <div class="ret-scenario">Bear Case</div>
-        <div class="ret-irr">19%</div>
-        <div class="ret-moic">2.6× MOIC</div>
-        <div class="ret-assumption">5-hospital network by FY30. Margin improvement stalls at 18%. No Gulf referral uplift. Renai deal doesn't close.</div>
+        <div class="ret-irr">~2%</div>
+        <div class="ret-moic">1.1× MOIC</div>
+        <div class="ret-assumption">FY30 EBITDA 15% below base; exit multiples compress to 11× owned / 6× O&amp;M fee. Equity barely returned.</div>
       </div>
       <div class="ret-card base">
         <div class="ret-scenario">Base Case</div>
-        <div class="ret-irr">24%</div>
-        <div class="ret-moic">3.4× MOIC</div>
-        <div class="ret-assumption">8-hospital network. EBITDA margin reaches 24% by FY30. Procurement synergies ₹28 Cr/year from FY28. Gulf channel delivers ₹45 Cr incremental revenue.</div>
+        <div class="ret-irr">~16.8%</div>
+        <div class="ret-moic">1.9× MOIC</div>
+        <div class="ret-assumption">9-hospital base case. FY30 economic EBITDA ₹210 Cr (24.8%). Split-multiple exit: 14× owned / 12× JV / 8× O&amp;M fee. Upside vectors excluded.</div>
       </div>
       <div class="ret-card bull">
         <div class="ret-scenario">Bull Case</div>
-        <div class="ret-irr">28%</div>
-        <div class="ret-moic">3.8× MOIC</div>
-        <div class="ret-assumption">Full 11-hospital network. Margin 26%+ on Max Healthcare operating model. Kakkanad Phase 2 delivers 200 additional quaternary beds by FY31.</div>
+        <div class="ret-irr">~23.3%</div>
+        <div class="ret-moic">2.85× MOIC</div>
+        <div class="ret-assumption">FY30 EBITDA 15% above base; exit 17× owned / 10× O&amp;M. Upside vectors (Nettoor step-down, Gulf referral, procurement) captured.</div>
       </div>
     </div>
   </div><!-- /ic-financials -->
-
-  <!-- DECISIONS -->
-  <div class="section-block" id="ic-decisions">
-    <div class="sec-eyebrow">Decisions Required</div>
-    <div class="sec-title">Four Asks. <em>One Meeting.</em></div>
-    <div class="sec-divider"></div>
-    <p class="sec-sub">All four decisions are interlinked. D2 is the most time-sensitive — the SUT Royal NCLT window is a 45-day statutory deadline.</p>
-
-    <div style="overflow-x:auto; border-radius:var(--rl); box-shadow:var(--sh); margin-bottom:16px;">
-      <table class="decision-table">
-        <thead>
-          <tr>
-            <th style="width:40px">#</th>
-            <th>Decision</th>
-            <th style="width:160px">Urgency</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td class="d-num">D1</td>
-            <td>
-              <div class="d-action">Approve ₹2,000–2,500 Cr capital envelope</div>
-              <div class="d-detail">With Chairman authority to execute NDAs and LOIs up to ₹500 Cr per deal without further Board approval for each individual transaction.</div>
-            </td>
-            <td><span class="d-urg week">This Week</span></td>
-          </tr>
-          <tr>
-            <td class="d-num">D2</td>
-            <td>
-              <div class="d-action">Pre-clear ₹150 Cr for SUT Royal Hospital NCLT filing</div>
-              <div class="d-detail">45-day statutory window is open now. Must file as resolution applicant before window closes or lose priority to competing bidders.</div>
-            </td>
-            <td><span class="d-urg now">Immediate</span></td>
-          </tr>
-          <tr>
-            <td class="d-num">D3</td>
-            <td>
-              <div class="d-action">Authorise Head of Corporate Development hire</div>
-              <div class="d-detail">Dedicated deal principal reporting to Chairman. Concurrent mandate for Cyril Amarchand Mangaldas NCLT retainer to begin immediately.</div>
-            </td>
-            <td><span class="d-urg week">This Week</span></td>
-          </tr>
-          <tr>
-            <td class="d-num">D4</td>
-            <td>
-              <div class="d-action">Sign NDA with Renai Medicity</div>
-              <div class="d-detail">Actionable within 24 hours of Board mandate. Aster is already aware of this asset — the window is measured in weeks, not months.</div>
-            </td>
-            <td><span class="d-urg now">24 Hours</span></td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
-
-    <div class="alert-bar">
-      <div class="alert-icon">&#9888;</div>
-      <div class="alert-text">
-        <strong>Renai Medicity — Act Within 24 Hours.</strong> This is the highest-quality Kochi acquisition target (310 beds, NABH-accredited, ₹185–220 Cr deal range). Aster's corporate development team has mapped it. If VPS does not sign an NDA before Aster reaches the promoter family, this asset will be gone. The NDA requires only Chairman signature — legal review is already complete.
-      </div>
-    </div>
-  </div><!-- /ic-decisions -->
 
 </div><!-- /content -->
 
@@ -999,7 +1010,7 @@ footer {
       <img src="https://sameeraj89.github.io/vps_newconcepts/logo.png" alt="VPS">
       <span style="color:rgba(255,255,255,.5); font-size:13px; font-weight:600;">VPS Healthcare · Kerala Expansion Programme</span>
     </div>
-    <div class="footer-right">FY27–FY30 Strategic Plan · 11 Tier-1 Targets · Project Nila v6 · May 2026 · Confidential</div>
+    <div class="footer-right">FY26–FY30 Strategic Plan · 9 Base-Case + 2 Optionality Targets · Project Nila v9 · 56-Hospital Long List · May 2026 · Confidential</div>
   </div>
 </footer>
 
@@ -1008,17 +1019,17 @@ footer {
 const HOSPITALS = [
   { id:'flagship',   name:'VPS Lakeshore Medical Centre', city:'Nettoor, Ernakulam', district:'Ernakulam', lat:9.9726, lng:76.3199, beds:650, type:'flagship', playbook:'Flagship', priority:0, entry:'Existing Hub', deal:'--', colorClass:'flagship', desc:"Kerala's leading private quaternary care hospital. 650 beds, multi-organ transplant, cardiac surgery, haemato-oncology. Hub of the Project Nila spoke network.", action:'All acquired/managed hospitals feed complex cases to Nettoor.' },
   { id:'kakkanad',   name:'VPS Kakkanad New Campus', city:'SmartCity, Kakkanad', district:'Ernakulam', lat:10.0078, lng:76.3455, beds:200, type:'new-campus', playbook:'Organic', priority:0, entry:'Greenfield', deal:'Rs 450-500 Cr', colorClass:'new-campus', desc:'200-bed urban multispecialty at SmartCity. Captures IT workforce catchment and 40% corridor leakage to Aster Medcity. Expand to 350 beds by Year 7.', action:'6.17-acre land parcel (Plots B3-3 and B3-4). Groundbreak FY26.' },
-  { id:'renai',      name:'Renai Medicity',            city:'Kaloor, Kochi',      district:'Ernakulam',       lat:10.0104, lng:76.3040, beds:250, type:'target', playbook:'A', priority:1, entry:'Equity acquisition (60-70%)', deal:'Rs 250-350 Cr', score:'DB5', colorClass:'p1a', desc:'PURSUE NOW. 250-bed tertiary in Kaloor, Kochi. Strong cardiac and ortho. Working-capital distress has opened a pre-emption window closing in 6-9 months. Aster corporate development has already mapped this asset.', action:'Execute NDA within 30 days. LOI within 60 days. Engage Cyril Amarchand for SPA structuring.' },
-  { id:'sunrise',    name:'Sunrise Hospital',          city:'Kochi',              district:'Ernakulam',       lat:10.0051, lng:76.2988, beds:200, type:'target', playbook:'A', priority:1, entry:'Equity acquisition (75-100%)', deal:'Rs 60-80 Cr', score:'DB5', colorClass:'p1a', desc:"IVF and W&C specialty anchor. 200-bed. Pure additive bolt-on to Lakeshore enhancing women's health vertical and referral density in the Kochi cluster. Composite score 4.4/5.", action:'Term sheet within 30 days. Pure additive bolt-on alongside Renai.' },
+  { id:'renai',      name:'Renai Medicity',            city:'Kaloor, Kochi',      district:'Ernakulam',       lat:10.0104, lng:76.3040, beds:335, type:'target', playbook:'A', priority:1, entry:'Equity acquisition (60-70%)', deal:'Rs 250-350 Cr', score:'DB5', colorClass:'p1a', desc:'PURSUE NOW. 335-bed tertiary in Kaloor, Kochi (335 operational vs 500 capacity). Partnership firm — needs 5-sibling sign-off. CARE downgraded to B; issuer non-cooperating since 2022, so insist on FY23-25 audited accounts. Pre-emption window 6-9 months; Aster has mapped this asset.', action:'Execute NDA within 30 days. LOI within 60 days. Engage Cyril Amarchand for SPA structuring.' },
+  { id:'sunrise',    name:'Sunrise Hospital',          city:'Kochi',              district:'Ernakulam',       lat:10.0051, lng:76.2988, beds:200, type:'target', playbook:'A', priority:1, entry:'Equity acquisition (70%)', deal:'Rs 240 Cr', score:'DB5', colorClass:'p1a', desc:"IVF and W&C specialty anchor. 200-bed. Pure additive bolt-on to Lakeshore enhancing women's health vertical and referral density in the Kochi cluster. Composite score 4.4/5.", action:'Term sheet within 30 days. Pure additive bolt-on alongside Renai.' },
   { id:'lourdes',    name:'Lourdes Hospital',          city:'Kochi',              district:'Ernakulam',       lat:9.9941,  lng:76.2887, beds:600, type:'target', playbook:'B', priority:1, entry:'O&M concession (15-25 yr)', deal:'Rs 0 capex', score:'DB5', colorClass:'p1b', desc:'Largest Catholic-managed hospital in Kochi. 600 beds (DD-verified). Archdiocese of Verapoly. Will never be sold -- 15-yr O&M concession only. ARPOB target lift from Rs 19K to Rs 30-34K. Composite score 4.5/5.', action:'Engage Archbishop of Verapoly via Bishop channel. Target MoU by Q2 FY27.' },
-  { id:'mother',     name:'Mother Hospital',           city:'Thrissur',           district:'Thrissur',        lat:10.5254, lng:76.2075, beds:350, type:'target', playbook:'A', priority:1, entry:'Equity acquisition (80-100%)', deal:'Rs 120-160 Cr', score:'DB5', colorClass:'p1a', desc:'Central Kerala first-mover. 350-bed Thrissur urban anchor. Highest population catchment density after Ernakulam. Composite score 4.0/5. Thrissur cluster anchor.', action:'Engage promoters for NDA. Thrissur district cluster alongside Aswini (inbound).' },
-  { id:'indo',       name:'Indo-American Hospital',   city:'Alappuzha',          district:'Alappuzha',       lat:9.4874,  lng:76.3347, beds:200, type:'target', playbook:'A', priority:1, entry:'Equity acquisition (75-100%)', deal:'Rs 60-80 Cr', score:'DB4', colorClass:'p1a', desc:'Neuro-oncology bolt-on and Alappuzha coastal node. 200-bed. Gateway to backwater tourism medical travel corridor. Composite score 3.9/5.', action:'Outreach concurrent with Kochi cluster closings in FY27.' },
-  { id:'pushpagiri', name:'Pushpagiri Medical College', city:'Thiruvalla',       district:'Pathanamthitta',  lat:9.3731,  lng:76.5447, beds:700, type:'target', playbook:'Hybrid', priority:1, entry:'Academic JV (51:49)', deal:'Rs 0 capex', score:'DB5', colorClass:'p3', desc:'Malankara Orthodox Syrian Church -- will not sell equity. JV (51:49): VPS takes operating majority. 700-bed medical college hospital. Residency pipeline for VPS network. Highest Gulf-NRI ARPOB corridor.', action:'Phase 1: O&M framework MoU. Phase 2: JV documentation FY27. Engage via Bishop Benziger as warm introduction.' },
+  { id:'mother',     name:'Mother Hospital',           city:'Thrissur',           district:'Thrissur',        lat:10.5254, lng:76.2075, beds:300, type:'target', playbook:'A', priority:1, entry:'Equity acquisition (90%)', deal:'Rs 375 Cr', score:'DB5', colorClass:'p1a', desc:'Central Kerala first-mover. 300-bed Thrissur urban anchor (Dr M. Ali family, 2nd-generation succession). Highest population catchment density after Ernakulam. EV Rs 300-450 Cr.', action:'Engage founder generation with succession-monetisation framing. Co-brand for 24 months post-close.' },
+  { id:'indo',       name:'Indo-American Hospital',   city:'Alappuzha',          district:'Alappuzha',       lat:9.4874,  lng:76.3347, beds:205, type:'target', playbook:'A', priority:1, entry:'Equity / amalgamation (85%)', deal:'Rs 185 Cr', score:'DB4', colorClass:'p1a', desc:'Neuro-oncology bolt-on and Alappuzha coastal node. 200-bed. Gateway to backwater tourism medical travel corridor. Composite score 3.9/5.', action:'Outreach concurrent with Kochi cluster closings in FY27.' },
+  { id:'pushpagiri', name:'Pushpagiri Medical College', city:'Thiruvalla',       district:'Pathanamthitta',  lat:9.3731,  lng:76.5447, beds:678, type:'target', playbook:'Hybrid', priority:1, entry:'Academic JV (51:49)', deal:'Rs 0 capex', score:'DB5', colorClass:'p3', desc:'Syro-Malankara Catholic Archdiocese of Thiruvalla -- will not sell equity. JV (51:49): VPS takes operating majority. 678-bed medical college hospital; NMC/KUHS regulatory layers. Residency pipeline for VPS network. Highest Gulf-NRI ARPOB corridor.', action:'Phase 1: O&M framework MoU. Phase 2: JV documentation FY27. Engage via Bishop Benziger as warm introduction.' },
   { id:'sut',        name:'SUT Royal Hospital (NCLT)', city:'Kochulloor, Trivandrum', district:'Thiruvananthapuram', lat:8.5110, lng:76.9490, beds:400, type:'target', playbook:'A', priority:1, entry:'NCLT/IBC resolution', deal:'Rs 100-150 Cr', score:'DB4', colorClass:'p1a', desc:'TIHSL entity at Kochulloor (NOT Pattom -- SUT Pattom was sold to BR Life in 2022). 400-bed distressed tertiary on NH bypass. Rs 400 Cr replacement cost at Rs 100-150 Cr. Competing bids expected from Manipal and KIMS.', action:'Retainer Cyril Amarchand Mangaldas immediately. Pre-clear Rs 150 Cr. File Form A within 45 days.' },
-  { id:'benziger',   name:'Bishop Benziger Hospital', city:'Kollam',             district:'Kollam',          lat:8.8832,  lng:76.6060, beds:600, type:'target', playbook:'B', priority:2, entry:'O&M concession (20 yr)', deal:'Rs 0 capex', score:'DB4', colorClass:'p2b', desc:'Latin Catholic -- Diocese of Quilon (NOT CSI/Anglican -- governance corrected in v6). DD-verified 600 beds (playbook originally stated 300). NABH-accredited. NH-66 corridor anchor for Kollam district.', action:'Engage Bishop of Quilon (Most Rev. Alex Vadakumthala) via CBCK channel. NOT Kerala CSI Synod.' },
-  { id:'cosmopolitan',name:'Cosmopolitan / GG Hospital',city:'Thiruvananthapuram',district:'Thiruvananthapuram',lat:8.5032, lng:76.9503, beds:325, type:'target', playbook:'A', priority:2, entry:'Equity (backup track)', deal:'Rs 90-120 Cr', score:'DB3', colorClass:'p2a', desc:'Trivandrum contingency if SUT Royal NCLT stalls -- dual-track option. Title litigation gating. Commission title report before proceeding.', action:'Parallel track to SUT Royal. Commission title report first.' },
-  { id:'caritas',    name:'Caritas Hospital',          city:'Kottayam',           district:'Kottayam',        lat:9.5916,  lng:76.5222, beds:700, type:'target', playbook:'B', priority:2, entry:'O&M / managed services', deal:'Rs 0 capex', score:'DB4', colorClass:'p2b', desc:'Knanaya Archdiocese -- 700-bed Central Travancore anchor. Note: Matha Hospital (Thrissur) merged into Caritas network September 2024 -- do not pursue Matha as standalone target.', action:'Managed services pilot first. Escalate to full O&M in FY27.' },
-  { id:'believers',  name:'Believers Church MC',       city:'Thiruvalla',         district:'Pathanamthitta',  lat:9.3833,  lng:76.5590, beds:743, type:'target', playbook:'B', priority:2, entry:'CoE to O&M (phased)', deal:'Rs 0 capex', score:'DB4', colorClass:'p2b', desc:'743-bed medical college hospital. Oncology CoE carve-out -- phased management handover. Complements Pushpagiri in Pathanamthitta-Thiruvalla corridor.', action:'Outreach after Pushpagiri engagement is underway in FY27.' },
+  { id:'benziger',   name:'Bishop Benziger Hospital', city:'Kollam',             district:'Kollam',          lat:8.8832,  lng:76.6060, beds:600, type:'target', playbook:'B', priority:2, entry:'O&M concession (20 yr)', deal:'Rs 0 capex', score:'DB4', colorClass:'p2b', desc:'Latin Catholic -- Diocese of Quilon (NOT CSI/Anglican -- governance corrected in v9). DD-verified 600 beds (playbook originally stated 300). NABH-accredited. NH-66 corridor anchor for Kollam district.', action:'Engage Bishop of Quilon (Most Rev. Alex Vadakumthala) via CBCK channel. NOT Kerala CSI Synod.' },
+  { id:'cosmopolitan',name:'Cosmopolitan / GG Hospital',city:'Thiruvananthapuram',district:'Thiruvananthapuram',lat:8.5032, lng:76.9503, beds:360, type:'target', playbook:'A', priority:2, entry:'Equity (backup to SUT)', deal:'Rs 300 Cr', score:'DB3', colorClass:'p2a', desc:'Trivandrum contingency if SUT Royal NCLT stalls -- dual-track option. Title litigation gating. Commission title report before proceeding.', action:'Parallel track to SUT Royal. Commission title report first.' },
+  { id:'caritas',    name:'Caritas Hospital',          city:'Kottayam',           district:'Kottayam',        lat:9.5916,  lng:76.5222, beds:655, type:'target', playbook:'B', priority:2, entry:'O&M / managed services', deal:'Rs 0 capex', score:'DB4', colorClass:'p2b', desc:'Knanaya Archdiocese -- 700-bed Central Travancore anchor. Note: Matha Hospital (Thrissur) merged into Caritas network September 2024 -- do not pursue Matha as standalone target.', action:'Managed services pilot first. Escalate to full O&M in FY27.' },
+  { id:'believers',  name:'Believers Church MC',       city:'Thiruvalla',         district:'Pathanamthitta',  lat:9.3833,  lng:76.5590, beds:743, type:'target', playbook:'B', priority:2, entry:'CoE to O&M -- EXCLUDED (optionality)', deal:'Rs 0 capex', score:'Monitor', colorClass:'p2b', desc:'EXCLUDED FROM BASE CASE. Governance crisis: founder K.P. Yohannan died May-2024; FCRA registration cancelled; IT search/seizure (Rs 800+ Cr alleged). 743-bed hospital retained only as upside optionality -- do NOT advance for at least 12 months.', action:'MONITOR only. Re-assess once governance and FCRA position stabilise.' },
 ];
 
 const COLS = {
@@ -1150,7 +1161,7 @@ function mapFilter(v, el) {
 }
 
 // Smooth-scroll active nav
-const sections = ['overview','map-sec','targets','phases','ic-memo','ic-financials','ic-decisions'];
+const sections = ['overview','longlist-map','longlist','map-sec','targets','phases','ic-memo','ic-financials'];
 const navBtns = document.querySelectorAll('.nav-btn[href^="#"]');
 window.addEventListener('scroll', () => {
   let cur = sections[0];
@@ -1162,6 +1173,127 @@ window.addEventListener('scroll', () => {
     btn.classList.toggle('active', btn.getAttribute('href') === '#' + cur);
   });
 }, { passive: true });
+
+const LONGLIST = [{"id": 1, "name": "Renai Medicity", "loc": "Kaloor, Kochi", "district": "Ernakulam", "beds": "250", "own": "Family/Promoter", "tier": "T1", "posture": "Distressed signals", "deal": "Equity acquisition", "cat": "distress", "catLabel": "Distress — Pursue", "col": "#16A34A", "gloss": "Independent distress confirmed; highest-priority pre-emptive pursuit", "lat": 10.0104, "lng": 76.304, "whyfit": "Urban Kochi second-asset; complements Maradu without cannibalising", "redflags": "CRITICAL: CARE rating downgraded from BB+ (2020) → BB (2021) → B+ (2022) → B (2023); ISSUER NON-COOPERATING with credit rating agency since 2022 (no audited data shared); 335 operational beds (vs 500 capacity); plant ageing (FY12 commissioning); diversified group (hotels + healthcare + plantations + fisheries) — possible cross-subsidy issues", "ddnotes": "STRONG candidate per playbook — distress signals confirmed via independent rating action. Partnership firm structure means deal must navigate inter-sibling sign-offs (5 partners). Founder P.N. Krishnadas leads but four siblings have economic interest. EV ₹250-350 Cr range looks reasonable but FY17 revenue ₹93Cr → today probably ₹160-220 Cr. Insist on full audit pack pre-bid.", "entity": "", "promoter": "Polakulath Group of Hotels, Resorts & Healthcare (PGHR)"}, {"id": 2, "name": "Sunrise Hospital", "loc": "Kakkanad, Kochi", "district": "Ernakulam", "beds": "200", "own": "Family/Promoter", "tier": "T1", "posture": "Conditional", "deal": "Equity acquisition", "cat": "cond", "catLabel": "Conditional", "col": "#2B7CBE", "gloss": "Pursue with specific gating conditions resolved first", "lat": 10.0151, "lng": 76.3419, "whyfit": "IT-corridor anchor; strong W&C/IVF franchise we lack", "redflags": "Family-only board (4 family members, no independent directors); founder-doctor dependency very high — Dr Hafeez Rahman = brand; group spans multiple hospitals (Kakkanad, Erattupetta, Changaramkulam-Thrissur, Kanhangad, Kulanada-Pathanamthitta, possibly PVS Hospital Kozhikode via affiliation); FY22 'Small Enterprise' classification", "ddnotes": "STRONG STRATEGIC FIT per playbook. Multi-hospital network across Kerala — acquisition would include ALL 5-6 units (or only Kakkanad if structured as carve-out). Network effect adds spoke capacity at Pathanamthitta, Thrissur, Kasaragod, Pala. Hafeez family next gen (Taniya, Sonia) already on board — succession path visible. Conservative gearing implies clean balance sheet. EV likely ₹200-280 Cr per playbook but multi-unit deal could be ₹450-600 Cr.", "entity": "", "promoter": "Dr Hafeez Rahman Padiyath family — 100% family-held"}, {"id": 3, "name": "Lourdes Hospital", "loc": "Pachalam, Kochi", "district": "Ernakulam", "beds": "600", "own": "Mission/Trust", "tier": "T1", "posture": "Conditional", "deal": "O&M / concession", "cat": "cond", "catLabel": "Conditional", "col": "#2B7CBE", "gloss": "Pursue with specific gating conditions resolved first", "lat": 9.9941, "lng": 76.2887, "whyfit": "Archdiocese asset; transformative if attainable; needs modernisation capital", "redflags": "Religious-trust governance; ownership cannot transfer in equity sale; only O&M/concession route viable; 500 IPD/day + 1,700 OPD/day footprint; DNB postgraduate program in 14 specialties; NABH-accredited (first mission hospital in Kerala); founded by Dr Joseph Kalathiparambil", "ddnotes": "TRANSFORMATIVE PLAY per playbook. Confirms playbook's O&M/concession-only thesis. Critical path = Archbishop of Verapoly relationship. Long-tenor concession with VPS deploying ₹150-200 Cr modernisation capex is the only practical structure. Note: Archdiocese of Verapoly is Latin Catholic (Roman Catholic Latin Rite), distinct from Syro-Malabar / Syro-Malankara / Knanaya (which run Lisie/Pushpagiri/Caritas respectively). Different denominational politics matter.", "entity": "", "promoter": "Archdiocese of Verapoly (Latin Catholic, Kerala)"}, {"id": 4, "name": "Lisie Hospital", "loc": "Ernakulam North", "district": "Ernakulam", "beds": "1500", "own": "Mission/Trust", "tier": "T2", "posture": "Conditional", "deal": "CoE carve-out", "cat": "cond", "catLabel": "Conditional", "col": "#2B7CBE", "gloss": "Pursue with specific gating conditions resolved first", "lat": 9.9972, "lng": 76.2962, "whyfit": "Archdiocese sister; oncology CoE possible; otherwise well-managed", "redflags": "CORRECTION TO PLAYBOOK: Lisie is under Syro-Malabar Archdiocese of Ernakulam-Angamaly, while Lourdes is under Verapoly (Latin Rite). Different denominations — NOT 'Archdiocese sister'. 1500+ beds (playbook 600 — UNDERSTATED 2.5x). One of largest hospitals in Kerala. Lisie Heart Institute (Dr Jose Chacko Periappuram heads — performed Kerala's first heart transplant). Lisie Cancer Centre already exists with H&N, Med Onc, Rad Onc, Surg Onc, Nuc Med departments — VPS oncology CoE proposition needs reframing since Lisie ALREADY has full oncology depth", "ddnotes": "BEDS CORRECTED: 600 → 1,500+ (original playbook understated by 2.5×). REQUIRES PLAYBOOK REWRITE: Lisie is not a mid-tier 600-bed asset; it's a major 1,500-bed institution with established oncology. CoE carve-out is the wrong play. More likely a clinical-affiliate or specific service-line tie-up. Engagement path: Archbishop Cardinal George Alencherry (Ernakulam-Angamaly Major Archeparchy) — but Cardinal has been in canonical controversies; Mar Andrews Thazhath is current Archbishop after Cardinal stepped aside. Complicated diocesan politics.", "entity": "", "promoter": "Syro-Malabar Catholic Archdiocese of Ernakulam-Angamaly (NOT Verapoly — distinct from Lourdes)"}, {"id": 5, "name": "Rajagiri Hospital", "loc": "Aluva", "district": "Ernakulam", "beds": "600", "own": "Mission/Trust", "tier": "T2", "posture": "Closed", "deal": "CoE carve-out", "cat": "closed", "catLabel": "Ruled out — Closed", "col": "#7F8C9B", "gloss": "Owner will not engage in any transaction; clinical tie-up only at best", "lat": 10.1082, "lng": 76.352, "whyfit": "CMI Congregation; well-run, unlikely to engage; possible specialty tie-up", "redflags": "JCI + NABH + NABL accredited (international-grade); 690+ beds (playbook 600 — playbook understated, has grown to 690+); 40-acre campus at Chunangamvely Aluva; CLOSED posture per playbook is correct — CMI Sacred Heart Province unlikely to engage in equity sale; possible clinical affiliate / service-line partnership only", "ddnotes": "Confirmed CLOSED — CMI runs ~480 educational institutions across India including Rajagiri College, St. Aloysius, also Amala Thrissur (Devamatha Province). CMI partnership would require Prior General Fr. Paul Achandy approval. Cross-CMI relationship management complex. Clinical affiliate model best path.", "entity": "", "promoter": "Carmelites of Mary Immaculate (CMI) — Sacred Heart Province, Kochi — large Syro-Malabar Catholic religious congregation (founded 1831, HQ Kochi, 2,692 members/2,007 priests as of 2020)"}, {"id": 6, "name": "Medical Trust Hospital", "loc": "MG Road, Kochi", "district": "Ernakulam", "beds": "750", "own": "Family/Promoter", "tier": "T2", "posture": "Closed", "deal": "Equity acquisition", "cat": "closed", "catLabel": "Ruled out — Closed", "col": "#7F8C9B", "gloss": "Owner will not engage in any transaction; clinical tie-up only at best", "lat": 9.9785, "lng": 76.283, "whyfit": "Established brand; family-controlled; succession trigger needed", "redflags": "750 beds (matches playbook); Revenue ~$30.3M (~₹250 Cr) FY26 (RocketReach estimate); 1,000+ healthcare professionals (LinkedIn); Located MG Road Kochi 682016; CLOSED posture per playbook — family-controlled with all 4 directors being P.V. siblings; oldest of the family-owned major Kochi hospitals (1973)", "ddnotes": "CLOSED posture per playbook confirmed. P.V. family represents a different lineage from PVS Memorial (Parayarukandy Vettath) — different Kochi P.V. families. The 4-director structure (all siblings) suggests classic Kerala family-hospital governance; succession trigger would be founder generation retirement. Approach must be sibling-level, not banker-led. Material asset — 750 beds, ₹250 Cr revenue — would be Tier-1 worthy if seller were willing.", "entity": "", "promoter": "P.V. family (founder Dr. P.V. Antony's family) — closely held"}, {"id": 7, "name": "PVS Memorial Hospital", "loc": "Kaloor, Kochi · NCLT Kochi CIRP", "district": "Ernakulam", "beds": "200", "own": "Family/Promoter", "tier": "T2", "posture": "NCLT — CIRP", "deal": "NCLT resolution plan", "cat": "nclt", "catLabel": "NCLT / Distress channel", "col": "#8B1A4A", "gloss": "Acquire via NCLT/IBC resolution or liquidation — cheapest entry, complex", "lat": 10.009, "lng": 76.301, "whyfit": "Active NCLT case since Oct 2019; Kaloor urban asset; bilateral or resolution-plan route", "redflags": "CIRP COMPLICATION: (1) CIRP admitted 16-Oct-2019 by NCLT Kochi on petitions of Op Creditors Dr N P Kamalesh + OCS Group India Pvt Ltd; (2) IRP: Bijoy P Pulipra; (3) NCLAT restrained IRP from constituting CoC initially on P.V. Nidhish appeal; (4) Withdrawal applications (Form FA) filed Dec 2019 after settlement with promoter; (5) Subsequently a Resolution Plan was approved by CoC, allocating 99.29% to employee doctors but only 2.34% to consultant doctors (Other Op Creditors); (6) Dr Vijay Radhakrishnan (consultant doctor) appealed to NCLAT (dismissed) then SC accepted to examine; (7) NCLAT also addressed valuation challenge (15.62% variance between valuers ruled acceptable). Hospital continues to operate with 48 doctors listed", "ddnotes": "DD COMPLEXITY HIGH: Status genuinely uncertain. Playbook 'NCLT — CIRP' tag accurate but understates progress: a Resolution Plan WAS approved by CoC and only the discrimination challenge keeps matter alive at SC. Two scenarios: (A) SC upholds plan → corporate debt resolved → promoter retains control → bilateral commercial discussion with P.V. Nidhish becomes possible (playbook's recommended path); (B) SC strikes down plan → process restarts → fresh NCLT bid window opens. Watch SC ruling. 310 beds (playbook 200) — bed count understated. Kaloor urban Kochi location confirmed. ₹22.61 Cr paid-up suggests material balance sheet.", "entity": "", "promoter": "KTC Group — Parayarukandy Vettath family; hospital named after late P V Sami"}, {"id": 8, "name": "Specialists Hospital", "loc": "Ernakulam South", "district": "Ernakulam", "beds": "200", "own": "Family/Promoter", "tier": "T2", "posture": "Conditional", "deal": "Equity acquisition", "cat": "cond", "catLabel": "Conditional", "col": "#2B7CBE", "gloss": "Pursue with specific gating conditions resolved first", "lat": 9.969, "lng": 76.29, "whyfit": "Established mid-size; complements ENT/uro service lines", "redflags": "200 beds (per playbook); Ernakulam North location (opp. North Railway Station); specialty depth in Plastic & Microvascular surgery, Urology; small footprint vs major Kochi peers; led by single founder-doctor (Plastic Surgeon) — succession dependency", "ddnotes": "Founder-doctor dependency = Dr. Rajappan is the brand. Verify his age/clinical activity status. If retiring, succession sale becomes natural transaction. 'Conditional' posture per playbook accurate. EV likely ₹100-150 Cr range based on bed count and specialty focus.", "entity": "", "promoter": "Dr. K.R. Rajappan family"}, {"id": 9, "name": "Welcare Hospital", "loc": "Mulanthuruthy", "district": "Ernakulam", "beds": "120", "own": "Family/Promoter", "tier": "T3", "posture": "Conditional", "deal": "Equity acquisition", "cat": "cond", "catLabel": "Conditional", "col": "#2B7CBE", "gloss": "Pursue with specific gating conditions resolved first", "lat": 9.887, "lng": 76.403, "whyfit": "Suburban spoke; secondary care anchor for southern Ernakulam", "redflags": "Limited public disclosure; 120-bed suburban spoke at Mulanthuruthy", "ddnotes": "Tier-3 — light-touch DD. Suburban Ernakulam asset; secondary care anchor for southern district. Equity acquisition target per playbook. Need direct outreach to identify legal entity and promoter.", "entity": "", "promoter": ""}, {"id": 10, "name": "Mar Baselios Medical Mission", "loc": "Kothamangalam", "district": "Ernakulam", "beds": "200", "own": "Mission/Trust", "tier": "T3", "posture": "Open", "deal": "Clinical affiliate", "cat": "open", "catLabel": "Open / Watch", "col": "#E0922B", "gloss": "Lower priority — clinical-affiliate or watch; engage opportunistically", "lat": 10.056, "lng": 76.63, "whyfit": "Idukki-border spoke; gateway to hills catchment", "redflags": "200 beds; Kothamangalam location; Idukki-border gateway spoke", "ddnotes": "Tier-3 — Clinical affiliate model per playbook. Mission/Catholic institution requires diocesan engagement, light-touch.", "entity": "", "promoter": "Syro-Malabar Catholic mission (Eparchy of Idukki area)"}, {"id": 11, "name": "MOSC Medical College", "loc": "Kolenchery", "district": "Ernakulam", "beds": "700", "own": "Mission/Trust", "tier": "T3", "posture": "Open", "deal": "Clinical affiliate", "cat": "open", "catLabel": "Open / Watch", "col": "#E0922B", "gloss": "Lower priority — clinical-affiliate or watch; engage opportunistically", "lat": 9.981, "lng": 76.466, "whyfit": "Malankara Orthodox flagship; residency partnership; community sensitive", "redflags": "700 beds; Kolenchery flagship; medical college; community-sensitive (Orthodox congregation); Affiliated KUHS", "ddnotes": "Tier-3 per playbook. Malankara Orthodox Syrian Church is one of the major Orthodox denominations in Kerala (distinct from Jacobite Syrian Christian Church — different sect). Engagement via Catholicos of the East (head of Church). Politically sensitive — there are unresolved litigations between Orthodox and Jacobite factions over church properties.", "entity": "", "promoter": "Malankara Orthodox Syrian Church — Catholicos administered"}, {"id": 12, "name": "Carmel Hospital", "loc": "Aluva", "district": "Ernakulam", "beds": "150", "own": "Mission/Trust", "tier": "T3", "posture": "Open", "deal": "Clinical affiliate", "cat": "open", "catLabel": "Open / Watch", "col": "#E0922B", "gloss": "Lower priority — clinical-affiliate or watch; engage opportunistically", "lat": 10.101, "lng": 76.356, "whyfit": "Aluva-Angamaly corridor coverage", "redflags": "150 beds; Aluva-Angamaly corridor", "ddnotes": "Tier-3 — Clinical affiliate per playbook. Light-touch outreach.", "entity": "", "promoter": "Carmelite congregation (Aluva-Angamaly area)"}, {"id": 13, "name": "Sree Sudheendra Medical Mission", "loc": "Kochi", "district": "Ernakulam", "beds": "150", "own": "Mission/Trust", "tier": "T3", "posture": "Open", "deal": "Clinical affiliate", "cat": "open", "catLabel": "Open / Watch", "col": "#E0922B", "gloss": "Lower priority — clinical-affiliate or watch; engage opportunistically", "lat": 9.982, "lng": 76.287, "whyfit": "Diabetes/endocrine focus; specialty referrals", "redflags": "150 beds; diabetes/endocrine focus; specialty referral catchment", "ddnotes": "Tier-3 — Clinical affiliate. Specialty diabetes referrals fit VPS endocrine pathway. Hindu-affiliated trust (named after spiritual figure Sree Sudheendra Theerthar).", "entity": "", "promoter": "Hindu charitable trust (Sree Sudheendra Theerthar legacy)"}, {"id": 14, "name": "Caritas Hospital", "loc": "Kottayam", "district": "Kottayam", "beds": "700", "own": "Mission/Trust", "tier": "T1", "posture": "Conditional", "deal": "O&M / concession", "cat": "cond", "catLabel": "Conditional", "col": "#2B7CBE", "gloss": "Pursue with specific gating conditions resolved first", "lat": 9.5916, "lng": 76.5222, "whyfit": "Knanaya Catholic flagship; locks central Travancore; modernisation gap", "redflags": "Trust ownership = no equity sale possible; located in Thellakom (not Kottayam town centre as playbook implies — same village as Matha Hospital); 655 beds (playbook says 700); NABH-accredited since 2015 (first in Kottayam); 1st NABH Ethics Committee accreditation in central Kerala (2019); first NABH Nursing Excellence Cert in district", "ddnotes": "GEOGRAPHIC LOCK candidate per playbook. Mar Mathew Moolakkatt patron must approve any partnership. Knanaya denomination is small but highly cohesive — community-NRI pipeline strong (US, Gulf, UK Knanaya diaspora). Trust also runs Caritas College of Nursing, Pharmacy, IMER. 25-year O&M concession with affordable-care commitment in contract is the only structure that will fly. Diocesan succession dynamics need monitoring — Moolakkatt is the patron, Pandarasseril is the Chairman. | UPDATE (Sept 2024): Matha Hospital merged into Caritas as 'Caritas Matha Hospital' — combined capacity now ~700–800 beds.", "entity": "", "promoter": "Knanaya Catholic Archdiocese of Kottayam (Syro-Malabar Knanaya Catholic Archeparchy of Kottayam)"}, {"id": 15, "name": "Bharath Hospital", "loc": "Kottayam", "district": "Kottayam", "beds": "300", "own": "Family/Promoter", "tier": "T2", "posture": "Conditional", "deal": "Equity acquisition", "cat": "cond", "catLabel": "Conditional", "col": "#2B7CBE", "gloss": "Pursue with specific gating conditions resolved first", "lat": 9.581, "lng": 76.518, "whyfit": "Family second-generation; central Kerala urban anchor", "redflags": "MATERIAL CORRECTION TO PLAYBOOK: Bharath Hospital is a 'Charitable Hospital Society' (not family-owned Pvt Ltd as playbook 'Family/Promoter' tag implies). Society governance changes deal mechanics. 175 beds (playbook 300 — playbook overstated by 70%); NABH Safe-I (lower-tier) only; located Azad Lane, Puthenangady, Kottayam 686001", "ddnotes": "Society structure means traditional equity acquisition not possible — would need scheme of arrangement / society dissolution-and-transfer process. 60+ consultants, decent depth. Closer to Bishop Benziger model than Mother Hospital model in structural terms. Recommend reclassifying as O&M target, not equity.", "entity": "", "promoter": "Bharath Charitable Hospital Society — under Pillai family"}, {"id": 16, "name": "Matha Hospital", "loc": "Thellakam, Kottayam", "district": "Kottayam", "beds": "400", "own": "Mission/Trust", "tier": "T2", "posture": "MERGED INTO CARITAS — remove as standalone target", "deal": "Not applicable — merged into Caritas Hospital (#14)", "cat": "excl", "catLabel": "Excluded — Merged", "col": "#DC2626", "gloss": "No longer an independent target — merged into another listed asset", "lat": 9.608, "lng": 76.547, "whyfit": "Large Catholic mission; KIMS-adjacent; modernisation pressure", "redflags": "CRITICAL CORRECTION TO PLAYBOOK: Matha Hospital is NO LONGER INDEPENDENT. As of 7 September 2024, Matha Hospital opened as 'CARITAS MATHA HOSPITAL' — merged into Caritas Hospital network under Knanaya Catholic Archdiocese of Kottayam. Listed as separate target in playbook is INVALID. New combined Caritas + Matha footprint ~1,000+ beds in Thellakom-Ettumanoor area (Caritas 655 + Matha 400)", "ddnotes": "MERGED (Sept 2024): Matha Hospital (Thellakam) merged into Caritas as 'Caritas Matha Hospital'. No longer a standalone target. Engage via Caritas entry (#14). Combined Caritas capacity ~700–800 beds.", "entity": "", "promoter": "Knanaya Catholic Archdiocese of Kottayam (via Caritas Trust)"}, {"id": 17, "name": "Mar Sleeva Medicity", "loc": "Cherpunkal", "district": "Kottayam", "beds": "300", "own": "Mission/Trust", "tier": "T3", "posture": "Open", "deal": "Clinical affiliate", "cat": "open", "catLabel": "Open / Watch", "col": "#E0922B", "gloss": "Lower priority — clinical-affiliate or watch; engage opportunistically", "lat": 9.705, "lng": 76.642, "whyfit": "Newer mission asset; oncology partnership potential", "redflags": "300 beds; relatively new; potential oncology partner", "ddnotes": "Tier-3 per playbook — Clinical affiliate / oncology partnership potential. Syro-Malabar mission via Palai Eparchy.", "entity": "", "promoter": "Catholic Eparchy of Palai (Syro-Malabar) — Cherpunkal location"}, {"id": 18, "name": "KIMS Kottayam", "loc": "Kottayam", "district": "Kottayam", "beds": "250", "own": "PE-owned", "tier": "T3", "posture": "Closed", "deal": "Clinical affiliate", "cat": "closed", "catLabel": "Ruled out — Closed", "col": "#7F8C9B", "gloss": "Owner will not engage in any transaction; clinical tie-up only at best", "lat": 9.574, "lng": 76.521, "whyfit": "PE-owned; off the table; track for competitive intelligence only", "redflags": "PE-OWNED — exclude from target universe; 90 beds (smallest in KIMS Kerala network)", "ddnotes": "Off-table per playbook — competitive intel only. Smaller asset in KIMS network.", "entity": "", "promoter": "KIMSHEALTH (now Aster Quality Care Ltd — Aster DM + KIMS merger Nov 2024)"}, {"id": 19, "name": "Pushpagiri Medical College", "loc": "Tiruvalla", "district": "Pathanamthitta", "beds": "700", "own": "Mission/Trust", "tier": "T1", "posture": "Conditional", "deal": "JV", "cat": "cond", "catLabel": "Conditional", "col": "#2B7CBE", "gloss": "Pursue with specific gating conditions resolved first", "lat": 9.3731, "lng": 76.5447, "whyfit": "Catholic medical college; clinical residency pipeline; NRI catchment", "redflags": "Society governance under Archdiocese; 678 beds (playbook 700); 100 MBBS seats/yr; KUHS-affiliated, NMC-recognised; complex multi-institution group (Pushpagiri Heart Institute, Cyril Baselios Catholicos Hospital, Medicity, dental/nursing/pharmacy colleges); medical college regulatory regime (NMC, KUHS) adds layers", "ddnotes": "RESIDENCY ANCHOR per playbook. JV with 51:49 / 50:50 structure as playbook proposes is the right model. Note: Tiruvalla market has 3 large institutions — Pushpagiri (Syro-Malankara), Believers (Believers Eastern Church), TMM (Brethren) — denominationally distinct, do not consolidate easily. Important: distinguish from neighbouring Pushpagiri Heart Institute (cardiac sub-unit) and Cyril Baselios Catholicos Hospital (separate facility same trust).", "entity": "", "promoter": "Syro-Malankara Catholic Archdiocese of Thiruvalla (NOT Syro-Malabar)"}, {"id": 20, "name": "Believers Church Medical College", "loc": "Tiruvalla", "district": "Pathanamthitta", "beds": "743", "own": "Mission/Trust", "tier": "T1", "posture": "Conditional", "deal": "CoE carve-out", "cat": "cond", "catLabel": "Conditional", "col": "#2B7CBE", "gloss": "Pursue with specific gating conditions resolved first", "lat": 9.3833, "lng": 76.559, "whyfit": "Newer 743-bed medical college; oncology CoE potential; central Kerala NRI", "redflags": "CRITICAL: K.P. Yohannan (founder) died 8 May 2024 in Texas (age 74); 2017 — Central govt PROHIBITED Believers Church from FCRA / accepting foreign contributions after allegations of receiving Rs 1,000+ Cr; 2020 — Income Tax department raids on Yohannan's properties in Kottayam & Pathanamthitta, ₹54 lakh confiscated from car; Synod transitioned through 9-member Episcopal Council headed by Samuel Theophilus post Yohannan's death; ongoing conversion controversy (criticism from BJP/RSS); newer 25-acre campus and modern plant", "ddnotes": "ONCOLOGY CoE candidate per playbook. CRITICAL DD ISSUES uncovered: (1) FCRA ban means foreign donor flows blocked since 2017 — Church's funding model materially altered; (2) IT raids leave reputational tail; (3) founder died May 2024 — succession transition very recent; new Metropolitan Samuel Theophilus may be MORE open to institutional partnership (governance modernisation post-Yohannan); (4) Believers Eastern Church is INDEPENDENT (not under any traditional church hierarchy) — uniquely standalone. Recommend cautious 6-month diligence on FCRA/IT issues before any structural commitment. White-labelled CoE remains the right entry but with enhanced reputational risk.", "entity": "", "promoter": "Believers Eastern Church (formerly Believers Church) — founded 1993 by K.P. Yohannan"}, {"id": 21, "name": "St. Gregorios Medical Mission", "loc": "Parumala", "district": "Pathanamthitta", "beds": "250", "own": "Mission/Trust", "tier": "T2", "posture": "Open", "deal": "O&M / concession", "cat": "open", "catLabel": "Open / Watch", "col": "#E0922B", "gloss": "Lower priority — clinical-affiliate or watch; engage opportunistically", "lat": 9.334, "lng": 76.543, "whyfit": "Orthodox Church flagship; established brand; pilgrim catchment", "redflags": "250 beds; Parumala (key Orthodox pilgrim site — St Gregorios of Parumala shrine adjacent)", "ddnotes": "Tier-2 mission per playbook. Parumala is a major Orthodox pilgrimage site (St Gregorios canonized 2017); patient flow includes pilgrim catchment. Engagement via Malankara Metropolitan.", "entity": "", "promoter": "Malankara Orthodox Syrian Church — Parumala (pilgrim site, St Gregorios shrine)"}, {"id": 22, "name": "Tiruvalla Medical Mission", "loc": "Tiruvalla", "district": "Pathanamthitta", "beds": "200", "own": "Mission/Trust", "tier": "T3", "posture": "Open", "deal": "Clinical affiliate", "cat": "open", "catLabel": "Open / Watch", "col": "#E0922B", "gloss": "Lower priority — clinical-affiliate or watch; engage opportunistically", "lat": 9.379, "lng": 76.574, "whyfit": "Heritage Brethren mission (est. 1935); referral spoke", "redflags": "200 beds; heritage Brethren mission; Tiruvalla NRI catchment overlap with Pushpagiri, Believers", "ddnotes": "Tier-3 per playbook — Clinical affiliate. One of three major mission hospitals in Tiruvalla.", "entity": "", "promoter": "Brethren church (independent evangelical denomination)"}, {"id": 23, "name": "Fellowship Mission Hospital", "loc": "Kumbanad", "district": "Pathanamthitta", "beds": "200", "own": "Mission/Trust", "tier": "T3", "posture": "Open", "deal": "Clinical affiliate", "cat": "open", "catLabel": "Open / Watch", "col": "#E0922B", "gloss": "Lower priority — clinical-affiliate or watch; engage opportunistically", "lat": 9.347, "lng": 76.576, "whyfit": "Strong NRI inflow district; complementary catchment", "redflags": "200 beds; strong NRI inflow district (Kumbanad NRI density high)", "ddnotes": "Tier-3 — referral spoke. Kumbanad is known for high NRI density — many Kerala Christians in Gulf hail from this region.", "entity": "", "promoter": "Brethren church (Kumbanad)"}, {"id": 24, "name": "Muthoot Medical Centre", "loc": "Pathanamthitta", "district": "Pathanamthitta", "beds": "150", "own": "Family/Promoter", "tier": "T3", "posture": "Open", "deal": "Clinical affiliate", "cat": "open", "catLabel": "Open / Watch", "col": "#E0922B", "gloss": "Lower priority — clinical-affiliate or watch; engage opportunistically", "lat": 9.264, "lng": 76.787, "whyfit": "Muthoot family connection; spoke for north Pathanamthitta", "redflags": "150 beds; northern Pathanamthitta location; Muthoot family is major Indian business house (Muthoot Finance listed on NSE)", "ddnotes": "Tier-3 — Clinical affiliate. Muthoot Group is large diversified business (Muthoot Finance is one of India's largest gold-loan NBFCs). Family is well-capitalised — unlikely to be motivated seller. Group has multiple healthcare ventures across India including Muthoot Healthcare.", "entity": "", "promoter": "Muthoot family (Muthoot Group — financial services major)"}, {"id": 25, "name": "Indo-American Hospital, Brain & Spine", "loc": "Vaikom border", "district": "Alappuzha", "beds": "200", "own": "Family/Promoter", "tier": "T1", "posture": "Conditional", "deal": "Equity acquisition", "cat": "cond", "catLabel": "Conditional", "col": "#2B7CBE", "gloss": "Pursue with specific gating conditions resolved first", "lat": 9.748, "lng": 76.393, "whyfit": "Neuro-oncology brand; perfect bolt-on for Lakeshore tumour board", "redflags": "CRITICAL SUCCESSION RISK: Founder Dr Kumar Bahuleyan was 81 in 2013, so ~94 today (if alive); founder has lived in Buffalo NY since 1973; no clear in-family clinical succession; charitable foundation = not equity-sellable but trust-deed amendments and going-concern transfer possible; 205 beds (playbook 200) — expanded from original brain/spine focus to general hospital; neurosurgery/neurology specialty depth is the asset", "ddnotes": "PURE BOLT-ON per playbook. Verify Dr Bahuleyan's current status (alive/health) — succession dynamics fundamentally driven by founder's age. BCF foundation governance must be probed: trustees list, succession in trust deed, alternate trustees. Asset is structurally a US-funded charitable trust with founder no longer clinically active. EV ₹150-220 Cr per playbook reasonable but contingent on trust-deed flexibility — may need scheme of amalgamation with VPS-controlled trust, not equity acquisition. Day-90 unified oncology pathway viable IF clinical talent retained.", "entity": "", "promoter": "Bahuleyan Charitable Foundation — funded by Dr Kumar Bahuleyan's personal fortune (~$20M donation)"}, {"id": 26, "name": "St. Thomas Mission Hospital", "loc": "Kattanam", "district": "Alappuzha", "beds": "150", "own": "Mission/Trust", "tier": "T3", "posture": "Open", "deal": "Clinical affiliate", "cat": "open", "catLabel": "Open / Watch", "col": "#E0922B", "gloss": "Lower priority — clinical-affiliate or watch; engage opportunistically", "lat": 9.173, "lng": 76.547, "whyfit": "Backwater catchment; rural spoke", "redflags": "150 beds; backwater catchment; rural spoke", "ddnotes": "Tier-3 per playbook — Clinical affiliate. Rural Alappuzha asset.", "entity": "", "promoter": "Christian mission (Kattanam, backwater area)"}, {"id": 27, "name": "St. Gregorios Mission", "loc": "Mannar", "district": "Alappuzha", "beds": "120", "own": "Mission/Trust", "tier": "T3", "posture": "Open", "deal": "Clinical affiliate", "cat": "open", "catLabel": "Open / Watch", "col": "#E0922B", "gloss": "Lower priority — clinical-affiliate or watch; engage opportunistically", "lat": 9.312, "lng": 76.535, "whyfit": "Mavelikara-Mannar belt coverage", "redflags": "120 beds; Mavelikara-Mannar belt", "ddnotes": "Tier-3 — Clinical affiliate. Smaller Orthodox mission in Alappuzha district.", "entity": "", "promoter": "Orthodox Church (Mannar location)"}, {"id": 28, "name": "Bishop Benziger Hospital", "loc": "Kollam", "district": "Kollam", "beds": "300", "own": "Mission/Trust", "tier": "T1", "posture": "Conditional", "deal": "O&M / concession", "cat": "cond", "catLabel": "Conditional", "col": "#2B7CBE", "gloss": "Pursue with specific gating conditions resolved first", "lat": 8.8832, "lng": 76.606, "whyfit": "CSI flagship; Kollam city anchor; NH-66 frontage", "redflags": "CORRECTION TO PLAYBOOK: Owned by Latin Catholic Diocese of Quilon, NOT CSI/Anglican. This materially changes governance approach — Vatican-aligned Catholic governance, not autonomous Anglican Synod. 600-bed (playbook 300) — playbook bed count understated by 2x; 'NABH Safe-I certified' (a lower-tier accreditation than full NABH); coastal-community focus; charity-orientation explicitly stated ('not a profit-oriented institution')", "ddnotes": "KOLLAM ANCHOR per playbook — thesis valid but execution path different from CSI assumption. Latin Catholic governance is more hierarchical (Bishop's authority over diocese institutions absolute). Approach is via Bishop Paul Antony Mullassery + Apostolic Nuncio if needed. CSI playbook framing was wrong — this is NOT Anglican Synod. Recommended deal type unchanged (20-yr O&M concession) but capex sizing (₹75-100 Cr) probably understated given actual 600-bed footprint (vs 300 assumed). Re-budget at ₹150-200 Cr modernisation.", "entity": "", "promoter": "LATIN CATHOLIC Diocese of Quilon (CORRECTION: playbook says CSI/Anglican — this is WRONG; it is Roman Catholic Latin Rite)"}, {"id": 29, "name": "Holy Cross Hospital", "loc": "Kottiyam, Kollam", "district": "Kollam", "beds": "200", "own": "Mission/Trust", "tier": "T2", "posture": "Conditional", "deal": "O&M / concession", "cat": "cond", "catLabel": "Conditional", "col": "#2B7CBE", "gloss": "Pursue with specific gating conditions resolved first", "lat": 8.833, "lng": 76.647, "whyfit": "Carmelite mission; NH-66 location; underserved southern catchment", "redflags": "200 beds; NH-66 location; underserved southern Kollam catchment", "ddnotes": "Tier-2 per playbook — O&M / concession. Catholic mission under Carmelite congregation (likely CMI or OCD variant).", "entity": "", "promoter": "Carmelite congregation (Kottiyam location)"}, {"id": 30, "name": "Upasana Hospital", "loc": "Kollam", "district": "Kollam", "beds": "200", "own": "Family/Promoter", "tier": "T2", "posture": "Conditional", "deal": "Equity acquisition", "cat": "cond", "catLabel": "Conditional", "col": "#2B7CBE", "gloss": "Pursue with specific gating conditions resolved first", "lat": 8.89, "lng": 76.587, "whyfit": "Family-run urban; underserved tertiary gap in Kollam", "redflags": "350 beds (playbook 200 — UNDERSTATED 1.75x); Diabetes Care Centre (UDCC) specialty focus; NABH Pre-Accreditation Entry Level (lowest tier); ₹1 lakh paid-up capital is nominal — true value sits in RP Group books; RP Group (Ravindran Pillai / billionaire Dubai-based)", "ddnotes": "MATERIAL FINDING: Upasana is owned by Ravi Pillai's RP Group — UAE-based Indian business empire. This changes negotiation dynamics — RP Group has capital, will sell only at strong valuation, but Dubai-based decision-makers are familiar with VPS Healthcare (also UAE-based). Possible UAE-to-UAE conversation channel. Diabetes specialty depth fits VPS endocrine pathway. EV likely ₹150-200 Cr.", "entity": "", "promoter": "MATERIAL CORRECTION TO PLAYBOOK: Owned by Ravi Pillai's RP Group (Dubai) — major UAE-based Indian business house (construction, healthcare, hotels). NOT a typical Kerala family hospital — backed by UAE business diaspora"}, {"id": 31, "name": "Meditrina Hospital", "loc": "Kollam", "district": "Kollam", "beds": "200", "own": "Standalone", "tier": "T3", "posture": "Open", "deal": "Clinical affiliate", "cat": "open", "catLabel": "Open / Watch", "col": "#E0922B", "gloss": "Lower priority — clinical-affiliate or watch; engage opportunistically", "lat": 8.88, "lng": 76.599, "whyfit": "Cardiac-led standalone; specialty referral", "redflags": "200 beds; cardiac specialty focus", "ddnotes": "Tier-3 — Clinical affiliate. Specialty referral for cardiac. Meditrina is a multi-state network of cardiac-focused hospitals.", "entity": "", "promoter": "Meditrina Healthcare network — cardiac-led standalone specialty"}, {"id": 32, "name": "KIMS Kollam", "loc": "Kollam", "district": "Kollam", "beds": "200", "own": "PE-owned", "tier": "T3", "posture": "Closed", "deal": "Clinical affiliate", "cat": "closed", "catLabel": "Ruled out — Closed", "col": "#7F8C9B", "gloss": "Owner will not engage in any transaction; clinical tie-up only at best", "lat": 8.91, "lng": 76.61, "whyfit": "PE-owned; competitive monitoring only", "redflags": "100 beds with 20 ICU beds (per KIMS Wikipedia); PE-OWNED — exclude", "ddnotes": "Off-table per playbook — Aster QCIL group.", "entity": "", "promoter": "Aster Quality Care Ltd (Blackstone-TPG via Aster-KIMS Nov 2024 merger)"}, {"id": 33, "name": "Cosmopolitan Hospital", "loc": "Trivandrum", "district": "Thiruvananthapuram", "beds": "300", "own": "Family/Promoter", "tier": "T1", "posture": "Conditional", "deal": "Equity acquisition", "cat": "cond", "catLabel": "Conditional", "col": "#2B7CBE", "gloss": "Pursue with specific gating conditions resolved first", "lat": 8.5032, "lng": 76.9503, "whyfit": "Established urban brand; family-controlled; market entry vehicle", "redflags": "360 beds (playbook 300); 45-year-old hospital (1979); registered at Murinjapalampattom Palace, Trivandrum 695004; net worth GROWING 14.5% but EBITDA DECLINING 14.7% — margin compression signal worth investigating; 8-director board suggests no single controlling promoter — possible easier deal mechanics but harder consensus", "ddnotes": "MARKET ENTRY (BACKUP TO SUT) per playbook. 8-director structure is the key DD insight — unlike Renai (partnership), Sunrise (4 family), Mother (6 family) — Cosmopolitan has a broader shareholding which simplifies a clean buyout transaction since there's no founder-CEO sole controller. Confirm shareholding via MCA MGT-7 filing. Margin compression flag (EBITDA -14.7% YoY) creates pricing leverage — distress signals present even at active status. EV ₹250-400 Cr per playbook reasonable. Located near medical college / Pattom area, walking distance to KIMS.", "entity": "", "promoter": "Multi-shareholder structure (8 directors suggests broader equity base than single family)"}, {"id": 34, "name": "GG Hospital", "loc": "Trivandrum", "district": "Thiruvananthapuram", "beds": "350", "own": "Family/Promoter", "tier": "T1", "posture": "Conditional", "deal": "Equity acquisition", "cat": "cond", "catLabel": "Conditional", "col": "#2B7CBE", "gloss": "Pursue with specific gating conditions resolved first", "lat": 8.492, "lng": 76.952, "whyfit": "Fast-growing multi-specialty; succession trigger likely; central TVM", "redflags": "Relatively NEW hospital (opened Jan 2016 — only 10 years operating); 350 beds (playbook); group is a conglomerate (films, jewelry, real estate, hotels, hospitals) — possible cross-subsidy / cash flow dependencies on other group businesses; promoter Gokulam Gopalan is high-profile, may not be a willing seller; need to verify if 'Paragon Hospital Kerala Pvt Ltd' is the correct legal entity", "ddnotes": "MARKET ENTRY (BACKUP TO SUT) per playbook — but RISK PROFILE differs from Cosmopolitan. GG is newer (10 yrs) but has diversified-group backing (cash to invest, hard to dislodge). Cosmopolitan is older (44 yrs) but margin-stressed (easier deal). Playbook should rank Cosmopolitan > GG for prioritisation. Note: Sree Gokulam Group is more in entertainment/jewellery — healthcare may be non-core, potentially a divestible asset under right circumstances. Pre-bid: check if Gokulam Gopalan has signalled exit intent.", "entity": "", "promoter": "Sree Gokulam Group — Gokulam Gopalan (also into films, jewellery, hotels, real estate)"}, {"id": 35, "name": "SUT Royal Hospital", "loc": "Pattom, Trivandrum · NCLT Kochi liquidation", "district": "Thiruvananthapuram", "beds": "400", "own": "Family/Promoter", "tier": "T1", "posture": "NCLT — Liquidation", "deal": "NCLT resolution plan", "cat": "nclt", "catLabel": "NCLT / Distress channel", "col": "#8B1A4A", "gloss": "Acquire via NCLT/IBC resolution or liquidation — cheapest entry, complex", "lat": 8.511, "lng": 76.949, "whyfit": "Distressed-asset TVM market entry; royal-patronage brand; cardiac depth", "redflags": "CRITICAL CORRECTION TO PLAYBOOK: SUT Royal Hospital is at KOCHULLOOR (T.C.7/1407), NOT Pattom — playbook conflates with SUT Pattom which is a SEPARATE asset owned by BR Life (B.R. Shetty / NMC Health diaspora). SUT Pattom sold to BR Life around 2012 — NOT available; ONLY SUT Royal Kochulloor is the NCLT target. Liquidator: Raju Palanikkunathil Kesavan", "ddnotes": "NCLT TIMELINE: (1) 07-Feb-2020 CIRP admitted Sec 7 by financial creditor; (2) 30-Jun-2021 various Investment Proposal orders; (3) Joint Resolution Plan submitted by Dr. C. Bharath Chandran + Dr. Ramu Tatini (later replaced) + Sabine Hospital & Research Centre Pvt Ltd; (4) Plan REJECTED — failed to get 66% CoC approval; (5) 02-Jun-2022 LIQUIDATION ordered; (6) Bharath Chandran appeal DISMISSED by NCLAT Chennai 19-Oct-2022 (Vaish Associates noted); (7) Personal Guarantor cases at NCLT Kochi vs Bharath Chandran, Ashalatha Nair, P A Ahammed (Dhanalaxmi Bank financial creditor of ₹14.25 Cr); (8) Latest order 06-May-2025 IA(IBC)/440/KOB/2024 DISMISSED. Original SUT Group structure: TMSS Ltd (holding) → TSH Ltd (Pattom — SOLD to BR Life) + TIHS Ltd (Royal Kochulloor — this NCLT case) + SUT Royal M&B + SUT Royal Preventive Clinic (Kowdiar). DD priority: liquidator's going-concern sale protocol, title, doctor retention, ABU DHABI BIDDER risk (Aster QCIL or BR Life themselves).", "entity": "", "promoter": "Dr. C. Bharath Chandran (Promoter); Personal guarantors include Dr Ashalatha Nair, P A Ahammed"}, {"id": 36, "name": "PRS Hospital", "loc": "Trivandrum", "district": "Thiruvananthapuram", "beds": "350", "own": "Family/Promoter", "tier": "T2", "posture": "Conditional", "deal": "Equity acquisition", "cat": "cond", "catLabel": "Conditional", "col": "#2B7CBE", "gloss": "Pursue with specific gating conditions resolved first", "lat": 8.523, "lng": 76.962, "whyfit": "Family-run, second-generation; ortho/spine franchise", "redflags": "350 beds; ortho/spine franchise; Killipalam, Trivandrum 695002 location; family-run", "ddnotes": "Tier-2 per playbook — Equity acquisition. Ortho/spine specialty strength. Bilateral approach to PRS family.", "entity": "", "promoter": "PRS family — second-generation"}, {"id": 37, "name": "SP Fort Hospital", "loc": "Trivandrum", "district": "Thiruvananthapuram", "beds": "200", "own": "Family/Promoter", "tier": "T2", "posture": "Conditional", "deal": "Equity acquisition", "cat": "cond", "catLabel": "Conditional", "col": "#2B7CBE", "gloss": "Pursue with specific gating conditions resolved first", "lat": 8.488, "lng": 76.947, "whyfit": "Central TVM location; mid-size, second-gen family", "redflags": "200 beds; central TVM; JCI standards claimed; flagship is SP Medifort Hospital at Eanchakkal (different location from playbook's mention of 'SP Fort')", "ddnotes": "Note: 'SP Fort' (playbook) and 'SP Medifort' (actual flagship) — clarify which entity playbook means. SP Medifort is in Eanchakkal not Fort area. Possible playbook conflation. Tier-2 — Equity acquisition path per playbook.", "entity": "", "promoter": "SP Group — Kerala family"}, {"id": 38, "name": "Dr. Somervell Memorial Medical College", "loc": "Karakonam", "district": "Thiruvananthapuram", "beds": "500", "own": "Mission/Trust", "tier": "T3", "posture": "Open", "deal": "Clinical affiliate", "cat": "open", "catLabel": "Open / Watch", "col": "#E0922B", "gloss": "Lower priority — clinical-affiliate or watch; engage opportunistically", "lat": 8.387, "lng": 77.09, "whyfit": "CSI mission medical college; southern TVM spoke", "redflags": "500 beds; FIRST private hospital in Kerala (1975); CSI Anglican (this is the GENUINE CSI Kerala healthcare asset, not Bishop Benziger as playbook wrongly stated); medical college since 2002 (KUHS affiliated)", "ddnotes": "Tier-3 per playbook — Clinical affiliate. NOTE: This is the actual CSI Anglican-aligned healthcare asset in Kerala. Bishop Benziger which playbook called CSI is actually Roman Catholic. CSI Diocese of South Kerala leadership is the right engagement path. Could be O&M opportunity if positioned correctly.", "entity": "", "promoter": "South Kerala Diocese of Church of South India (CSI) — managed by South Kerala Medical Mission"}, {"id": 39, "name": "Mother Hospital", "loc": "Pullazhi, Thrissur", "district": "Thrissur", "beds": "350", "own": "Family/Promoter", "tier": "T1", "posture": "Conditional", "deal": "Equity acquisition", "cat": "cond", "catLabel": "Conditional", "col": "#2B7CBE", "gloss": "Pursue with specific gating conditions resolved first", "lat": 10.5254, "lng": 76.2075, "whyfit": "Cultural-capital market entry; mid-large family; oncology gap to fill", "redflags": "LOW paid-up capital (₹1.34 Cr) for a 300-bed hospital — historical balance sheet may have heavy reserves and surplus rather than equity; group also runs Mother College of Nursing, Mother College of Paramedical Sciences; 199 employees per latest filing; 10-acre campus on Thrissur-Kanjany-Vatanappally highway; Muslim-promoted institution — religious-community dynamics minimal but worth noting in Thrissur cultural context", "ddnotes": "CENTRAL ANCHOR per playbook — confirmed via MCA. Second-generation transition already underway (4 children on board). Clean compliance record. ₹1.34 Cr paid-up is misleading for valuation — operating-asset value substantially higher; need MCA MGT-7 for true shareholding breakdown. 300 beds (playbook 350 — close). EV ₹300-450 Cr per playbook is appropriate. RECOMMEND: bilateral approach via founder generation (Dr M Ali / Dr Aysha Ali) with clear succession-monetisation framing; clinical brand continuity through 'VPS Lakeshore Mother Thrissur' co-brand for 24 months.", "entity": "", "promoter": "Founder Directors Dr. M. Ali & Dr. Mrs. Aysha Ali (parents); next generation: Hassan Ali, Akbar Ali, Shermin Ali, Shabna Ali (children)"}, {"id": 40, "name": "West Fort Hi-Tech Hospital", "loc": "Thrissur", "district": "Thrissur", "beds": "300", "own": "Family/Promoter", "tier": "T2", "posture": "Conditional", "deal": "Equity acquisition", "cat": "cond", "catLabel": "Conditional", "col": "#2B7CBE", "gloss": "Pursue with specific gating conditions resolved first", "lat": 10.518, "lng": 76.203, "whyfit": "Family-run; second-tier alternative to Mother", "redflags": "300 beds; second-tier Thrissur alternative to Mother", "ddnotes": "Tier-2 per playbook — Equity acquisition. Fall-back if Mother not available.", "entity": "", "promoter": "Local Thrissur family"}, {"id": 41, "name": "Daya General Hospital", "loc": "Thrissur", "district": "Thrissur", "beds": "250", "own": "Family/Promoter", "tier": "T2", "posture": "Conditional", "deal": "Equity acquisition", "cat": "cond", "catLabel": "Conditional", "col": "#2B7CBE", "gloss": "Pursue with specific gating conditions resolved first", "lat": 10.536, "lng": 76.224, "whyfit": "Family-run; established mid-size; succession window", "redflags": "250 beds; mid-size family", "ddnotes": "Tier-2 per playbook — Equity acquisition. Succession window flagged in playbook.", "entity": "", "promoter": "Local Thrissur family"}, {"id": 42, "name": "Amala Institute of Medical Sciences", "loc": "Thrissur", "district": "Thrissur", "beds": "700", "own": "Mission/Trust", "tier": "T2", "posture": "Conditional", "deal": "CoE carve-out", "cat": "cond", "catLabel": "Conditional", "col": "#2B7CBE", "gloss": "Pursue with specific gating conditions resolved first", "lat": 10.565, "lng": 76.247, "whyfit": "Carmelite cancer hospital; oncology CoE partnership obvious fit", "redflags": "700 beds (playbook); originally established as cancer/oncology focus — 'Amala' = pure/spotless; located Amalanagar, Vilangan Hills, 40-acre campus; primary oncology referral centre for central Kerala; CMI Devamatha Province manages this asset (Rajagiri is CMI Sacred Heart Province — different)", "ddnotes": "CRITICAL INSIGHT: Same congregation (CMI) owns both Amala (Devamatha Province) and Rajagiri (Sacred Heart Province). Two different provincial governance bodies. Oncology CoE partnership per playbook is structurally sensible — Amala is the established cancer centre. Engagement: Devamatha Provincial Superior. Cross-CMI politics important — must navigate both provinces if approaching multiple CMI assets.", "entity": "", "promoter": "Carmelites of Mary Immaculate (CMI) — Devamatha Province (DIFFERENT province from Rajagiri's Sacred Heart Province)"}, {"id": 43, "name": "Jubilee Mission Medical College", "loc": "Thrissur", "district": "Thrissur", "beds": "1000", "own": "Mission/Trust", "tier": "T3", "posture": "Open", "deal": "Clinical affiliate", "cat": "open", "catLabel": "Open / Watch", "col": "#E0922B", "gloss": "Lower priority — clinical-affiliate or watch; engage opportunistically", "lat": 10.529, "lng": 76.215, "whyfit": "Large Catholic medical college; residency partnership; complex politics", "redflags": "1,000 beds (largest mission medical college in Thrissur); complex multi-diocesan politics", "ddnotes": "Tier-3 per playbook — Clinical affiliate. Complex governance (multi-diocesan Catholic medical college). 1,000 beds is one of the largest in Kerala.", "entity": "", "promoter": "Catholic mission (Thrissur Archdiocese / multi-diocesan)"}, {"id": 44, "name": "Aswini Hospital", "loc": "Thrissur", "district": "Thrissur", "beds": "200", "own": "Family/Promoter", "tier": "T3", "posture": "Open", "deal": "Clinical affiliate", "cat": "open", "catLabel": "Open / Watch", "col": "#E0922B", "gloss": "Lower priority — clinical-affiliate or watch; engage opportunistically", "lat": 10.512, "lng": 76.21, "whyfit": "Mid-size family; spoke option for north Thrissur", "redflags": "200 beds; north Thrissur spoke option", "ddnotes": "Tier-3 — Clinical affiliate.", "entity": "", "promoter": "Local Thrissur family"}, {"id": 45, "name": "Karuna Medical College Hospital", "loc": "Vilayodi, Palakkad", "district": "Palakkad", "beds": "800", "own": "Family/Promoter", "tier": "T2", "posture": "Open", "deal": "Equity acquisition", "cat": "open", "catLabel": "Open / Watch", "col": "#E0922B", "gloss": "Lower priority — clinical-affiliate or watch; engage opportunistically", "lat": 10.69, "lng": 76.743, "whyfit": "Underserved district; medical college optionality; CBE-border catchment", "redflags": "800 beds; CBE-border catchment; medical college optionality", "ddnotes": "Tier-2 per playbook — Equity acquisition. Underserved Palakkad district. Medical college regulatory considerations (NMC, KUHS).", "entity": "", "promoter": "Local family / trust (Vilayodi, Palakkad area)"}, {"id": 46, "name": "KIMS Al Shifa Hospital", "loc": "Perinthalmanna", "district": "Malappuram", "beds": "700", "own": "Family/Promoter", "tier": "T2", "posture": "PE-OWNED — EXCLUDED", "deal": "Remove from target list — see PE-Owned Excluded sheet", "cat": "excl", "catLabel": "Excluded — PE / Chain", "col": "#DC2626", "gloss": "PE / corporate-chain owned (Aster QCIL, KKR, etc.) — not acquirable; competitive intel only", "lat": 10.976, "lng": 76.227, "whyfit": "Note: KIMS-branded but separate ownership from KIMSHEALTH; high NRI catchment", "redflags": "MAJOR CORRECTION TO PLAYBOOK: KIMS Al Shifa is NOT separately owned from KIMSHEALTH. Playbook states 'Note: KIMS-branded but separate ownership from KIMSHEALTH' — this is FACTUALLY WRONG per MCA records. Dr. M.I. Sahadulla (KIMSHEALTH founder) is a director; registered address is same as KIMS HQ Anayara Trivandrum (TC 14/2008, PB No.1). The 'Al Shifa' brand was acquired by KIMS as part of the network. Now under Aster QCIL group. 600 beds; tertiary care", "ddnotes": "EXCLUDED: KIMS Al Shifa Perinthalmanna is part of KIMSHEALTH (merging with Aster QCIL). Not an independent target.", "entity": "", "promoter": "KIMSHEALTH (now Aster Quality Care Ltd — Blackstone-TPG controlled via Aster-KIMS Nov 2024 merger)"}, {"id": 47, "name": "Almas Hospital", "loc": "Kottakkal", "district": "Malappuram", "beds": "200", "own": "Family/Promoter", "tier": "T3", "posture": "Open", "deal": "Clinical affiliate", "cat": "open", "catLabel": "Open / Watch", "col": "#E0922B", "gloss": "Lower priority — clinical-affiliate or watch; engage opportunistically", "lat": 10.999, "lng": 76.001, "whyfit": "Gulf-NRI heavy catchment; complements Aster-MIMS gap", "redflags": "200 beds; Gulf-NRI heavy catchment; near Kottakkal Arya Vaidya Sala (Ayurveda heritage)", "ddnotes": "Tier-3 — Clinical affiliate. Kottakkal area is known for Gulf-Malayali concentration.", "entity": "", "promoter": "Local Malappuram family"}, {"id": 48, "name": "MES Medical College", "loc": "Perinthalmanna", "district": "Malappuram", "beds": "800", "own": "Mission/Trust", "tier": "T3", "posture": "Open", "deal": "Clinical affiliate", "cat": "open", "catLabel": "Open / Watch", "col": "#E0922B", "gloss": "Lower priority — clinical-affiliate or watch; engage opportunistically", "lat": 10.984, "lng": 76.233, "whyfit": "Muslim Educational Society; residency partnership potential", "redflags": "800 beds; Perinthalmanna; community/religious-oriented governance", "ddnotes": "Tier-3 — Clinical affiliate. MES is a major Kerala Muslim educational and healthcare body. Governance via MES board.", "entity": "", "promoter": "Muslim Educational Society — Kerala Muslim community organization"}, {"id": 49, "name": "Iqraa International Hospital", "loc": "Kozhikode", "district": "Kozhikode", "beds": "500", "own": "Mission/Trust", "tier": "T2", "posture": "Conditional", "deal": "O&M / concession", "cat": "cond", "catLabel": "Conditional", "col": "#2B7CBE", "gloss": "Pursue with specific gating conditions resolved first", "lat": 11.248, "lng": 75.786, "whyfit": "Community trust; only large non-PE option in Kozhikode", "redflags": "500 beds; only large non-PE option in Kozhikode (since BMH-KKR, Meitra-KKR, Aster MIMS taken)", "ddnotes": "Tier-2 per playbook — O&M / concession. Plays into VPS thesis on northern Kerala defensive entry given KKR lock on premium Kozhikode segment.", "entity": "", "promoter": "Kozhikode Muslim community trust"}, {"id": 50, "name": "PVS Hospital Kozhikode", "loc": "Kozhikode", "district": "Kozhikode", "beds": "200", "own": "Family/Promoter", "tier": "T3", "posture": "Open", "deal": "Clinical affiliate", "cat": "open", "catLabel": "Open / Watch", "col": "#E0922B", "gloss": "Lower priority — clinical-affiliate or watch; engage opportunistically", "lat": 11.258, "lng": 75.78, "whyfit": "Mid-size family-run; KKR-encircled market; defensive spoke only", "redflags": "200 beds; located Railway Station Road, Calicut 673002; AFFILIATED with Sunrise Hospital Group network (appears under Sunrise/Pathanamthitta network footer); KKR-encircled market", "ddnotes": "POTENTIAL DOUBLE-LISTING: PVS Hospital Kozhikode may already be affiliated/operated by Sunrise Institute of Medical Sciences network (Dr Hafeez Rahman). If so, this is NOT an independent target — it's already part of Sunrise group. Verify before separate outreach. Defensive spoke per playbook (Tier-3).", "entity": "", "promoter": "P V S family (Kozhikode lineage — distinct from KTC/PVS Memorial Kochi)"}, {"id": 51, "name": "National Hospital", "loc": "Kozhikode", "district": "Kozhikode", "beds": "150", "own": "Family/Promoter", "tier": "T3", "posture": "Open", "deal": "Clinical affiliate", "cat": "open", "catLabel": "Open / Watch", "col": "#E0922B", "gloss": "Lower priority — clinical-affiliate or watch; engage opportunistically", "lat": 11.247, "lng": 75.772, "whyfit": "Smaller family; referral spoke", "redflags": "150 beds; smaller family", "ddnotes": "Tier-3 — Clinical affiliate. Smaller spoke in north Kerala (KKR-encircled market).", "entity": "", "promoter": "Local Kozhikode family"}, {"id": 52, "name": "WIMS Hospital", "loc": "Meppadi, Wayanad", "district": "Wayanad", "beds": "500", "own": "Family/Promoter", "tier": "T2", "posture": "PE-OWNED — EXCLUDED", "deal": "Remove from target list — see PE-Owned Excluded sheet", "cat": "excl", "catLabel": "Excluded — PE / Chain", "col": "#DC2626", "gloss": "PE / corporate-chain owned (Aster QCIL, KKR, etc.) — not acquirable; competitive intel only", "lat": 11.556, "lng": 76.138, "whyfit": "Only tertiary in district; hill catchment; wellness pairing potential", "redflags": "MAJOR CORRECTION TO PLAYBOOK: WIMS Hospital Wayanad is NOT independent. Full name is 'Dr Moopen's Medical College Wayanad' / 'DM WIMS' / 'Aster Wayanad Speciality Hospital' — it is an ASTER DM HEALTHCARE asset (now Aster QCIL group post Nov 2024 Aster-KIMS merger). The Aster website lists it under 'asterdmhealthcare.in'. 700+ beds (medical college + hospital); 50-acre campus; 1,350+ OPD/day. 150 MBBS seats/year", "ddnotes": "EXCLUDED: WIMS Wayanad is Aster DM Healthcare — not an independent target. Reclassified to PE-Owned Excluded sheet.", "entity": "", "promoter": "Dr. Azad Moopen / Aster DM Healthcare (now Aster Quality Care Ltd post Nov 2024 merger)"}, {"id": 53, "name": "CSI Mission Hospital Idukki", "loc": "Idukki", "district": "Idukki", "beds": "150", "own": "Mission/Trust", "tier": "T3", "posture": "Open", "deal": "Clinical affiliate", "cat": "open", "catLabel": "Open / Watch", "col": "#E0922B", "gloss": "Lower priority — clinical-affiliate or watch; engage opportunistically", "lat": 9.849, "lng": 76.971, "whyfit": "District-only; hills spoke; cardiac/dialysis access gaps", "redflags": "150 beds; district-only hospital; hills spoke; cardiac/dialysis access gaps", "ddnotes": "Tier-3 — Clinical affiliate. Genuine CSI institution (Anglican) — engagement via relevant CSI Diocese.", "entity": "", "promoter": "Church of South India (Anglican, East Kerala or similar Diocese)"}, {"id": 54, "name": "AKG Memorial Co-op Hospital", "loc": "Kannur", "district": "Kannur", "beds": "500", "own": "Cooperative", "tier": "T2", "posture": "Conditional", "deal": "Management contract", "cat": "cond", "catLabel": "Conditional", "col": "#2B7CBE", "gloss": "Pursue with specific gating conditions resolved first", "lat": 11.874, "lng": 75.37, "whyfit": "Co-op governance complex; airport-corridor NRI catchment", "redflags": "500 beds; co-op governance complex (large membership voting structure); airport-corridor NRI catchment (Kannur airport); CPI-M political ecosystem", "ddnotes": "Tier-2 per playbook — Management contract. Co-op governance means deal mechanics are unique — requires AGM-level vote of large member base. CPI-M political networks important. AKG (A.K. Gopalan) was iconic Kerala Communist leader; hospital is part of CPI-M cooperative ecosystem. Patient engagement straightforward; deal structure complex.", "entity": "", "promoter": "Co-operative society (CPI-M-aligned political legacy — A.K. Gopalan was Communist leader)"}, {"id": 55, "name": "Indiana Hospital", "loc": "Kannur", "district": "Kannur", "beds": "250", "own": "Family/Promoter", "tier": "T3", "posture": "Open", "deal": "Clinical affiliate", "cat": "open", "catLabel": "Open / Watch", "col": "#E0922B", "gloss": "Lower priority — clinical-affiliate or watch; engage opportunistically", "lat": 11.868, "lng": 75.355, "whyfit": "Younger family-run; airport corridor spoke", "redflags": "250 beds; younger family-run hospital; Kannur airport corridor", "ddnotes": "Tier-3 — Clinical affiliate. Younger hospital, possible growth-stage opportunity.", "entity": "", "promoter": "Local Kannur family"}, {"id": 56, "name": "Co-Operative Medical College", "loc": "Kasaragod", "district": "Kasaragod", "beds": "500", "own": "Cooperative", "tier": "T3", "posture": "Open", "deal": "Clinical affiliate", "cat": "open", "catLabel": "Open / Watch", "col": "#E0922B", "gloss": "Lower priority — clinical-affiliate or watch; engage opportunistically", "lat": 12.4996, "lng": 74.989, "whyfit": "Border-district underserved; Mangaluru competition; cautious approach", "redflags": "500 beds; border-district underserved; Mangaluru competition; cautious approach per playbook", "ddnotes": "Tier-3 — Clinical affiliate. Co-op governance complex. Border with Karnataka means partial patient outflow to Mangaluru. Cautious approach per playbook.", "entity": "", "promoter": "Kerala Co-operative Society (state-supported)"}];
+
+/* ════════ LONG-LIST: interactive map + screening cards ════════ */
+const LLCATS = [
+  { k:'all',      label:'All 56',                col:'#475569' },
+  { k:'distress', label:'Distress — Pursue', col:'#16A34A' },
+  { k:'cond',     label:'Conditional',            col:'#2B7CBE' },
+  { k:'nclt',     label:'NCLT / Distress',        col:'#8B1A4A' },
+  { k:'open',     label:'Open / Watch',           col:'#E0922B' },
+  { k:'closed',   label:'Ruled out — Closed', col:'#7F8C9B' },
+  { k:'excl',     label:'Excluded — PE / Merged', col:'#DC2626' },
+];
+const LLCOUNT = {}; LLCATS.forEach(c => LLCOUNT[c.k] = c.k==='all' ? LONGLIST.length : LONGLIST.filter(h=>h.cat===c.k).length);
+const llEsc = s => (s==null?'':String(s)).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
+
+/* ---- map ---- */
+const llmap = L.map('ll-map', { center:[10.3,76.35], zoom:7, scrollWheelZoom:false });
+L.tileLayer('https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png', {
+  attribution:'&copy; <a href="https://www.openstreetmap.org">OpenStreetMap</a> &copy; <a href="https://carto.com">CARTO</a>',
+  subdomains:'abcd', maxZoom:19
+}).addTo(llmap);
+
+function llIcon(h) {
+  const r = h.tier==='T1' ? 11 : h.tier==='T2' ? 9 : 7.5;
+  const beds = parseInt(h.beds,10);
+  const lbl = isNaN(beds) ? '' : `<text x="${r}" y="${r+3}" text-anchor="middle" fill="white" font-size="${r*0.62}" font-weight="700" font-family="Arial">${beds}</text>`;
+  const svg = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 ${r*2} ${r*2}" width="${r*2}" height="${r*2}"><circle cx="${r}" cy="${r}" r="${r-1}" fill="${h.col}" stroke="rgba(0,0,0,0.28)" stroke-width="1.4"/>${lbl}</svg>`;
+  return L.divIcon({ html:svg, className:'', iconSize:[r*2,r*2], iconAnchor:[r,r], popupAnchor:[0,-r] });
+}
+function llPopup(h) {
+  const c = LLCATS.find(x=>x.k===h.cat);
+  return `<div style="max-width:320px">
+    <div class="llpop-badges">
+      <span class="llpop-badge" style="background:${h.col}">${llEsc(c?c.label:h.posture)}</span>
+      <span class="llpop-badge" style="background:#475569">${llEsc(h.tier)}</span>
+      <span class="llpop-badge" style="background:#94A3B8">${llEsc(h.own)}</span>
+    </div>
+    <div class="llpop-name">#${h.id} &middot; ${llEsc(h.name)}</div>
+    <div class="llpop-loc">📍 ${llEsc(h.loc)} &middot; ${llEsc(h.district)}</div>
+    <div class="llpop-grid">
+      <div class="llpop-cell"><div class="v">${llEsc(h.beds)}</div><div class="l">Beds</div></div>
+      <div class="llpop-cell"><div class="v" style="font-size:10px">${llEsc(h.deal)}</div><div class="l">Recommended</div></div>
+      <div class="llpop-cell"><div class="v" style="font-size:10px">${llEsc(h.posture)}</div><div class="l">Posture</div></div>
+    </div>
+    <div class="llpop-deal">⚖️ Screening verdict: ${llEsc(h.gloss)}</div>
+    ${h.whyfit?`<div class="llpop-sec"><div class="h">Why VPS Fit</div><div class="t">${llEsc(h.whyfit)}</div></div>`:''}
+    ${h.redflags?`<div class="llpop-sec flag"><div class="h">Red Flags / Why Ruled In-Out</div><div class="t">${llEsc(h.redflags)}</div></div>`:''}
+    ${h.ddnotes?`<div class="llpop-sec"><div class="h">DD Notes</div><div class="t">${llEsc(h.ddnotes)}</div></div>`:''}
+  </div>`;
+}
+const llMarkers = {};
+LONGLIST.forEach(h => {
+  const m = L.marker([h.lat,h.lng], { icon: llIcon(h) }).bindPopup(llPopup(h), { maxWidth:340, className:'cpop llpop' });
+  llMarkers[h.id] = { m, h };
+});
+// hub
+L.marker([9.9726,76.3199], { icon: L.divIcon({ html:`<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 30 30" width="30" height="30"><circle cx="15" cy="15" r="13" fill="#2B7CBE" stroke="white" stroke-width="2.5"/><path d="M11,17 L15,8 L19,17 Z" fill="white"/></svg>`, className:'', iconSize:[30,30], iconAnchor:[15,15], popupAnchor:[0,-15] }) })
+  .addTo(llmap).bindPopup('<div class="llpop-name">VPS Lakeshore Medical Centre</div><div class="llpop-loc">📍 Nettoor, Ernakulam &middot; existing quaternary hub</div>', { className:'cpop llpop' });
+
+/* district labels */
+[{n:'Ernakulam',la:10.06,lo:76.34},{n:'Kottayam',la:9.62,lo:76.55},{n:'Pathanamthitta',la:9.30,lo:76.62},{n:'Thiruvananthapuram',la:8.49,lo:76.99},{n:'Alappuzha',la:9.40,lo:76.34},{n:'Kollam',la:8.86,lo:76.66},{n:'Thrissur',la:10.56,lo:76.16},{n:'Palakkad',la:10.72,lo:76.78},{n:'Malappuram',la:11.02,lo:76.18},{n:'Kozhikode',la:11.28,lo:75.76},{n:'Wayanad',la:11.60,lo:76.14},{n:'Kannur',la:11.91,lo:75.33},{n:'Kasaragod',la:12.53,lo:74.99},{n:'Idukki',la:9.88,lo:76.99}].forEach(d=>{
+  L.marker([d.la,d.lo],{icon:L.divIcon({html:`<div style="background:rgba(26,48,80,0.72);color:white;font-size:8px;font-weight:700;letter-spacing:1px;text-transform:uppercase;padding:2px 6px;border-radius:4px;white-space:nowrap;pointer-events:none">${d.n}</div>`,className:'',iconAnchor:[30,8]}),interactive:false,zIndexOffset:-1000}).addTo(llmap);
+});
+
+/* ---- state + renderers ---- */
+let llF='all', llQ='', llF2='all', llQ2='';
+function llMatch(h, f, q){ if(f!=='all'&&h.cat!==f) return false; if(q){const s=q.toLowerCase(); if(!(h.name.toLowerCase().includes(s)||h.loc.toLowerCase().includes(s)||h.district.toLowerCase().includes(s))) return false;} return true; }
+
+function llRenderChips(id, active, fn){
+  document.getElementById(id).innerHTML = LLCATS.map(c=>`<div class="ll-chip ${c.k===active?'active':''}" style="${c.k===active?`background:${c.col}`:''}" onclick="${fn}('${c.k}')"><span class="ll-dot" style="background:${c.col}"></span>${c.label}<span class="ll-n">${LLCOUNT[c.k]}</span></div>`).join('');
+}
+function llRenderLegend(){
+  document.getElementById('ll-legend').innerHTML = LLCATS.map(c=>`<div class="ll-leg ${c.k===llF?'active':''}" onclick="llSetF('${c.k}')"><span class="ll-dot" style="background:${c.col}"></span>${c.label}<span class="ll-n">${LLCOUNT[c.k]}</span></div>`).join('');
+}
+function llRenderList(){
+  const shown = LONGLIST.filter(h=>llMatch(h,llF,llQ));
+  document.getElementById('ll-count').textContent = '('+shown.length+')';
+  const el = document.getElementById('ll-list');
+  el.innerHTML = shown.length ? shown.map(h=>`<div class="ll-item" style="border-left-color:${h.col}" onclick="llFly(${h.id})"><div class="ll-item-name">#${h.id} ${llEsc(h.name)}</div><div class="ll-item-meta">${llEsc(h.loc)} &middot; ${llEsc(h.beds)} beds &middot; ${llEsc(h.tier)}</div></div>`).join('') : '<div class="ll-side-empty">No hospitals match.</div>';
+}
+function llApplyMap(){
+  LONGLIST.forEach(h=>{ const on=llMatch(h,llF,llQ); const lay=llMarkers[h.id].m; if(on){ if(!llmap.hasLayer(lay)) lay.addTo(llmap);} else if(llmap.hasLayer(lay)) llmap.removeLayer(lay); });
+  llRenderLegend(); llRenderChips('ll-chips', llF, 'llSetF'); llRenderList();
+}
+function llSetF(k){ llF=k; llApplyMap(); }
+function llSearch(v){ llQ=v; llApplyMap(); }
+function llFly(id){ const h=llMarkers[id].h; llmap.flyTo([h.lat,h.lng], 12, {duration:.8}); setTimeout(()=>llMarkers[id].m.openPopup(), 850); document.getElementById('longlist-map').scrollIntoView({behavior:'smooth',block:'start'}); }
+
+/* ---- cards ---- */
+function llRenderCards(){
+  const shown = LONGLIST.filter(h=>llMatch(h,llF2,llQ2));
+  const el = document.getElementById('ll-cards');
+  el.innerHTML = shown.length ? shown.map(h=>{
+    const c = LLCATS.find(x=>x.k===h.cat);
+    return `<div class="ll-card" style="border-left-color:${h.col}">
+      <div class="ll-card-top">
+        <div><div class="ll-card-name">#${h.id} ${llEsc(h.name)}</div><div class="ll-card-loc">📍 ${llEsc(h.loc)} &middot; ${llEsc(h.district)}</div></div>
+        <span class="ll-card-badge" style="background:${h.col}">${llEsc(c?c.label:h.posture)}</span>
+      </div>
+      <div class="ll-card-meta"><span class="ll-tag">${llEsc(h.beds)} beds</span><span class="ll-tag">${llEsc(h.tier)}</span><span class="ll-tag">${llEsc(h.own)}</span><span class="ll-tag">${llEsc(h.deal)}</span></div>
+      <div class="ll-card-gloss"><b>Verdict:</b> ${llEsc(h.gloss)}</div>
+      <div class="ll-toggle" onclick="llToggle(${h.id})"><span id="ll-tgl-${h.id}">+ Full DD rationale</span></div>
+      <div class="ll-more" id="ll-more-${h.id}">
+        ${h.whyfit?`<div class="ll-more-sec"><div class="h">Why VPS Fit</div><div class="t">${llEsc(h.whyfit)}</div></div>`:''}
+        ${h.redflags?`<div class="ll-more-sec flag"><div class="h">Red Flags / Why Ruled In-Out</div><div class="t">${llEsc(h.redflags)}</div></div>`:''}
+        ${h.ddnotes?`<div class="ll-more-sec"><div class="h">DD Notes</div><div class="t">${llEsc(h.ddnotes)}</div></div>`:''}
+      </div>
+    </div>`;
+  }).join('') : '<div class="ll-side-empty">No hospitals match the current filter.</div>';
+}
+function llSetF2(k){ llF2=k; llRenderChips('ll-chips2', llF2, 'llSetF2'); llRenderCards(); }
+function llSearch2(v){ llQ2=v; llRenderCards(); }
+function llToggle(id){ const m=document.getElementById('ll-more-'+id), t=document.getElementById('ll-tgl-'+id); const open=m.classList.toggle('open'); t.textContent = open ? '− Hide rationale' : '+ Full DD rationale'; }
+
+/* ---- init ---- */
+llApplyMap();
+llRenderChips('ll-chips2', llF2, 'llSetF2');
+llRenderCards();
+setTimeout(()=>llmap.invalidateSize(), 400);
+
 </script>
 </body>
 </html>
