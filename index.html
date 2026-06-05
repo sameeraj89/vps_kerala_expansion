@@ -571,6 +571,56 @@ footer {
 .ll-toggle:hover { text-decoration:underline; }
 @media (max-width:860px) { .ll-map-body { grid-template-columns:1fr; height:auto; } #ll-map { height:420px; } .ll-side { height:auto; max-height:340px; } }
 
+
+/* ═══ v14 (June 2026) — IMMEDIATE TRANCHE · SPINE · DEEP DIVE ═══ */
+.v14-ribbon{max-width:1300px;margin:14px auto 0;padding:11px 16px;display:flex;gap:12px;align-items:center;flex-wrap:wrap;background:var(--vps-maroon-l);border:1px solid rgba(139,26,74,.18);border-radius:var(--r);font-size:12.5px;color:var(--tx2);line-height:1.55;}
+.v14-ribbon b{color:var(--vps-maroon);}
+.v14-ribbon .v14-pill{font-size:9.5px;font-weight:700;letter-spacing:.6px;text-transform:uppercase;background:var(--vps-maroon);color:#fff;padding:3px 9px;border-radius:999px;flex-shrink:0;}
+.v14-callout{background:var(--vps-blue-ll);border:1px solid rgba(43,124,190,.16);border-left:4px solid var(--vps-blue);border-radius:var(--r);padding:13px 16px;font-size:12.5px;color:var(--tx2);line-height:1.6;margin:4px 0 18px;}
+.v14-callout b{color:var(--vps-blue-d);}
+.board-ask{background:var(--vps-maroon-l);border:1px solid rgba(139,26,74,.18);border-left:4px solid var(--vps-maroon);border-radius:var(--r);padding:13px 16px;font-size:12.5px;color:var(--tx2);line-height:1.6;margin:16px 0 6px;}
+.board-ask b{color:var(--vps-maroon);}
+/* immediate-map treatment colours */
+.leg-dot.t-hub{background:#1A5C8F;}.leg-dot.t-gf{background:#16A34A;}.leg-dot.t-eq{background:#2B7CBE;}
+.leg-dot.t-om{background:#8B1A4A;}.leg-dot.t-vf{background:#C8922A;}.leg-dot.t-al{background:#7F8C9B;}
+.hosp-card.t-hub::before{background:#1A5C8F;}.hosp-card.t-gf::before{background:#16A34A;}.hosp-card.t-eq::before{background:#2B7CBE;}
+.hosp-card.t-om::before{background:#8B1A4A;}.hosp-card.t-vf::before{background:#C8922A;}.hosp-card.t-al::before{background:#7F8C9B;}
+#imm-map{width:100%;height:100%;}
+@media(max-width:800px){#imm-map{height:420px;}}
+/* spine graphic */
+.spine-wrap{background:var(--bg);border:1px solid var(--bd);border-radius:var(--rl);box-shadow:var(--sh);padding:16px 14px 6px;overflow-x:auto;}
+.spine-wrap svg{display:block;width:100%;height:auto;min-width:760px;}
+.spine-legend{display:flex;flex-wrap:wrap;gap:14px;margin-top:10px;padding:4px 4px 2px;font-size:11.5px;color:var(--tx2);}
+.spine-legend .sl{display:flex;align-items:center;gap:6px;}
+.spine-legend .sl i{width:11px;height:11px;border-radius:50%;display:inline-block;flex-shrink:0;}
+.spine-legend .sl.ring i{background:transparent;border:2px dashed #C8922A;}
+/* deep dive */
+.dd-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;}
+@media(max-width:900px){.dd-grid{grid-template-columns:1fr;}}
+.dd-card{background:var(--bg);border:1px solid var(--bd);border-left:4px solid #2B7CBE;border-radius:var(--rl);box-shadow:var(--sh);padding:16px 18px;}
+.dd-card.t-om{border-left-color:#8B1A4A;}.dd-card.t-vf{border-left-color:#C8922A;}
+.dd-card-name{font-size:15px;font-weight:700;color:var(--tx);line-height:1.25;}
+.dd-card-sub{font-size:11px;color:var(--tx3);margin-top:3px;}
+.dd-tags{display:flex;flex-wrap:wrap;gap:5px;margin:9px 0 2px;}
+.dd-tag{font-size:9.5px;font-weight:600;letter-spacing:.3px;padding:3px 8px;border-radius:5px;background:var(--bg3);color:var(--tx2);}
+.dd-stats{display:grid;grid-template-columns:repeat(3,1fr);gap:7px;margin:11px 0;}
+.dd-stat{background:var(--bg2);border:1px solid var(--bd);border-radius:7px;padding:6px 8px;}
+.dd-stat .v{font-size:11.5px;font-weight:700;color:var(--tx);line-height:1.25;}
+.dd-stat .l{font-size:8px;text-transform:uppercase;letter-spacing:.4px;color:var(--tx3);margin-top:2px;}
+.dd-sec{margin-top:11px;}
+.dd-sec .h{font-size:9.5px;font-weight:700;text-transform:uppercase;letter-spacing:.6px;color:var(--vps-blue);margin-bottom:4px;}
+.dd-sec.flag .h{color:var(--vps-maroon);}
+.dd-sec ul{margin:0;padding-left:16px;}
+.dd-sec li{font-size:11.5px;line-height:1.5;color:var(--tx2);margin-bottom:4px;}
+.dd-fin{width:100%;border-collapse:collapse;font-size:11px;margin-top:2px;}
+.dd-fin th{background:var(--vps-blue-l);color:var(--vps-blue-d);font-weight:600;padding:4px 7px;text-align:right;font-size:9.5px;}
+.dd-fin th:first-child{text-align:left;}
+.dd-fin td{padding:4px 7px;border-bottom:1px solid var(--bd);text-align:right;color:var(--tx2);}
+.dd-fin td:first-child{text-align:left;font-weight:600;color:var(--tx);}
+.dd-more{display:none;}.dd-more.open{display:block;}
+.dd-toggle{margin-top:12px;font-size:11px;font-weight:600;color:var(--vps-blue);cursor:pointer;user-select:none;display:inline-flex;align-items:center;gap:4px;}
+.dd-toggle:hover{text-decoration:underline;}
+
 </style>
 </head>
 <body>
@@ -592,6 +642,9 @@ footer {
       <a href="#longlist"     class="nav-btn">Long List</a>
       <a href="#map-sec"      class="nav-btn">Network Map</a>
       <a href="#targets"      class="nav-btn">Shortlist</a>
+      <a href="#immediate"   class="nav-btn">Immediate 11</a>
+      <a href="#spine"       class="nav-btn">Spine</a>
+      <a href="#deepdive"    class="nav-btn">Deep Dive</a>
       <a href="#tier2"        class="nav-btn">Tier-2</a>
       <a href="#phases"       class="nav-btn">Phases</a>
       <a href="#ic-memo"      class="nav-btn">IC Memo</a>
@@ -617,6 +670,11 @@ footer {
   <div class="metric"><div class="metric-lbl">Network Beds</div><div class="metric-val">~8,300</div></div>
   <div class="metric"><div class="metric-lbl">Districts</div><div class="metric-val maroon">11</div></div>
   <div class="metric"><div class="metric-lbl">Base Equity IRR</div><div class="metric-val teal">~20%</div></div>
+</div>
+
+<div class="v14-ribbon">
+  <span class="v14-pill">v14 · Jun 2026</span>
+  <span><b>June-2026 refresh:</b> the original 25-target universe is retained below; a diligenced <b>immediate tranche of 11</b> now drives near-term action &mdash; Avitis dropped (KIMS O&amp;M), Welcare added, Daya reframed as an alliance. <a href="#immediate">Jump to the Immediate&nbsp;11&nbsp;&rarr;</a></span>
 </div>
 
 <!-- ═══ CONTENT ═══ -->
@@ -866,6 +924,400 @@ footer {
     <p style="font-size:11px; color:var(--tx3); margin-top:10px;">DB Score = Due Diligence Barrier. Rows 1–9 are the original financially-modelled anchors; rows 10–18 the Tranche-2 expansion pool (beds/EV to be confirmed in DD); rows 19–25 are the seven additions from the latest target list — six profitable equity acquisitions valued at ~7× audited EBITDA (Daya, Ananthapuri, KM Cherian, Starcare, Mother Care, Meditrina) plus Avitis as a turnaround O&amp;M. Believers Church and Cosmopolitan have moved to the broader universe (see Long List tab). SUT Royal entity = TIHSL at Kochulloor (NCLT liquidation).</p>
   </div>
 
+
+  <!-- ═══ v14 IMMEDIATE TRANCHE ═══ -->
+  <div class="section-block" id="immediate">
+    <div class="sec-eyebrow">Immediate Tranche · v14 Refresh (June 2026)</div>
+    <div class="sec-title">From the 25-Target Universe to an <em>Immediate 11</em></div>
+    <div class="sec-divider"></div>
+    <p class="sec-sub">The original 25-target universe stays intact above as the full programme map. The June-2026 refresh narrows the near-term focus to a diligenced, value-accretive <strong>immediate tranche of 11 hospitals</strong> &mdash; six now on audited MCA accounts &mdash; anchored by the VPS&nbsp;Lakeshore flagship and a new greenfield Kakkanad Precision Medical Centre. The 13 capital-light mission / trust / college assets become the Wave&nbsp;2 pipeline.</p>
+
+    <div class="v14-callout"><b>What changed since v13.</b> <b>Avitis dropped</b> &mdash; KIMS signed a 20-year O&amp;M concession for it (Apr-2026). <b>Welcare added</b> &mdash; a 240-bed Vyttila tertiary under the same UAE chairman (P.M.&nbsp;Sebastian) as Dr&nbsp;KM&nbsp;Cherian, who is also a VPS&nbsp;Lakeshore founder-partner / vice-chairman, making the KMC&nbsp;+&nbsp;Welcare bundle the warmest entry in the set. <b>Daya reframed</b> as a clinical alliance / minority option (PE-backed; not a control buy). <b>Malabar, Sevana and PVS</b> move into the immediate set; the owned core is now carried on audited entry EBITDA rather than estimates.</div>
+
+    <div class="kpi-grid">
+      <div class="kpi-card">
+        <div class="kpi-val" style="color:var(--vps-blue)">11 + PMC</div>
+        <div class="kpi-lbl">Immediate Hospitals</div>
+        <div class="kpi-sub">Value-accretive owned core + an O&amp;M turnaround (Aswini), anchored by the Lakeshore flagship and a greenfield Kakkanad PMC.</div>
+      </div>
+      <div class="kpi-card maroon">
+        <div class="kpi-val" style="color:var(--vps-maroon)">~2,915</div>
+        <div class="kpi-lbl">Owned / Managed Beds</div>
+        <div class="kpi-sub">Plus the ~150-bed greenfield Kakkanad PMC. Daya (~500 beds) is network-affiliated via alliance, outside this total.</div>
+      </div>
+      <div class="kpi-card teal">
+        <div class="kpi-val" style="color:var(--teal); font-size:1.6rem">~₹1,475 Cr</div>
+        <div class="kpi-lbl">Priced Capital — Immediate</div>
+        <div class="kpi-sub">The immediate tranche, within the ~₹3,900 Cr total programme envelope (≈ ₹2,150 Cr equity + ₹1,750 Cr debt).</div>
+      </div>
+      <div class="kpi-card accent">
+        <div class="kpi-val" style="color:var(--accent)">6 of 11</div>
+        <div class="kpi-lbl">On Audited Accounts</div>
+        <div class="kpi-sub">Audited standalone MCA accounts (FY23–FY25) obtained for the core targets [F]; owned-core entry EBITDA ~₹115–140 Cr.</div>
+      </div>
+    </div>
+
+    <div class="sec-eyebrow" style="margin-top:32px">Immediate Scorecard</div>
+    <div class="sec-title" style="font-size:18px">The Immediate 11 — <em>Diligenced Build</em></div>
+    <div class="sec-divider"></div>
+    <p class="sec-sub">FY25 figures are audited standalone MCA accounts [F] except where noted. Avitis is removed (KIMS O&amp;M, Apr-2026); Meditrina is shown on the multi-state entity — isolate the Kollam-unit P&amp;L. Equity* (Welcare) is an equity bundle candidate pending verification.</p>
+    <div class="tbl-wrap">
+      <table class="tgt">
+        <thead><tr><th>#</th><th>Hospital</th><th>District</th><th>Beds</th><th>Structure</th><th>Capital</th><th>FY25 Rev</th><th>FY25 EBITDA (margin)</th><th>Treatment</th><th>Basis</th></tr></thead>
+        <tbody><tr class="p1"><td style="text-align:center;font-weight:700;color:var(--tx3)">1</td><td><strong>Dr. KM Cherian IMS</strong></td><td>Alappuzha</td><td>300</td><td>Equity 75%</td><td>₹200 Cr</td><td>₹168 Cr</td><td>₹28.6 Cr (17.0%)</td><td><span class="pill pill-blue">Equity</span></td><td><span class="pill pill-teal">Audited [F]</span></td></tr><tr class="p1"><td style="text-align:center;font-weight:700;color:var(--tx3)">2</td><td><strong>Welcare Hospital (new)</strong></td><td>Ernakulam</td><td>240</td><td>Equity (bundle with KMC)</td><td>₹120 Cr</td><td>~₹120 Cr</td><td>~12–14% (est)</td><td><span class="pill" style="background:var(--accent-l);color:var(--accent)">Equity*</span></td><td><span class="pill" style="background:var(--bg3);color:var(--tx3)">To verify [V/E]</span></td></tr><tr class="p1"><td style="text-align:center;font-weight:700;color:var(--tx3)">3</td><td><strong>Ananthapuri Hospitals</strong></td><td>Thiruvananthapuram</td><td>400</td><td>Equity 75%</td><td>₹165 Cr</td><td>₹175 Cr</td><td>₹23.5 Cr (13.4%)</td><td><span class="pill pill-blue">Equity</span></td><td><span class="pill pill-teal">Audited [F]</span></td></tr><tr class="p1"><td style="text-align:center;font-weight:700;color:var(--tx3)">4</td><td><strong>Meditrina Hospitals — Kollam</strong></td><td>Kollam</td><td>175</td><td>Equity 75% (Kollam carve-out)</td><td>₹140 Cr</td><td>₹181 Cr*</td><td>₹20.0 Cr (11.1%)</td><td><span class="pill pill-blue">Equity</span></td><td><span class="pill pill-teal">Audited [F]</span></td></tr><tr class="p1"><td style="text-align:center;font-weight:700;color:var(--tx3)">5</td><td><strong>Starcare Hospital</strong></td><td>Kozhikode</td><td>290</td><td>Equity 75%</td><td>₹95 Cr</td><td>₹106 Cr</td><td>₹13.7 Cr (12.9%)</td><td><span class="pill pill-blue">Equity</span></td><td><span class="pill pill-teal">Audited [F]</span></td></tr><tr class="p1"><td style="text-align:center;font-weight:700;color:var(--tx3)">6</td><td><strong>Malabar Hospital</strong></td><td>Kozhikode</td><td>150</td><td>Equity 75%</td><td>₹110 Cr</td><td>₹76 Cr</td><td>₹14.9 Cr (19.6%)</td><td><span class="pill pill-blue">Equity</span></td><td><span class="pill pill-teal">Audited [F]</span></td></tr><tr class="p1"><td style="text-align:center;font-weight:700;color:var(--tx3)">7</td><td><strong>Sunrise Hospital</strong></td><td>Ernakulam</td><td>250</td><td>Equity 70% (founder rollover)</td><td>₹240 Cr</td><td>₹110 Cr</td><td>~₹18 Cr (17.9%)</td><td><span class="pill pill-blue">Equity</span></td><td><span class="pill pill-amber">CARE FY24</span></td></tr><tr class="p1"><td style="text-align:center;font-weight:700;color:var(--tx3)">8</td><td><strong>Mother Hospital</strong></td><td>Thrissur</td><td>300</td><td>Equity ~90%</td><td>₹175 Cr</td><td>₹71 Cr</td><td>₹16.4 Cr (23.2%)</td><td><span class="pill pill-blue">Equity</span></td><td><span class="pill pill-red">Screen [E]</span></td></tr><tr class="p1"><td style="text-align:center;font-weight:700;color:var(--tx3)">9</td><td><strong>Sevana Hospital</strong></td><td>Palakkad</td><td>200</td><td>Equity bolt-on (full exit)</td><td>₹40 Cr</td><td>₹34 Cr</td><td>~₹4 Cr (11.2%)</td><td><span class="pill pill-blue">Equity</span></td><td><span class="pill pill-red">Teaser</span></td></tr><tr class="p1"><td style="text-align:center;font-weight:700;color:var(--tx3)">10</td><td><strong>PVS Hospital</strong></td><td>Kozhikode</td><td>310</td><td>Equity / defined carve-out</td><td>₹150 Cr</td><td>verify</td><td>verify</td><td><span class="pill" style="background:var(--accent-l);color:var(--accent)">Equity*</span></td><td><span class="pill" style="background:var(--bg3);color:var(--tx3)">To verify [V]</span></td></tr><tr class="p1"><td style="text-align:center;font-weight:700;color:var(--tx3)">11</td><td><strong>Aswini Hospital (O&amp;M)</strong></td><td>Thrissur</td><td>300</td><td>O&amp;M concession + redevelopment</td><td>₹40 Cr capex</td><td>₹55 Cr</td><td>₹3.0 Cr (5.8%)</td><td><span class="pill pill-maroon">O&amp;M</span></td><td><span class="pill pill-teal">Audited [F]</span></td></tr><tr style="background:var(--bg3)"><td style="text-align:center;color:var(--tx3)">—</td><td><strong>Daya General Hospital</strong> <span style="font-size:10px;color:var(--tx3)">(network-affiliated, not owned)</span></td><td>Thrissur</td><td>~500</td><td>Clinical alliance / minority option</td><td>Minority option</td><td>~₹187 Cr</td><td>~15.9%</td><td><span class="pill" style="background:var(--bg3);color:var(--tx3)">Alliance</span></td><td><span class="pill" style="background:var(--bg3);color:var(--tx3)">PE-backed</span></td></tr></tbody>
+      </table>
+    </div>
+    <p style="font-size:11px;color:var(--tx3);margin-top:10px;">Subtotal: 11 hospitals · ~2,915 owned/managed beds · ~₹1,475 Cr priced capital, plus the greenfield Kakkanad PMC (~150 beds). Basis tags: [F] audited filing · CARE rating note · [E] screen / single-year · [V] / [V/E] to verify in DD.</p>
+
+    <div class="board-ask"><b>Board ask.</b> Mandate advisors and commence confirmatory due diligence on the 3–5 anchor assets in the immediate tranche &mdash; <b>Dr&nbsp;KM&nbsp;Cherian&nbsp;+&nbsp;Welcare, Mother, Meditrina, Ananthapuri</b>. No capital is committed and no execution authority is sought at this stage. Entry-price discipline is the single most important control: re-base the owned-core anchors toward market multiples before any LOI, and hold walk-away discipline on PE-set assets such as Daya.</div>
+
+    <div class="sec-eyebrow" style="margin-top:32px">Dedicated Immediate Map</div>
+    <div class="sec-title" style="font-size:18px">The Immediate 11 — <em>On the Map</em></div>
+    <div class="sec-divider"></div>
+    <div class="map-wrap">
+      <div class="map-header">
+        <div>
+          <div style="font-size:13px;font-weight:600;color:var(--tx)">The immediate tranche only — 11 targets + the Lakeshore hub + greenfield Kakkanad PMC</div>
+          <div style="font-size:11px;color:var(--tx3);margin-top:2px">Node colour denotes economic treatment · spoke lines connect each target to the Nettoor hub</div>
+        </div>
+        <div class="map-filters">
+          <button class="map-chip active" onclick="immFilter('all',this)">All</button>
+          <button class="map-chip" onclick="immFilter('equity',this)">Equity</button>
+          <button class="map-chip" onclick="immFilter('om',this)">O&amp;M</button>
+          <button class="map-chip" onclick="immFilter('verify',this)">To verify</button>
+          <button class="map-chip" onclick="immFilter('alliance',this)">Alliance</button>
+        </div>
+      </div>
+      <div class="map-body">
+        <div class="map-panel">
+          <div class="legend-title">Legend — economic treatment</div>
+          <div class="leg-item"><div class="leg-dot t-hub"></div><span>VPS Lakeshore (Hub)</span></div>
+          <div class="leg-item"><div class="leg-dot t-gf"></div><span>Greenfield PMC</span></div>
+          <div class="leg-item"><div class="leg-dot t-eq"></div><span>Equity / owned</span><span class="leg-count">8</span></div>
+          <div class="leg-item"><div class="leg-dot t-om"></div><span>O&amp;M concession</span><span class="leg-count">1</span></div>
+          <div class="leg-item"><div class="leg-dot t-vf"></div><span>Equity — to verify</span><span class="leg-count">2</span></div>
+          <div class="leg-item"><div class="leg-dot t-al"></div><span>Alliance / minority</span><span class="leg-count">1</span></div>
+          <hr style="border:none;border-top:1px solid var(--bd);margin:10px 0;">
+          <div class="legend-title">Hospitals</div>
+          <div id="imm-list"></div>
+        </div>
+        <div id="imm-map"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══ v14 NETWORK SPINE ═══ -->
+  <div class="section-block" id="spine">
+    <div class="sec-eyebrow">The Kerala Network Spine</div>
+    <div class="sec-title">Figure 1 — <em>One Brand, One Spine</em></div>
+    <div class="sec-divider"></div>
+    <p class="sec-sub">Read geographically, the immediate set closes every major corridor between the VPS&nbsp;Lakeshore flagship in Ernakulam and the rest of Kerala. The home market is a three-to-four-node Kochi cluster &mdash; the Lakeshore quaternary flagship, a greenfield Kakkanad PMC, and the Welcare / Sunrise tertiary units &mdash; feeding complex cases up to the hub while the spokes hold local share. Node colour denotes economic treatment; the Wave&nbsp;2 column is the capital-light mission / trust / college pipeline.</p>
+    <div class="spine-wrap"><svg viewBox="0 0 1000 650" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="The Kerala Network Spine — immediate tranche clusters and Wave 2 pipeline around the VPS Lakeshore hub"><line x1="500" y1="30" x2="500" y2="610" stroke="#CDD3DC" stroke-width="6" stroke-linecap="round"/>
+<line x1="328" y1="84" x2="500" y2="84" stroke="#B9C2CE" stroke-width="2"/>
+<circle cx="500" cy="84" r="3.5" fill="#7F8C9B"/>
+<line x1="328" y1="194" x2="500" y2="194" stroke="#B9C2CE" stroke-width="2"/>
+<circle cx="500" cy="194" r="3.5" fill="#7F8C9B"/>
+<line x1="328" y1="281" x2="500" y2="281" stroke="#B9C2CE" stroke-width="2"/>
+<circle cx="500" cy="281" r="3.5" fill="#7F8C9B"/>
+<line x1="328" y1="418" x2="500" y2="418" stroke="#B9C2CE" stroke-width="2"/>
+<circle cx="500" cy="418" r="3.5" fill="#7F8C9B"/>
+<line x1="328" y1="492" x2="500" y2="492" stroke="#B9C2CE" stroke-width="2"/>
+<circle cx="500" cy="492" r="3.5" fill="#7F8C9B"/>
+<line x1="328" y1="566" x2="500" y2="566" stroke="#B9C2CE" stroke-width="2"/>
+<circle cx="500" cy="566" r="3.5" fill="#7F8C9B"/>
+<line x1="500" y1="300" x2="672" y2="178" stroke="#B9C2CE" stroke-width="2"/>
+<circle cx="500" cy="178" r="3.5" fill="#7F8C9B"/>
+<line x1="500" y1="470" x2="672" y2="426" stroke="#B9C2CE" stroke-width="2"/>
+<circle cx="500" cy="426" r="3.5" fill="#7F8C9B"/>
+<text x="500" y="22" text-anchor="middle" font-family="DM Sans,sans-serif" font-size="10" font-weight="700" letter-spacing="2" fill="#7F8C9B">NORTH</text>
+<text x="500" y="628" text-anchor="middle" font-family="DM Sans,sans-serif" font-size="10" font-weight="700" letter-spacing="2" fill="#7F8C9B">SOUTH</text>
+<g>
+<rect x="28" y="36" width="300" height="95" rx="9" fill="#FFFFFF" stroke="#E2E6EC" stroke-width="1"/>
+<text x="40" y="50" font-family="DM Sans,sans-serif" font-size="9.5" font-weight="700" letter-spacing="0.6" fill="#44546A">NORTH · MALABAR — Kozhikode</text>
+<circle cx="45" cy="63" r="5" fill="#2B7CBE"/>
+<text x="56" y="66" font-family="DM Sans,sans-serif" font-size="11.5" font-weight="500" fill="#1B2028">Starcare — equity</text>
+<circle cx="45" cy="84" r="5" fill="#2B7CBE"/>
+<text x="56" y="87" font-family="DM Sans,sans-serif" font-size="11.5" font-weight="500" fill="#1B2028">Malabar Hospital — equity</text>
+<circle cx="45" cy="105" r="5" fill="none" stroke="#C8922A" stroke-width="2" stroke-dasharray="2 1.6"/>
+<text x="56" y="108" font-family="DM Sans,sans-serif" font-size="11.5" font-weight="500" fill="#1B2028">PVS — equity / verify</text>
+</g>
+<g>
+<rect x="28" y="168" width="300" height="53" rx="9" fill="#FFFFFF" stroke="#E2E6EC" stroke-width="1"/>
+<text x="40" y="182" font-family="DM Sans,sans-serif" font-size="9.5" font-weight="700" letter-spacing="0.6" fill="#44546A">INLAND GAP — Palakkad</text>
+<circle cx="45" cy="195" r="5" fill="#2B7CBE"/>
+<text x="56" y="198" font-family="DM Sans,sans-serif" font-size="11.5" font-weight="500" fill="#1B2028">Sevana — equity bolt-on</text>
+</g>
+<g>
+<rect x="28" y="244" width="300" height="74" rx="9" fill="#FFFFFF" stroke="#E2E6EC" stroke-width="1"/>
+<text x="40" y="258" font-family="DM Sans,sans-serif" font-size="9.5" font-weight="700" letter-spacing="0.6" fill="#44546A">CENTRAL-NORTH — Thrissur</text>
+<circle cx="45" cy="271" r="5" fill="#2B7CBE"/>
+<text x="56" y="274" font-family="DM Sans,sans-serif" font-size="11.5" font-weight="500" fill="#1B2028">Mother — equity</text>
+<circle cx="45" cy="292" r="5" fill="#8B1A4A"/>
+<text x="56" y="295" font-family="DM Sans,sans-serif" font-size="11.5" font-weight="500" fill="#1B2028">Aswini — O&amp;M concession</text>
+</g>
+<g>
+<rect x="28" y="392" width="300" height="53" rx="9" fill="#FFFFFF" stroke="#E2E6EC" stroke-width="1"/>
+<text x="40" y="406" font-family="DM Sans,sans-serif" font-size="9.5" font-weight="700" letter-spacing="0.6" fill="#44546A">CENTRAL TRAVANCORE — Alappuzha</text>
+<circle cx="45" cy="419" r="5" fill="#2B7CBE"/>
+<text x="56" y="422" font-family="DM Sans,sans-serif" font-size="11.5" font-weight="500" fill="#1B2028">Dr KM Cherian — equity</text>
+</g>
+<g>
+<rect x="28" y="466" width="300" height="53" rx="9" fill="#FFFFFF" stroke="#E2E6EC" stroke-width="1"/>
+<text x="40" y="480" font-family="DM Sans,sans-serif" font-size="9.5" font-weight="700" letter-spacing="0.6" fill="#44546A">SOUTH · CARDIAC — Kollam</text>
+<circle cx="45" cy="493" r="5" fill="#2B7CBE"/>
+<text x="56" y="496" font-family="DM Sans,sans-serif" font-size="11.5" font-weight="500" fill="#1B2028">Meditrina (Kollam) — equity</text>
+</g>
+<g>
+<rect x="28" y="540" width="300" height="53" rx="9" fill="#FFFFFF" stroke="#E2E6EC" stroke-width="1"/>
+<text x="40" y="554" font-family="DM Sans,sans-serif" font-size="9.5" font-weight="700" letter-spacing="0.6" fill="#44546A">CAPITAL REGION — Trivandrum</text>
+<circle cx="45" cy="567" r="5" fill="#2B7CBE"/>
+<text x="56" y="570" font-family="DM Sans,sans-serif" font-size="11.5" font-weight="500" fill="#1B2028">Ananthapuri — equity</text>
+</g>
+<g>
+<rect x="672" y="120" width="300" height="116" rx="9" fill="#FFFFFF" stroke="#E2E6EC" stroke-width="1"/>
+<text x="684" y="134" font-family="DM Sans,sans-serif" font-size="9.5" font-weight="700" letter-spacing="0.6" fill="#44546A">KOCHI HOME CLUSTER — Ernakulam · 3–4 nodes</text>
+<circle cx="689" cy="147" r="5" fill="#1A5C8F"/>
+<text x="700" y="150" font-family="DM Sans,sans-serif" font-size="11.5" font-weight="500" fill="#1B2028">VPS Lakeshore — quaternary hub</text>
+<circle cx="689" cy="168" r="5" fill="#16A34A"/>
+<text x="700" y="171" font-family="DM Sans,sans-serif" font-size="11.5" font-weight="500" fill="#1B2028">Kakkanad PMC — greenfield</text>
+<circle cx="689" cy="189" r="5" fill="none" stroke="#C8922A" stroke-width="2" stroke-dasharray="2 1.6"/>
+<text x="700" y="192" font-family="DM Sans,sans-serif" font-size="11.5" font-weight="500" fill="#1B2028">Welcare (Vyttila) — equity/verify</text>
+<circle cx="689" cy="210" r="5" fill="#2B7CBE"/>
+<text x="700" y="213" font-family="DM Sans,sans-serif" font-size="11.5" font-weight="500" fill="#1B2028">Sunrise (Kakkanad) — equity</text>
+</g>
+<g>
+<rect x="672" y="300" width="300" height="253" rx="9" fill="#F6F8FA" stroke="#E2E6EC" stroke-width="1"/>
+<text x="684" y="314" font-family="DM Sans,sans-serif" font-size="9.5" font-weight="700" letter-spacing="0.6" fill="#7F8C9B">WAVE 2 PIPELINE — capital-light mission / trust / college (13)</text>
+<circle cx="689" cy="327" r="5" fill="#8B1A4A"/>
+<text x="700" y="330" font-family="DM Sans,sans-serif" font-size="10" font-weight="500" fill="#1B2028">Lourdes — O&amp;M</text>
+<circle cx="689" cy="344" r="5" fill="#8B1A4A"/>
+<text x="700" y="347" font-family="DM Sans,sans-serif" font-size="10" font-weight="500" fill="#1B2028">Caritas — O&amp;M</text>
+<circle cx="689" cy="361" r="5" fill="none" stroke="#C8922A" stroke-width="2" stroke-dasharray="2 1.6"/>
+<text x="700" y="364" font-family="DM Sans,sans-serif" font-size="10" font-weight="500" fill="#1B2028">Pushpagiri MC — JV 51%</text>
+<circle cx="689" cy="378" r="5" fill="#8B1A4A"/>
+<text x="700" y="381" font-family="DM Sans,sans-serif" font-size="10" font-weight="500" fill="#1B2028">Bishop Benziger — O&amp;M</text>
+<circle cx="689" cy="395" r="5" fill="#8B1A4A"/>
+<text x="700" y="398" font-family="DM Sans,sans-serif" font-size="10" font-weight="500" fill="#1B2028">Travancore MC — O&amp;M/JV</text>
+<circle cx="689" cy="412" r="5" fill="#8B1A4A"/>
+<text x="700" y="415" font-family="DM Sans,sans-serif" font-size="10" font-weight="500" fill="#1B2028">MOSC MC — O&amp;M</text>
+<circle cx="689" cy="429" r="5" fill="#8B1A4A"/>
+<text x="700" y="432" font-family="DM Sans,sans-serif" font-size="10" font-weight="500" fill="#1B2028">SR Medical — O&amp;M</text>
+<circle cx="689" cy="446" r="5" fill="#2B7CBE"/>
+<text x="700" y="449" font-family="DM Sans,sans-serif" font-size="10" font-weight="500" fill="#1B2028">Indo-American — equity</text>
+<circle cx="689" cy="463" r="5" fill="#2B7CBE"/>
+<text x="700" y="466" font-family="DM Sans,sans-serif" font-size="10" font-weight="500" fill="#1B2028">Orchid — equity</text>
+<circle cx="689" cy="480" r="5" fill="none" stroke="#C8922A" stroke-width="2" stroke-dasharray="2 1.6"/>
+<text x="700" y="483" font-family="DM Sans,sans-serif" font-size="10" font-weight="500" fill="#1B2028">Sreevalsam IMS — equity/JV</text>
+<circle cx="689" cy="497" r="5" fill="#2B7CBE"/>
+<text x="700" y="500" font-family="DM Sans,sans-serif" font-size="10" font-weight="500" fill="#1B2028">CM — equity</text>
+<circle cx="689" cy="514" r="5" fill="#2B7CBE"/>
+<text x="700" y="517" font-family="DM Sans,sans-serif" font-size="10" font-weight="500" fill="#1B2028">MVJM — equity</text>
+<circle cx="689" cy="531" r="5" fill="#2B7CBE"/>
+<text x="700" y="534" font-family="DM Sans,sans-serif" font-size="10" font-weight="500" fill="#1B2028">Joys (W&amp;C) — equity</text>
+</g>
+<circle cx="500" cy="300" r="52" fill="rgba(26,92,143,0.10)"/>
+<circle cx="500" cy="300" r="46" fill="#1A5C8F" stroke="#FFFFFF" stroke-width="3"/>
+<path d="M488,305 L500,287 L512,305 Z" fill="#FFFFFF" opacity="0.92"/>
+<text x="500" y="322" text-anchor="middle" font-family="DM Sans,sans-serif" font-size="9" font-weight="700" letter-spacing="0.5" fill="#FFFFFF">LAKESHORE</text>
+<text x="500" y="364" text-anchor="middle" font-family="DM Sans,sans-serif" font-size="10.5" font-weight="700" fill="#1A5C8F">VPS LAKESHORE · QUATERNARY HUB</text>
+<text x="500" y="378" text-anchor="middle" font-family="DM Sans,sans-serif" font-size="9.5" fill="#7F8C9B">Nettoor, Ernakulam · feeds complex cases up the spine</text>
+</svg></div>
+    <div class="spine-legend">
+      <div class="sl"><i style="background:#1A5C8F"></i>VPS Lakeshore (Hub)</div>
+      <div class="sl"><i style="background:#16A34A"></i>Greenfield PMC</div>
+      <div class="sl"><i style="background:#2B7CBE"></i>Equity / owned</div>
+      <div class="sl"><i style="background:#8B1A4A"></i>O&amp;M concession</div>
+      <div class="sl ring"><i></i>Equity / academic JV — to verify</div>
+    </div>
+    <div class="v14-callout" style="margin-top:16px;border-left-color:var(--vps-maroon);background:var(--vps-maroon-l);border-color:rgba(139,26,74,.16)"><b style="color:var(--vps-maroon)">Catchment.</b> Net of overlap, the spine commands a primary catchment of roughly <b style="color:var(--vps-maroon)">24–25M across ten of Kerala's fourteen districts</b> &mdash; about three-quarters of the state &mdash; with the Kakkanad PMC adding home-market precision-care capacity the flagship alone cannot hold.</div>
+  </div>
+
+  <!-- ═══ v14 DEEP DIVE ═══ -->
+  <div class="section-block" id="deepdive">
+    <div class="sec-eyebrow">In-Depth Assessment</div>
+    <div class="sec-title">Two-Page Profiles — <em>The Immediate 11</em></div>
+    <div class="sec-divider"></div>
+    <p class="sec-sub">A condensed two-page profile for each immediate target: asset snapshot, investment thesis, market &amp; catchment, financial profile (audited where available), ownership &amp; value-creation levers, and key diligence priorities. Source basis is tagged [F] audited filing, [V] verified public source, [E] internal estimate. Click <b>Full assessment</b> to expand market, financials, levers and risks.</p>
+    <div class="dd-grid">
+      <div class="dd-card t-eq">
+        <div class="dd-card-name">Ananthapuri Hospitals &amp; Research Institute</div>
+        <div class="dd-card-sub">Thiruvananthapuram · 400-bed tertiary · Equity 75% · Tier 1 anchor · Node P3</div>
+        <div class="dd-tags"><span class="dd-tag">Equity 75%</span><span class="dd-tag">Capital region</span><span class="dd-tag">Audited [F]</span></div>
+        <div class="dd-stats"><div class="dd-stat"><div class="v">400 · tertiary multispecialty</div><div class="l">Beds / type</div></div><div class="dd-stat"><div class="v">₹175.2 Cr</div><div class="l">FY25 Revenue</div></div><div class="dd-stat"><div class="v">₹23.5 Cr (13.4%)</div><div class="l">FY25 EBITDA</div></div><div class="dd-stat"><div class="v">~₹165 Cr · ~7.1×</div><div class="l">Entry EV</div></div><div class="dd-stat"><div class="v">+ve · net debt ~₹29 Cr</div><div class="l">Net worth / debt</div></div><div class="dd-stat"><div class="v">Audited MCA FY23–25 [F]</div><div class="l">Basis</div></div></div>
+        <div class="dd-sec"><div class="h">Investment thesis</div><ul><li>The scarce acquirable tertiary in a capital city where VPS has no presence — SUT Royal has left and KIMS sits inside Blackstone/Aster.</li><li>Specialty mix (neuro, cardiac, oncology, transplant) maps directly onto the Lakeshore quaternary thesis and supports cross-referral.</li><li>Ageing founder-physician collective; succession + capital is an attractive exit for the promoter group.</li></ul></div>
+        <div class="dd-more" id="dd-more-0">
+          <div class="dd-sec"><div class="h">Market &amp; catchment</div><ul><li>Catchment: Thiruvananthapuram ~3.3M; capital pull from Kollam and the southern Tamil Nadu border.</li><li>Competitive set: KIMS Health (Blackstone/Aster), SUT, Cosmopolitan, GG, Govt MCH.</li><li>An instant capital-region foothold rather than a greenfield build.</li></ul></div>
+          <div class="dd-sec"><div class="h">Financial profile</div>
+            <table class="dd-fin"><thead><tr><th>Metric (₹ Cr)</th><th>FY23</th><th>FY24</th><th>FY25</th></tr></thead><tbody><tr><td>Revenue</td><td>~135</td><td>153.6</td><td>175.2</td></tr><tr><td>EBITDA (margin)</td><td>—</td><td>22.5 (14.7%)</td><td>23.5 (13.4%)</td></tr><tr><td>PAT</td><td>6.0</td><td>9.4</td><td>9.0</td></tr></tbody></table>
+          </div>
+          <div class="dd-sec"><div class="h">Ownership &amp; value-creation levers</div><ul><li>Chairman &amp; MD: Padma Shri Dr. A. Marthanda Pillai; ~16-director founding-physician collective.</li><li>Plug into the Lakeshore quaternary network (complex oncology, transplant, BMT) to lift case mix and ARPOB.</li><li>Professionalise management &amp; procurement; fund a modern oncology / cath-lab block.</li></ul></div>
+          <div class="dd-sec flag"><div class="h">Key risks &amp; diligence priorities</div><ul><li>Share aggregation for control across a ~16-director collective — obtain MGT-7 before any LOI.</li><li>Founder-physician (Dr. Marthanda Pillai) dependency and succession risk.</li><li>Confirm current NABH/NABL accreditation; re-test promoter intent to transact.</li></ul></div>
+        </div>
+        <div class="dd-toggle" id="dd-tgl-0" onclick="ddToggle(0)">+ Full assessment (market, financials, levers, risks)</div>
+      </div>
+      <div class="dd-card t-eq">
+        <div class="dd-card-name">Dr. KM Cherian Institute of Medical Sciences</div>
+        <div class="dd-card-sub">Chengannur, Alappuzha · 300-bed cardiac-led tertiary · Equity 75% · Tier 1 anchor · Node P3</div>
+        <div class="dd-tags"><span class="dd-tag">Equity 75%</span><span class="dd-tag">Best margin</span><span class="dd-tag">Audited [F]</span><span class="dd-tag">Warm — UAE chairman</span></div>
+        <div class="dd-stats"><div class="dd-stat"><div class="v">300 · cardiac-led super-specialty</div><div class="l">Beds / type</div></div><div class="dd-stat"><div class="v">₹168.0 Cr</div><div class="l">FY25 Revenue</div></div><div class="dd-stat"><div class="v">₹28.6 Cr (17.0%)</div><div class="l">FY25 EBITDA</div></div><div class="dd-stat"><div class="v">~₹200 Cr · ~7.0×</div><div class="l">Entry EV</div></div><div class="dd-stat"><div class="v">~+₹116 Cr · gross debt ~₹72 Cr</div><div class="l">Net worth / debt</div></div><div class="dd-stat"><div class="v">Audited MCA FY23–25 [F]</div><div class="l">Basis</div></div></div>
+        <div class="dd-sec"><div class="h">Investment thesis</div><ul><li>Highest EBITDA margin in the screen (17.0%) on a modern, purpose-built asset only ~5 years old — a clean, scalable equity platform.</li><li>UAE chairman P.M. Sebastian + a clean Pvt Ltd structure make this the most natural chairman-to-chairman (UAE-to-UAE) conversation in the set — and a bundle with Welcare (same promoter).</li><li>Central Travancore is structurally under-served by tertiary care; KMC already draws a wide catchment.</li></ul></div>
+        <div class="dd-more" id="dd-more-1">
+          <div class="dd-sec"><div class="h">Market &amp; catchment</div><ul><li>Catchment: Pathanamthitta, Kottayam, Idukki, Alappuzha, Kollam, Thiruvalla; seasonal Sabarimala inflow.</li><li>Competitive set: limited tertiary competition; Pushpagiri and Caritas (trust-run) at a distance.</li><li>A modern cardiac-led anchor between the Kochi and Trivandrum nodes — fills genuine white space.</li></ul></div>
+          <div class="dd-sec"><div class="h">Financial profile</div>
+            <table class="dd-fin"><thead><tr><th>Metric (₹ Cr)</th><th>FY23</th><th>FY24</th><th>FY25</th></tr></thead><tbody><tr><td>Revenue</td><td>96.0</td><td>135.9</td><td>168.0</td></tr><tr><td>EBITDA (margin)</td><td>neg</td><td>25.0 (18.4%)</td><td>28.6 (17.0%)</td></tr><tr><td>PAT</td><td>(6.8)</td><td>8.7</td><td>10.9</td></tr></tbody></table>
+          </div>
+          <div class="dd-sec"><div class="h">Ownership &amp; value-creation levers</div><ul><li>Chairman P.M. Sebastian (UAE) — also chairs Welcare and is a VPS Lakeshore founder-partner / vice-chairman (insider). MD: Fr. Reji Koodarathil John.</li><li>Scale the cardiac franchise into a regional CoE; add oncology and neuro for a full quaternary node.</li><li>Leverage the UAE-promoter relationship for governance alignment and NRI / medical-tourism flow.</li></ul></div>
+          <div class="dd-sec flag"><div class="h">Key risks &amp; diligence priorities</div><ul><li>Young asset — validate a normalised three-year margin and confirm sustainable EBITDA.</li><li>17-director board including a clergy MD — map governance and true voting control.</li><li>Normalise the ~₹72 Cr debt and confirm it is serviceable post-acquisition.</li></ul></div>
+        </div>
+        <div class="dd-toggle" id="dd-tgl-1" onclick="ddToggle(1)">+ Full assessment (market, financials, levers, risks)</div>
+      </div>
+      <div class="dd-card t-eq">
+        <div class="dd-card-name">Sunrise Hospital (Sunrise Institute of Medical Sciences)</div>
+        <div class="dd-card-sub">Kakkanad, Kochi · 250-bed MIS tertiary · Equity 70% (founder rollover) · Tier 1 anchor · Node P3</div>
+        <div class="dd-tags"><span class="dd-tag">Equity 70%</span><span class="dd-tag">Home-district</span><span class="dd-tag">CARE FY24</span></div>
+        <div class="dd-stats"><div class="dd-stat"><div class="v">250 · apex MIS tertiary</div><div class="l">Beds / type</div></div><div class="dd-stat"><div class="v">~₹110 Cr (group)</div><div class="l">FY24 Revenue</div></div><div class="dd-stat"><div class="v">~₹18 Cr (17.9% PBILDT)</div><div class="l">FY24 EBITDA</div></div><div class="dd-stat"><div class="v">~₹240 Cr (group)</div><div class="l">Entry EV</div></div><div class="dd-stat"><div class="v">CARE BB+ (Stable)/A4+</div><div class="l">Rating</div></div><div class="dd-stat"><div class="v">CARE FY24 — obtain FY25</div><div class="l">Basis</div></div></div>
+        <div class="dd-sec"><div class="h">Investment thesis</div><ul><li>In-market consolidation in VPS's home district — removes a Kochi competitor and adds an MIS franchise next to the flagship.</li><li>Founder rollover (70%) retains the clinical engine and referral base while transferring control.</li><li>A recognised laparoscopic / endoscopic brand complements Lakeshore's oncology and complex-surgery positioning.</li></ul></div>
+        <div class="dd-more" id="dd-more-2">
+          <div class="dd-sec"><div class="h">Market &amp; catchment</div><ul><li>Catchment: Ernakulam ~3.3M; the Kakkanad IT/SEZ corridor is a high-income, fast-growing micro-market.</li><li>Competitive set: Aster Medcity, Amrita, Rajagiri — and VPS Lakeshore itself (hence the consolidation logic).</li><li>Adds bed capacity and an MIS centre of excellence in the home district without greenfield risk.</li></ul></div>
+          <div class="dd-sec"><div class="h">Financial profile</div>
+            <table class="dd-fin"><thead><tr><th>Metric (₹ Cr)</th><th>FY22</th><th>FY23</th><th>FY24</th></tr></thead><tbody><tr><td>Operating income (group)</td><td>122</td><td>115</td><td>110</td></tr><tr><td>PBILDT margin</td><td>—</td><td>—</td><td>17.9%</td></tr><tr><td>PAT (approx)</td><td>—</td><td>—</td><td>~11</td></tr></tbody></table>
+          </div>
+          <div class="dd-sec"><div class="h">Ownership &amp; value-creation levers</div><ul><li>Founder &amp; Chairman: Dr. Hafeez Rahman Padiyath; MD: Ms. Parveen Hafeez (2nd generation).</li><li>Rationalise overlapping Ernakulam capacity with Lakeshore; consolidate procurement, diagnostics, back-office.</li><li>Channel complex oncology and MIS cases across the combined Kochi platform to lift utilisation.</li></ul></div>
+          <div class="dd-sec flag"><div class="h">Key risks &amp; diligence priorities</div><ul><li>Multi-unit network — confirm whether the deal is the Kakkanad flagship or the whole chain; structure the carve-out.</li><li>Founder-doctor dependency; IVF/ART licence portability on change of control.</li><li>Hospital land is promoter-leased (deposit ~₹22 Cr) — secure lease terms / purchase rights or the asset cannot be cleanly owned.</li></ul></div>
+        </div>
+        <div class="dd-toggle" id="dd-tgl-2" onclick="ddToggle(2)">+ Full assessment (market, financials, levers, risks)</div>
+      </div>
+      <div class="dd-card t-eq">
+        <div class="dd-card-name">Mother Hospital</div>
+        <div class="dd-card-sub">Pullazhi / Olari, Thrissur · 300-bed multispecialty · Equity ~90% · Tier 1 anchor · Node P3</div>
+        <div class="dd-tags"><span class="dd-tag">Equity ~90%</span><span class="dd-tag">Cleanest ownership</span><span class="dd-tag">Highest margin</span><span class="dd-tag">Screen [E]</span></div>
+        <div class="dd-stats"><div class="dd-stat"><div class="v">300 · W&amp;C-led on 10-acre campus</div><div class="l">Beds / type</div></div><div class="dd-stat"><div class="v">₹71 Cr</div><div class="l">FY25 Revenue</div></div><div class="dd-stat"><div class="v">₹16.4 Cr (23.2%)</div><div class="l">FY25 EBITDA</div></div><div class="dd-stat"><div class="v">₹175 Cr ex-capex</div><div class="l">Entry EV</div></div><div class="dd-stat"><div class="v">10-acre campus; low paid-up ~₹1.34 Cr</div><div class="l">Land</div></div><div class="dd-stat"><div class="v">Screen / single-year [E]</div><div class="l">Basis</div></div></div>
+        <div class="dd-sec"><div class="h">Investment thesis</div><ul><li>Cleanest ownership in the set with the highest margin (23.2%) — a rare, low-friction equity buy with land headroom.</li><li>Founder-generation succession (second generation runs the board) creates a natural sale window.</li><li>UAE founder lineage eases the cultural and chairman-level conversation with VPS.</li></ul></div>
+        <div class="dd-more" id="dd-more-3">
+          <div class="dd-sec"><div class="h">Market &amp; catchment</div><ul><li>Catchment: Thrissur ~3.1M — the cultural capital and a dense central-Kerala catchment.</li><li>Competitive set: Daya, Aswini, Jubilee Mission, Amala, West Fort.</li><li>The clean Thrissur equity anchor; pairs with an Aswini trauma O&amp;M to dominate the cluster, pre-empting PE-backed Daya.</li></ul></div>
+          <div class="dd-sec"><div class="h">Financial profile</div>
+            <table class="dd-fin"><thead><tr><th>Metric (₹ Cr)</th><th>FY25 (screen)</th><th></th><th></th></tr></thead><tbody><tr><td>Revenue</td><td>71</td><td></td><td></td></tr><tr><td>EBITDA (margin)</td><td>16.4 (23.2%)</td><td></td><td></td></tr><tr><td>Beds / campus</td><td>300 on 10 acres</td><td></td><td></td></tr></tbody></table>
+          </div>
+          <div class="dd-sec"><div class="h">Ownership &amp; value-creation levers</div><ul><li>Founder Directors: Dr. M. Ali &amp; Dr. (Mrs.) Aysha Ali; second-generation board.</li><li>Deploy the 10-acre land bank for a tertiary / oncology expansion under the VPS brand.</li><li>Lift case mix from a high-margin W&amp;C base into broader tertiary services via Lakeshore referrals.</li></ul></div>
+          <div class="dd-sec flag"><div class="h">Key risks &amp; diligence priorities</div><ul><li>Low paid-up capital — obtain MGT-7 to confirm true shareholding and inter-family arrangements.</li><li>Small revenue base vs the large internal EV — separate purchase price from expansion capex.</li><li>Confirm second-generation alignment to sell control (versus partial dilution).</li></ul></div>
+        </div>
+        <div class="dd-toggle" id="dd-tgl-3" onclick="ddToggle(3)">+ Full assessment (market, financials, levers, risks)</div>
+      </div>
+      <div class="dd-card t-eq">
+        <div class="dd-card-name">Meditrina Hospitals — Kollam unit</div>
+        <div class="dd-card-sub">Ayathil, Kollam · 175-bed cardiac CoE · Equity 75% (Kollam carve-out) · Tier 2 · Node P3</div>
+        <div class="dd-tags"><span class="dd-tag">Equity 75% carve-out</span><span class="dd-tag">South-Kerala cardiac</span><span class="dd-tag">Warm</span><span class="dd-tag">Audited [F]</span></div>
+        <div class="dd-stats"><div class="dd-stat"><div class="v">175 · Kollam's first tertiary cardiac</div><div class="l">Beds / type</div></div><div class="dd-stat"><div class="v">₹170.5 Cr standalone</div><div class="l">FY25 Revenue</div></div><div class="dd-stat"><div class="v">₹22.0 Cr (12.9%)</div><div class="l">FY25 EBITDA</div></div><div class="dd-stat"><div class="v">~₹140 Cr · ~7.0× cons.</div><div class="l">Entry EV</div></div><div class="dd-stat"><div class="v">~+₹155 Cr · net debt ~₹15 Cr</div><div class="l">Net worth / debt</div></div><div class="dd-stat"><div class="v">Audited standalone + cons. [F]</div><div class="l">Basis</div></div></div>
+        <div class="dd-sec"><div class="h">Investment thesis</div><ul><li>A proven cardiac franchise to anchor South Kerala, pairing naturally with a Bishop Benziger O&amp;M in the same city.</li><li>The warmest relationship in the set (known to the team; a Lakeshore team has visited) with a willing-seller signal.</li><li>Carve-out, not a whole-company buy: take the high-quality Kollam asset and leave the loss-making out-of-state units behind.</li></ul></div>
+        <div class="dd-more" id="dd-more-4">
+          <div class="dd-sec"><div class="h">Market &amp; catchment</div><ul><li>Catchment: Kollam ~2.6M; under-served by tertiary cardiac care relative to Trivandrum.</li><li>Competitive set: KIMS Kollam, Upasana; Bishop Benziger (a separate O&amp;M target).</li><li>South-Kerala cardiac anchor — high actionability given the existing relationship.</li></ul></div>
+          <div class="dd-sec"><div class="h">Financial profile</div>
+            <table class="dd-fin"><thead><tr><th>Metric (₹ Cr)</th><th>FY23</th><th>FY24</th><th>FY25</th></tr></thead><tbody><tr><td>Revenue (standalone)</td><td>191.7</td><td>183.9</td><td>170.5</td></tr><tr><td>EBITDA (margin)</td><td>—</td><td>—</td><td>22.0 (12.9%)</td></tr><tr><td>PAT (standalone)</td><td>14.0</td><td>19.1</td><td>18.1</td></tr></tbody></table>
+          </div>
+          <div class="dd-sec"><div class="h">Ownership &amp; value-creation levers</div><ul><li>Founder &amp; CMD: Dr. N. Prathap Kumar (18,000+ angioplasties). Investor: Matrix Partners India (confirm cap table).</li><li>Acquire the Kollam unit clean, rebrand under VPS cardiac, integrate with Lakeshore CTVS programmes.</li><li>Upgrade case mix beyond high-volume angioplasty into structural-heart and CTVS.</li></ul></div>
+          <div class="dd-sec flag"><div class="h">Key risks &amp; diligence priorities</div><ul><li>Carve-out complexity — isolate the Kollam unit's P&amp;L, assets and licences from the multi-state network.</li><li>PE (Matrix) consent and founder onward plans must align; exclude the loss-making Palakkad unit.</li><li>Diagnose why prior sale processes failed (price, carve-out complexity, Matrix alignment).</li></ul></div>
+        </div>
+        <div class="dd-toggle" id="dd-tgl-4" onclick="ddToggle(4)">+ Full assessment (market, financials, levers, risks)</div>
+      </div>
+      <div class="dd-card t-eq">
+        <div class="dd-card-name">Starcare Hospital Kozhikode</div>
+        <div class="dd-card-sub">Kozhikode · 290-bed multispecialty · Equity 75% · Tier 2 · Node P3</div>
+        <div class="dd-tags"><span class="dd-tag">Equity 75%</span><span class="dd-tag">Malabar foothold</span><span class="dd-tag">Cheapest EV</span><span class="dd-tag">Audited [F]</span></div>
+        <div class="dd-stats"><div class="dd-stat"><div class="v">290 (vs ~125 per site) · NABH &amp; JCI</div><div class="l">Beds / type</div></div><div class="dd-stat"><div class="v">₹105.7 Cr</div><div class="l">FY25 Revenue</div></div><div class="dd-stat"><div class="v">₹13.7 Cr (12.9%)</div><div class="l">FY25 EBITDA</div></div><div class="dd-stat"><div class="v">~₹95 Cr · ~6.9×</div><div class="l">Entry EV</div></div><div class="dd-stat"><div class="v">~–₹76 Cr · gross debt ~₹42 Cr</div><div class="l">Net worth / debt</div></div><div class="dd-stat"><div class="v">Audited MCA FY23–25 [F]</div><div class="l">Basis</div></div></div>
+        <div class="dd-sec"><div class="h">Investment thesis</div><ul><li>A realistic equity entry into Malabar — Aster MIMS and Meitra are not for sale — at the cheapest EV in the set.</li><li>A modern, accredited, full-service multispecialty asset that establishes a northern Kerala foothold.</li><li>Pairs with a W&amp;C bolt-on to build a Kozhikode mini-cluster.</li></ul></div>
+        <div class="dd-more" id="dd-more-5">
+          <div class="dd-sec"><div class="h">Market &amp; catchment</div><ul><li>Catchment: Kozhikode ~3.1M — gateway to Malabar, large and under-consolidated.</li><li>Competitive set: Aster MIMS, Baby Memorial, Meitra, KMCT — consolidating fast under KKR/BMH.</li><li>A beachhead in a contested but large market; move fast or accept a contested process.</li></ul></div>
+          <div class="dd-sec"><div class="h">Financial profile</div>
+            <table class="dd-fin"><thead><tr><th>Metric (₹ Cr)</th><th>FY23</th><th>FY24</th><th>FY25</th></tr></thead><tbody><tr><td>Revenue</td><td>57.5</td><td>82.0</td><td>105.7</td></tr><tr><td>EBITDA (margin)</td><td>—</td><td>11.3 (13.8%)</td><td>13.7 (12.9%)</td></tr><tr><td>PAT</td><td>(1.7)</td><td>2.3</td><td>2.5</td></tr></tbody></table>
+          </div>
+          <div class="dd-sec"><div class="h">Ownership &amp; value-creation levers</div><ul><li>Promoter: Gulf-based Starcare group (chairman opened the Kozhikode unit in his home city).</li><li>Establish the VPS brand in Malabar; build referral linkages south to the Lakeshore hub.</li><li>Add oncology depth to differentiate vs MIMS / Baby Memorial; bolt on a W&amp;C asset for a cluster.</li></ul></div>
+          <div class="dd-sec flag"><div class="h">Key risks &amp; diligence priorities</div><ul><li>Contested Malabar market with strong incumbents (MIMS, BMH, Meitra) — KKR circling.</li><li>Negative net worth and the bed-count gap (290 vs ~125) must be reconciled before pricing.</li><li>Young brand — confirm utilisation, ramp trajectory and a sustainable margin.</li></ul></div>
+        </div>
+        <div class="dd-toggle" id="dd-tgl-5" onclick="ddToggle(5)">+ Full assessment (market, financials, levers, risks)</div>
+      </div>
+      <div class="dd-card t-eq">
+        <div class="dd-card-name">Malabar Hospital</div>
+        <div class="dd-card-sub">Eranhipalam, Kozhikode · ~150-bed founder-led · Equity 75% · Malabar bolt-on</div>
+        <div class="dd-tags"><span class="dd-tag">Equity 75%</span><span class="dd-tag">Net cash</span><span class="dd-tag">19.6% margin</span><span class="dd-tag">Audited [F]</span></div>
+        <div class="dd-stats"><div class="dd-stat"><div class="v">~150 · urology / renal transplant</div><div class="l">Beds / type</div></div><div class="dd-stat"><div class="v">₹76.0 Cr</div><div class="l">FY25 Revenue</div></div><div class="dd-stat"><div class="v">₹14.9 Cr (19.6%)</div><div class="l">FY25 EBITDA</div></div><div class="dd-stat"><div class="v">~₹110 Cr · ~7×</div><div class="l">Entry EV</div></div><div class="dd-stat"><div class="v">~+₹49 Cr · NET CASH (~₹3.5 Cr)</div><div class="l">Net worth / debt</div></div><div class="dd-stat"><div class="v">Audited MCA FY23–25 [F]</div><div class="l">Basis</div></div></div>
+        <div class="dd-sec"><div class="h">Investment thesis</div><ul><li>A profitable, debt-free Malabar entry — ~19.6% margin and a net-cash balance sheet, among the best quality in the programme.</li><li>A cleaner, lower-risk Malabar entry than the contested, negative-equity Starcare — work the two in parallel.</li><li>A founder-succession entry with a transplant / urology franchise that complements the VPS quaternary thesis.</li></ul></div>
+        <div class="dd-more" id="dd-more-6">
+          <div class="dd-sec"><div class="h">Market &amp; catchment</div><ul><li>Catchment: Kozhikode ~3.1M; independent Calicut assets are scarce as KKR rolls up the majors.</li><li>Competitive set: Aster MIMS, Baby Memorial, Meitra, Starcare.</li><li>A ~150-bed spoke by scale but anchor-grade on quality and cleanliness.</li></ul></div>
+          <div class="dd-sec"><div class="h">Financial profile</div>
+            <table class="dd-fin"><thead><tr><th>Metric (₹ Cr)</th><th>FY23</th><th>FY24</th><th>FY25</th></tr></thead><tbody><tr><td>Revenue</td><td>~62</td><td>67.8</td><td>76.0</td></tr><tr><td>EBITDA (margin)</td><td>—</td><td>—</td><td>14.9 (19.6%)</td></tr><tr><td>PAT</td><td>~6.8</td><td>8.1</td><td>10.2</td></tr></tbody></table>
+          </div>
+          <div class="dd-sec"><div class="h">Ownership &amp; value-creation levers</div><ul><li>Founded 1982 by Dr. V.N. Moni (urologist / transplant surgeon, 500+ transplants); tightly-held family company.</li><li>Bundle with Starcare into a Kozhikode cluster; route transplant / urology referrals to Lakeshore.</li><li>Net cash means little acquisition leverage; deploy growth capex into oncology / cath-lab depth.</li></ul></div>
+          <div class="dd-sec flag"><div class="h">Key risks &amp; diligence priorities</div><ul><li>Verify licensed beds and NABH status; Dr. Moni's succession intent and shareholding (paid-up ₹20 lakh — MGT-7).</li><li>Confirm whether the urology / transplant franchise travels with the founder.</li><li>Standalone audited financials and any charges to be confirmed in DD.</li></ul></div>
+        </div>
+        <div class="dd-toggle" id="dd-tgl-6" onclick="ddToggle(6)">+ Full assessment (market, financials, levers, risks)</div>
+      </div>
+      <div class="dd-card t-vf">
+        <div class="dd-card-name">Welcare Hospital (new addition)</div>
+        <div class="dd-card-sub">Vyttila, Kochi · 240-bed tertiary · Equity (bundle with Dr KM Cherian) · home-market node</div>
+        <div class="dd-tags"><span class="dd-tag">Equity bundle</span><span class="dd-tag">Insider relationship</span><span class="dd-tag">To verify [V/E]</span></div>
+        <div class="dd-stats"><div class="dd-stat"><div class="v">240 · tertiary multispecialty</div><div class="l">Beds / type</div></div><div class="dd-stat"><div class="v">~₹110–130 Cr (est)</div><div class="l">FY25 Revenue</div></div><div class="dd-stat"><div class="v">~12–14% (to verify)</div><div class="l">FY25 EBITDA</div></div><div class="dd-stat"><div class="v">2001 · CGHS-empanelled</div><div class="l">Founded</div></div><div class="dd-stat"><div class="v">Chairman P.M. Sebastian (UAE)</div><div class="l">Promoter</div></div><div class="dd-stat"><div class="v">Public sources + estimate [V/E]</div><div class="l">Basis</div></div></div>
+        <div class="dd-sec"><div class="h">Investment thesis</div><ul><li>Previously parked in the wider universe — but Welcare is a 240-bed Kochi tertiary under the same chairman (P.M. Sebastian) as Dr KM Cherian, himself a VPS Lakeshore founder-partner / vice-chairman. The relationship is effectively in-house — the warmest entry in the programme.</li><li>Adds home-market (Ernakulam) tertiary capacity at Vyttila, opposite the Lakeshore flagship — densifying Kochi without greenfield.</li><li>A shared-promoter bundle (KMC + Welcare) is a faster, lower-friction path to two assets than two separate processes.</li></ul></div>
+        <div class="dd-more" id="dd-more-7">
+          <div class="dd-sec"><div class="h">Market &amp; catchment</div><ul><li>Catchment: Ernakulam ~3.3M; Vyttila is a high-traffic junction on the Kochi bypass.</li><li>Competitive set: Aster Medcity, Amrita, Rajagiri, Lisie, Lakeshore, Sunrise — a dense Kochi tertiary field.</li><li>An affordable-tertiary, scheme-friendly brand that complements the Lakeshore premium / quaternary tier.</li></ul></div>
+          <div class="dd-sec"><div class="h">Financial profile</div>
+            <table class="dd-fin"><thead><tr><th>Metric (₹ Cr)</th><th>Estimate (to verify)</th><th></th><th></th></tr></thead><tbody><tr><td>Revenue (FY25 est)</td><td>~110–130</td><td></td><td></td></tr><tr><td>EBITDA margin (est)</td><td>~12–14%</td><td></td><td></td></tr><tr><td>Beds / founded</td><td>240 · 2001</td><td></td><td></td></tr></tbody></table>
+          </div>
+          <div class="dd-sec"><div class="h">Ownership &amp; value-creation levers</div><ul><li>Chairman P.M. Sebastian (UAE) — shared with Dr KM Cherian, enabling a two-asset bundle on one relationship.</li><li>Integrate Kochi capacity with Lakeshore and Sunrise: shared procurement, diagnostics, payer-claims, referrals.</li><li>Lift case mix via Lakeshore tumour boards and cath labs; migrate to NABH-graded protocols and the VPS brand.</li></ul></div>
+          <div class="dd-sec flag"><div class="h">Key risks &amp; diligence priorities</div><ul><li>Unverified financials — obtain audited accounts; confirm the legal entity and the Sebastian-group shareholding.</li><li>Confirm NABH status and any scheme-mix / collection-cycle concentration.</li><li>Map overlap with Lakeshore / Sunrise to avoid cannibalisation; define the bundle structure with KMC.</li></ul></div>
+        </div>
+        <div class="dd-toggle" id="dd-tgl-7" onclick="ddToggle(7)">+ Full assessment (market, financials, levers, risks)</div>
+      </div>
+      <div class="dd-card t-eq">
+        <div class="dd-card-name">Sevana Hospital</div>
+        <div class="dd-card-sub">Pattambi, Palakkad · ~200-bed maternity-led · Equity bolt-on · willing sellers</div>
+        <div class="dd-tags"><span class="dd-tag">Equity bolt-on</span><span class="dd-tag">Willing seller</span><span class="dd-tag">Palakkad entry</span><span class="dd-tag">Teaser</span></div>
+        <div class="dd-stats"><div class="dd-stat"><div class="v">~200 · maternity-led (~300 deliveries/mo)</div><div class="l">Beds / type</div></div><div class="dd-stat"><div class="v">FY24 ~₹36 Cr → FY26E ~₹28 Cr</div><div class="l">Revenue trend</div></div><div class="dd-stat"><div class="v">~11–16% (recovering)</div><div class="l">EBITDA margin</div></div><div class="dd-stat"><div class="v">Modest ticket</div><div class="l">Entry</div></div><div class="dd-stat"><div class="v">Maternity franchise + land + low-capex</div><div class="l">Value</div></div><div class="dd-stat"><div class="v">Confidential teaser</div><div class="l">Basis</div></div></div>
+        <div class="dd-sec"><div class="h">Investment thesis</div><ul><li>A genuinely willing seller (the entire shareholder group wants to exit) at a modest ticket — a cheap way to plant a flag in Palakkad.</li><li>A dominant maternity franchise (twice the delivery volume of local peers) with low-capex upside in IVF, home-care, pharmacy.</li><li>Functions as a referral spoke into the Lakeshore network rather than a standalone anchor.</li></ul></div>
+        <div class="dd-more" id="dd-more-8">
+          <div class="dd-sec"><div class="h">Market &amp; catchment</div><ul><li>Catchment: ~10 lakh; Pattambi sits in a belt described as the “capital of medical institutions” in Kerala.</li><li>Competitive set: Jubilee Mission, EMS Co-op, Sreevalsam, PK Das.</li><li>A low-cost Palakkad / maternity bolt-on and referral spoke — not a tertiary anchor.</li></ul></div>
+          <div class="dd-sec"><div class="h">Financial profile</div>
+            <table class="dd-fin"><thead><tr><th>Metric (₹ Cr)</th><th>FY24</th><th>FY25</th><th>FY26E</th></tr></thead><tbody><tr><td>Revenue</td><td>36</td><td>34</td><td>28</td></tr><tr><td>EBITDA margin</td><td>11.8%</td><td>11.2%</td><td>15.6%</td></tr><tr><td>PAT</td><td>2.0</td><td>0.8</td><td>1.3</td></tr></tbody></table>
+          </div>
+          <div class="dd-sec"><div class="h">Ownership &amp; value-creation levers</div><ul><li>Promoter group: promoter + 2–3 close friends (~80%); ~20 founding shareholders hold the rest.</li><li>Add IVF/ART, home-care and a delivery-oriented pharmacy with minimal capex to lift ~60% utilisation.</li><li>Plug into Lakeshore for tertiary referrals (high-risk obstetrics, neonatal, oncology) out of Palakkad.</li></ul></div>
+          <div class="dd-sec flag"><div class="h">Key risks &amp; diligence priorities</div><ul><li>Revenue decline on the Ayushman Bharat suspension — confirm scheme status and normalised run-rate.</li><li>Sub-scale and maternity-skewed; verify the legal entity, licensed beds and statutory dues.</li><li>Fragmented shareholding (~20+ holders) — secure clean, unanimous transfer.</li></ul></div>
+        </div>
+        <div class="dd-toggle" id="dd-tgl-8" onclick="ddToggle(8)">+ Full assessment (market, financials, levers, risks)</div>
+      </div>
+      <div class="dd-card t-vf">
+        <div class="dd-card-name">PVS Hospital</div>
+        <div class="dd-card-sub">Palayam, Kozhikode · ~310-bed super-specialty (KTC group) · Equity / carve-out</div>
+        <div class="dd-tags"><span class="dd-tag">Equity / carve-out</span><span class="dd-tag">Malabar option</span><span class="dd-tag">Via Sunrise link</span><span class="dd-tag">To verify [V]</span></div>
+        <div class="dd-stats"><div class="dd-stat"><div class="v">~310 · super-specialty (1974 vintage)</div><div class="l">Beds / type</div></div><div class="dd-stat"><div class="v">P V S Hospital Pvt Ltd + PVS Memorial</div><div class="l">Entity</div></div><div class="dd-stat"><div class="v">~₹23.7 Cr standalone (Tracxn)</div><div class="l">FY23 Revenue</div></div><div class="dd-stat"><div class="v">PVS–Sunrise Group since 2022</div><div class="l">Association</div></div><div class="dd-stat"><div class="v">To obtain in DD</div><div class="l">Audited</div></div><div class="dd-stat"><div class="v">Public records [V]</div><div class="l">Basis</div></div></div>
+        <div class="dd-sec"><div class="h">Investment thesis</div><ul><li>A larger Malabar option, best explored as an extension of the Sunrise conversation or as a defined carve-out.</li><li>Adds scale in Calicut beyond Malabar Hospital; a fall-back if KKR takes Starcare off the market.</li><li>The KTC-group / Sunrise linkage may enable a bundled or extended-process entry.</li></ul></div>
+        <div class="dd-more" id="dd-more-9">
+          <div class="dd-sec"><div class="h">Market &amp; catchment</div><ul><li>Catchment: Kozhikode ~3.1M; a contested but large Malabar market consolidating under KKR.</li><li>Competitive set: Aster MIMS, Baby Memorial, Meitra, Starcare, Malabar Hospital.</li><li>A larger Malabar node, contingent on clarifying the Sunrise relationship and control.</li></ul></div>
+          <div class="dd-sec"><div class="h">Financial profile</div>
+            <table class="dd-fin"><thead><tr><th>Metric (₹ Cr)</th><th>FY23 (Tracxn)</th><th></th><th></th></tr></thead><tbody><tr><td>Revenue (standalone)</td><td>~23.7</td><td></td><td></td></tr><tr><td>Bed footprint</td><td>~310 (multi-entity)</td><td></td><td></td></tr><tr><td>Audited financials</td><td>To obtain in DD</td><td></td><td></td></tr></tbody></table>
+          </div>
+          <div class="dd-sec"><div class="h">Ownership &amp; value-creation levers</div><ul><li>Promoted by the KTC group (founder freedom-fighter P.V. Sami); PVS–Sunrise association since 2022.</li><li>Explore as an extension of the Sunrise conversation or a defined carve-out.</li><li>Potential larger Malabar node to complement Starcare / Malabar Hospital.</li></ul></div>
+          <div class="dd-sec flag"><div class="h">Key risks &amp; diligence priorities</div><ul><li>Establish the exact PVS–Sunrise relationship and who controls PVS before treating it as standalone.</li><li>Confirm bed count, accreditation and audited financials across the multi-entity structure.</li><li>Diligence the 2019 hospital-closure episode and any contingent liabilities.</li></ul></div>
+        </div>
+        <div class="dd-toggle" id="dd-tgl-9" onclick="ddToggle(9)">+ Full assessment (market, financials, levers, risks)</div>
+      </div>
+      <div class="dd-card t-om">
+        <div class="dd-card-name">Aswini Hospital (O&amp;M)</div>
+        <div class="dd-card-sub">Patturaikkal, Thrissur · 300-bed trauma-led · O&amp;M concession (asset needs redevelopment)</div>
+        <div class="dd-tags"><span class="dd-tag">O&amp;M concession</span><span class="dd-tag">Trauma brand</span><span class="dd-tag">Land + brand value</span><span class="dd-tag">Audited [F]</span></div>
+        <div class="dd-stats"><div class="dd-stat"><div class="v">300 · trauma &amp; emergency since 1987</div><div class="l">Beds / type</div></div><div class="dd-stat"><div class="v">₹54.9 Cr</div><div class="l">FY25 Revenue</div></div><div class="dd-stat"><div class="v">~₹3.0 Cr (5.8%)</div><div class="l">FY25 EBITDA</div></div><div class="dd-stat"><div class="v">~₹40 Cr O&amp;M / redevelopment</div><div class="l">Capital</div></div><div class="dd-stat"><div class="v">~+₹86 Cr (land) · debt ~₹57 Cr</div><div class="l">Net worth / debt</div></div><div class="dd-stat"><div class="v">Audited MCA FY23–25 [F]</div><div class="l">Basis</div></div></div>
+        <div class="dd-sec"><div class="h">Investment thesis</div><ul><li>An established Thrissur trauma brand to fold into the cluster — but the dated plant and capital structure argue for an O&amp;M / redevelopment concession, not a clean equity buy.</li><li>Complements an equity-controlled Mother to give VPS depth across the Thrissur cluster.</li><li>Ownership is concentrated (~100% promoter across ~10 directors), so a controlled deal is feasible later.</li></ul></div>
+        <div class="dd-more" id="dd-more-10">
+          <div class="dd-sec"><div class="h">Market &amp; catchment</div><ul><li>Catchment: Thrissur ~3.1M; also draws from Palakkad and Malappuram.</li><li>Competitive set: Daya, Mother, Jubilee Mission, Amala.</li><li>An established trauma brand to operate and redevelop under VPS, complementing the Mother anchor.</li></ul></div>
+          <div class="dd-sec"><div class="h">Financial profile</div>
+            <table class="dd-fin"><thead><tr><th>Metric (₹ Cr)</th><th>FY23</th><th>FY24</th><th>FY25</th></tr></thead><tbody><tr><td>Total income</td><td>51.7</td><td>52.8</td><td>54.9</td></tr><tr><td>EBITDA (excl OI)</td><td>—</td><td>—</td><td>~3.0 (5.8%)</td></tr><tr><td>PBT / PAT</td><td>1.8</td><td>2.3 / 0.8</td><td>(1.7) / (2.6)</td></tr></tbody></table>
+          </div>
+          <div class="dd-sec"><div class="h">Ownership &amp; value-creation levers</div><ul><li>MD: Mr. Sugadhan K.K.; Chairman: Mr. Pradeep (Chembil) Chandran.</li><li>Operate under an O&amp;M concession while phasing a redevelopment of the dated core block (newer rear block usable).</li><li>Leverage the trauma brand and catchment to feed the Thrissur cluster and Lakeshore referrals.</li></ul></div>
+          <div class="dd-sec flag"><div class="h">Key risks &amp; diligence priorities</div><ul><li>Physical condition poor — likely teardown / rebuild of the core block; budget redevelopment capex.</li><li>An electricity substation in front constrains access and expansion.</li><li>~₹57–61 Cr of borrowings / charges — verify leverage, the true cap table and PCN nursing-licence portability.</li></ul></div>
+        </div>
+        <div class="dd-toggle" id="dd-tgl-10" onclick="ddToggle(10)">+ Full assessment (market, financials, levers, risks)</div>
+      </div>
+    </div>
+  </div>
+
   <!-- TIER 2 -->
   <div class="section-block" id="tier2">
     <div class="sec-eyebrow">Next-Wave Pipeline</div>
@@ -1077,7 +1529,7 @@ footer {
       <img src="https://sameeraj89.github.io/vps_newconcepts/logo.png" alt="VPS">
       <span style="color:rgba(255,255,255,.5); font-size:13px; font-weight:600;">VPS Healthcare · Kerala Expansion Program</span>
     </div>
-    <div class="footer-right">FY26–FY30 Strategic Plan · 25 Priority Targets · Project Nila v13 · Final · 50-Hospital Universe · May 2026 · Confidential</div>
+    <div class="footer-right">FY26–FY30 Strategic Plan · 25-Target Universe + Immediate 11 · Project Nila v14 · June 2026 · Confidential</div>
   </div>
 </footer>
 
@@ -1242,7 +1694,7 @@ function mapFilter(v, el) {
 }
 
 // Smooth-scroll active nav
-const sections = ['overview','longlist-map','longlist','map-sec','targets','tier2','phases','ic-memo','ic-financials'];
+const sections = ['overview','longlist-map','longlist','map-sec','targets','immediate','spine','deepdive','tier2','phases','ic-memo','ic-financials'];
 const navBtns = document.querySelectorAll('.nav-btn[href^="#"]');
 window.addEventListener('scroll', () => {
   let cur = sections[0];
@@ -1373,6 +1825,90 @@ llApplyMap();
 llRenderChips('ll-chips2', llF2, 'llSetF2');
 llRenderCards();
 setTimeout(()=>llmap.invalidateSize(), 400);
+
+
+
+/* ════════ v14: IMMEDIATE MAP + DEEP-DIVE TOGGLES ════════ */
+const IMMEDIATE = [{"id": "flagship", "name": "VPS Lakeshore Medical Centre", "city": "Nettoor, Ernakulam", "district": "Ernakulam", "lat": 9.9726, "lng": 76.3199, "beds": "650", "treat": "hub", "structure": "Existing quaternary hub", "capital": "—", "rev": "—", "ebitda": "—", "basis": "Existing", "desc": "Kerala's leading private quaternary hospital and the anchor of the immediate tranche. Multi-organ transplant, cardiac surgery, haemato-oncology. Every owned/managed asset feeds complex cases up to Nettoor.", "action": "Hub of the Kochi home cluster; receives spoke referrals."}, {"id": "pmc", "name": "Kakkanad Precision Medical Centre", "city": "SmartCity, Kakkanad", "district": "Ernakulam", "lat": 10.0095, "lng": 76.35, "beds": "~150", "treat": "greenfield", "structure": "Greenfield (VPS Lakeshore-run)", "capital": "~₹200 Cr", "rev": "—", "ebitda": "—", "basis": "Greenfield", "desc": "New-build precision / quaternary centre on the IT-SEZ corridor, run by VPS Lakeshore. Adds home-market premium capacity the flagship alone cannot hold.", "action": "Greenfield build; densifies the Kochi hub without an acquisition."}, {"id": "kmc", "name": "Dr. KM Cherian IMS", "city": "Chengannur, Alappuzha", "district": "Alappuzha", "lat": 9.315, "lng": 76.615, "beds": "300", "treat": "equity", "structure": "Equity 75%", "capital": "₹200 Cr", "rev": "₹168 Cr", "ebitda": "₹28.6 Cr (17.0%)", "basis": "Audited [F]", "desc": "Highest EBITDA margin in the screen (17.0%) on a modern ~5-year-old cardiac-led asset. UAE chairman P.M. Sebastian — also a VPS Lakeshore founder-partner/vice-chairman — makes this the warmest, most insider conversation in the set, and a bundle with Welcare.", "action": "Open the UAE chairman channel to P.M. Sebastian for the KMC + Welcare bundle."}, {"id": "welcare", "name": "Welcare Hospital (new)", "city": "Vyttila, Kochi", "district": "Ernakulam", "lat": 9.9685, "lng": 76.318, "beds": "240", "treat": "verify", "structure": "Equity (bundle with KMC)", "capital": "₹120 Cr", "rev": "~₹120 Cr", "ebitda": "~12–14% (est)", "basis": "To verify [V/E]", "desc": "240-bed Kochi tertiary under the same chairman (P.M. Sebastian) as Dr KM Cherian — effectively an in-house relationship. Adds Vyttila tertiary capacity opposite the Lakeshore flagship; bundled with KMC for a two-asset, one-relationship entry.", "action": "Pull MCA / audited accounts; confirm the Sebastian shareholding link and define the bundle structure."}, {"id": "ananthapuri", "name": "Ananthapuri Hospitals", "city": "Thiruvananthapuram", "district": "Thiruvananthapuram", "lat": 8.524, "lng": 76.918, "beds": "400", "treat": "equity", "structure": "Equity 75%", "capital": "₹165 Cr", "rev": "₹175 Cr", "ebitda": "₹23.5 Cr (13.4%)", "basis": "Audited [F]", "desc": "The scarce acquirable tertiary in the capital, where VPS has no presence — SUT Royal has left the market and KIMS sits inside the Blackstone/Aster orbit. Cleanest balance sheet of the audited set (positive net worth, low debt).", "action": "Obtain MGT-7 to read post-allotment control across the ~16-director collective; re-test promoter intent."}, {"id": "meditrina", "name": "Meditrina Hospitals — Kollam", "city": "Ayathil, Kollam", "district": "Kollam", "lat": 8.886, "lng": 76.595, "beds": "175", "treat": "equity", "structure": "Equity 75% (Kollam carve-out)", "capital": "₹140 Cr", "rev": "₹181 Cr*", "ebitda": "₹20.0 Cr (11.1%)", "basis": "Audited [F]", "desc": "A proven cardiac franchise to anchor South Kerala, pairing with a Bishop Benziger O&M in the same city. The warmest relationship in the set (a Lakeshore team has visited) with a willing-seller signal. Carve out the Kollam unit; leave the loss-making out-of-state units behind.", "action": "Isolate the Kollam-unit P&L; align Matrix Partners consent and founder onward plans."}, {"id": "starcare", "name": "Starcare Hospital", "city": "Kozhikode", "district": "Kozhikode", "lat": 11.25, "lng": 75.797, "beds": "290", "treat": "equity", "structure": "Equity 75%", "capital": "₹95 Cr", "rev": "₹106 Cr", "ebitda": "₹13.7 Cr (12.9%)", "basis": "Audited [F]", "desc": "A realistic equity entry into Malabar (Aster MIMS and Meitra are not for sale) at the cheapest EV in the set. Revenue near-doubled FY23–FY25. Negative net worth on accumulated losses — confirm the deal perimeter clears the deficit. KKR / Baby Memorial reportedly circling.", "action": "Move fast or accept a contested process; reconcile the 290 vs ~125 bed gap before pricing."}, {"id": "malabar", "name": "Malabar Hospital", "city": "Eranhipalam, Kozhikode", "district": "Kozhikode", "lat": 11.268, "lng": 75.782, "beds": "150", "treat": "equity", "structure": "Equity 75%", "capital": "₹110 Cr", "rev": "₹76 Cr", "ebitda": "₹14.9 Cr (19.6%)", "basis": "Audited [F]", "desc": "A profitable, debt-free Malabar entry — ~19.6% margin and a net-cash balance sheet, among the best quality in the programme. A cleaner, lower-risk alternative to the contested, negative-equity Starcare; a transplant / urology franchise to run in parallel.", "action": "Verify licensed beds / NABH; map Dr V.N. Moni's succession intent (paid-up only ₹20 lakh — MGT-7)."}, {"id": "sunrise", "name": "Sunrise Hospital", "city": "Kakkanad, Kochi", "district": "Ernakulam", "lat": 10.0128, "lng": 76.3418, "beds": "250", "treat": "equity", "structure": "Equity 70% (founder rollover)", "capital": "₹240 Cr", "rev": "₹110 Cr", "ebitda": "~₹18 Cr (17.9%)", "basis": "CARE FY24", "desc": "In-market consolidation in VPS's home district — removes a Kochi competitor and adds an apex MIS franchise next to the flagship. Founder rollover (70%) keeps the clinical engine. Note: hospital land is promoter-leased; scheme/insurance mix ~63%.", "action": "Confirm single-unit vs whole-chain perimeter; secure promoter-lease terms or purchase rights."}, {"id": "mother", "name": "Mother Hospital", "city": "Pullazhi, Thrissur", "district": "Thrissur", "lat": 10.5254, "lng": 76.2075, "beds": "300", "treat": "equity", "structure": "Equity ~90%", "capital": "₹175 Cr", "rev": "₹71 Cr", "ebitda": "₹16.4 Cr (23.2%)", "basis": "Screen [E]", "desc": "Cleanest ownership in the set with the highest margin (23.2%) — a rare, low-friction equity buy on a 10-acre campus with expansion headroom. Founder-generation succession (Ali family) creates a natural sale window; UAE founder lineage eases the conversation.", "action": "Obtain MGT-7 for true shareholding; isolate standalone purchase price from campus build-out capex."}, {"id": "sevana", "name": "Sevana Hospital", "city": "Pattambi, Palakkad", "district": "Palakkad", "lat": 10.802, "lng": 76.187, "beds": "200", "treat": "equity", "structure": "Equity bolt-on (full exit)", "capital": "₹40 Cr", "rev": "₹34 Cr", "ebitda": "~₹4 Cr (11.2%)", "basis": "Teaser", "desc": "A genuinely willing seller (the whole shareholder group wants to exit) at a modest ticket — a cheap way to plant a flag in Palakkad. A dominant maternity franchise with low-capex IVF/home-care upside; a referral spoke into Lakeshore, not a tertiary anchor.", "action": "Confirm Ayushman scheme reinstatement and a normalised run-rate; secure clean transfer across ~20 holders."}, {"id": "pvs", "name": "PVS Hospital", "city": "Palayam, Kozhikode", "district": "Kozhikode", "lat": 11.253, "lng": 75.776, "beds": "310", "treat": "verify", "structure": "Equity / defined carve-out", "capital": "₹150 Cr", "rev": "verify", "ebitda": "verify", "basis": "To verify [V]", "desc": "A larger Malabar option, best explored as an extension of the Sunrise conversation or a defined carve-out (PVS–Sunrise association since 2022). Standalone revenue (~₹23.7 Cr) is modest for a 310-bed claim — a multi-entity structure to map before engaging.", "action": "Establish the exact PVS–Sunrise control relationship and the transaction perimeter across entities."}, {"id": "aswini", "name": "Aswini Hospital (O&M)", "city": "Patturaikkal, Thrissur", "district": "Thrissur", "lat": 10.523, "lng": 76.198, "beds": "300", "treat": "om", "structure": "O&M concession + redevelopment", "capital": "₹40 Cr capex", "rev": "₹55 Cr", "ebitda": "₹3.0 Cr (5.8%)", "basis": "Audited [F]", "desc": "An established Thrissur trauma brand to fold into the cluster — but a dated plant and capital structure argue for an O&M / redevelopment concession, not a clean equity buy. Book net worth is positive (~₹86 Cr, land-carried): value is in the land and brand, not current earnings.", "action": "Operate under O&M while phasing a core-block redevelopment; verify ~₹57 Cr borrowings and PCN licence portability."}, {"id": "daya", "name": "Daya General Hospital", "city": "Thrissur", "district": "Thrissur", "lat": 10.527, "lng": 76.214, "beds": "~500", "treat": "alliance", "structure": "Clinical alliance / minority option", "capital": "Minority option", "rev": "~₹187 Cr", "ebitda": "~15.9%", "basis": "PE-backed", "desc": "Retained as a clinical alliance / minority option (PE-backed; not a control buy), outside the owned-bed total. Hold walk-away discipline on PE-set pricing. Folds into the Thrissur cluster around an equity-controlled Mother and an Aswini O&M.", "action": "Alliance, not acquisition; maintain entry-price discipline against PE-set valuations."}];
+const ITREAT = {hub:'#1A5C8F',greenfield:'#16A34A',equity:'#2B7CBE',om:'#8B1A4A',verify:'#C8922A',alliance:'#7F8C9B'};
+const TLABEL = {hub:'Hub',greenfield:'Greenfield',equity:'Equity',om:'O&M',verify:'To verify',alliance:'Alliance'};
+
+const immMap = L.map('imm-map', { center:[10.05, 76.35], zoom:8, scrollWheelZoom:false });
+L.tileLayer('https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png', {
+  attribution:'&copy; <a href="https://www.openstreetmap.org">OpenStreetMap</a> &copy; <a href="https://carto.com">CARTO</a>',
+  subdomains:'abcd', maxZoom:19
+}).addTo(immMap);
+
+function immIcon(h){
+  const c = ITREAT[h.treat] || '#94A3B8';
+  const r = h.treat==='hub' ? 14 : h.treat==='greenfield' ? 11 : 10;
+  let inner;
+  if (h.treat==='hub')        inner = `<path d="M${r-4},${r+2} L${r},${r-5} L${r+4},${r+2} Z" fill="white" opacity="0.9"/>`;
+  else if (h.treat==='greenfield') inner = `<text x="${r}" y="${r+4}" text-anchor="middle" fill="white" font-size="${r*0.9}" font-weight="900" font-family="Arial">+</text>`;
+  else                        inner = `<text x="${r}" y="${r+3}" text-anchor="middle" fill="white" font-size="${r*0.55}" font-weight="700" font-family="Arial">${(h.beds||'').replace('~','')}</text>`;
+  const ring = h.treat==='verify' ? `<circle cx="${r}" cy="${r}" r="${r-1}" fill="none" stroke="white" stroke-width="1.5" stroke-dasharray="3 2"/>` : '';
+  const svg = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 ${r*2} ${r*2}" width="${r*2}" height="${r*2}"><circle cx="${r}" cy="${r}" r="${r-1}" fill="${c}" stroke="rgba(0,0,0,0.25)" stroke-width="1.5"/>${ring}${inner}</svg>`;
+  return L.divIcon({ html:svg, className:'', iconSize:[r*2,r*2], iconAnchor:[r,r*2], popupAnchor:[0,-(r*2)] });
+}
+function immBadgeCls(t){ return t==='om'?'mbm':t==='hub'?'mbbl':t==='greenfield'?'mbg':t==='verify'?'mba':t==='alliance'?'mbs':'mbn'; }
+function immPopup(h){
+  return `<div class="mpopup">
+    <div class="mpopup-badges"><span class="mpopup-badge ${immBadgeCls(h.treat)}">${TLABEL[h.treat]}</span>${h.basis?`<span class="mpopup-badge mbs">${h.basis}</span>`:''}</div>
+    <div class="mpopup-name">${h.name}</div>
+    <div class="mpopup-city">📍 ${h.city}</div>
+    <div class="mpopup-stats">
+      <div class="mps"><div class="mps-val">${h.beds}</div><div class="mps-lbl">Beds</div></div>
+      <div class="mps"><div class="mps-val" style="font-size:11px">${h.capital}</div><div class="mps-lbl">Capital</div></div>
+    </div>
+    <div class="mpopup-stats" style="margin-top:-2px">
+      <div class="mps"><div class="mps-val" style="font-size:11px">${h.rev}</div><div class="mps-lbl">FY25 Rev</div></div>
+      <div class="mps"><div class="mps-val" style="font-size:10px">${h.ebitda}</div><div class="mps-lbl">FY25 EBITDA</div></div>
+    </div>
+    <div class="mpopup-desc">${h.desc}</div>
+    ${h.action?`<div class="mpopup-action">⚡ ${h.action}</div>`:''}
+  </div>`;
+}
+const immMk = {};
+IMMEDIATE.forEach(h=>{
+  const m = L.marker([h.lat,h.lng], { icon: immIcon(h) }).addTo(immMap).bindPopup(immPopup(h), { maxWidth:280, className:'cpop' });
+  immMk[h.id] = { m, h };
+});
+const immHub = IMMEDIATE.find(x=>x.treat==='hub');
+IMMEDIATE.filter(x=>x.treat!=='hub').forEach(h=>{
+  L.polyline([[immHub.lat,immHub.lng],[h.lat,h.lng]], { color: ITREAT[h.treat]||'#7F8C9B', weight:1, opacity:0.18, dashArray:'4 6' }).addTo(immMap);
+});
+[{n:'Ernakulam',la:10.06,lo:76.30},{n:'Thrissur',la:10.55,lo:76.16},{n:'Palakkad',la:10.80,lo:76.30},{n:'Kozhikode',la:11.30,lo:75.80},{n:'Alappuzha',la:9.32,lo:76.50},{n:'Kollam',la:8.90,lo:76.49},{n:'Thiruvananthapuram',la:8.52,lo:76.80}].forEach(d=>{
+  L.marker([d.la,d.lo],{icon:L.divIcon({html:`<div style="background:rgba(26,48,80,0.8);color:white;font-size:8px;font-weight:700;letter-spacing:1.2px;text-transform:uppercase;padding:2px 7px;border-radius:4px;white-space:nowrap;pointer-events:none">${d.n}</div>`,className:'',iconAnchor:[30,8]}),interactive:false,zIndexOffset:-1000}).addTo(immMap);
+});
+function immRenderCards(ids){
+  const el = document.getElementById('imm-list'); el.innerHTML='';
+  IMMEDIATE.forEach(h=>{
+    if (ids && !ids.includes(h.id)) return;
+    const d = document.createElement('div');
+    d.className = `hosp-card ${ {hub:'t-hub',greenfield:'t-gf',equity:'t-eq',om:'t-om',verify:'t-vf',alliance:'t-al'}[h.treat] }`;
+    d.innerHTML = `<div class="hosp-name">${h.name}</div><div class="hosp-meta">${h.city} · ${h.beds} beds</div><div class="hosp-tags"><span class="htag" style="background:rgba(43,124,190,.06);color:#1E40AF">${TLABEL[h.treat]}</span></div>`;
+    d.onclick = ()=>{ immMap.flyTo([h.lat,h.lng],12,{duration:0.8}); setTimeout(()=>immMk[h.id].m.openPopup(),850); };
+    el.appendChild(d);
+  });
+}
+immRenderCards();
+function immFilter(f, el){
+  document.querySelectorAll('#immediate .map-chip').forEach(c=>c.classList.remove('active'));
+  el.classList.add('active');
+  const vis=[];
+  IMMEDIATE.forEach(h=>{
+    const show = (h.treat==='hub'||h.treat==='greenfield') || f==='all' || h.treat===f;
+    if (show){ if(!immMap.hasLayer(immMk[h.id].m)) immMk[h.id].m.addTo(immMap); vis.push(h.id); }
+    else { if(immMap.hasLayer(immMk[h.id].m)) immMap.removeLayer(immMk[h.id].m); }
+  });
+  immRenderCards(vis);
+}
+function ddToggle(i){
+  const m=document.getElementById('dd-more-'+i), t=document.getElementById('dd-tgl-'+i);
+  const open=m.classList.toggle('open');
+  t.textContent = open ? '− Hide full assessment' : '+ Full assessment (market, financials, levers, risks)';
+}
+setTimeout(()=>{ try{ immMap.invalidateSize(); }catch(e){} }, 400);
 
 </script>
 </body>
